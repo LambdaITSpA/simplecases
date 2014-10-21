@@ -14,6 +14,7 @@ COPY Gemfile /var/www/webapp/Gemfile
 COPY Gemfile.lock /var/www/webapp/Gemfile.lock
 WORKDIR /var/www/webapp
 RUN /bin/bash -l -c "gem install bundler -v '= 1.5.1'"
+RUN ["/bin/bash", "-l", "-c", "bundle update mime-types"]
 RUN ["/bin/bash", "-l", "-c", "bundle install"]
 RUN apt-get install -y apache2 apache2-dev
 ENV APACHE_RUN_USER www-data
