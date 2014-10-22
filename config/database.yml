@@ -84,6 +84,11 @@ test:
 #
 production:
   <<: *default
-  database: simplecases_production
+  #database: simplecases_production
+  #username: simplecases
+  #password: <%= ENV['SIMPLECASES_DATABASE_PASSWORD'] %>
+  database: simplecases_development
   username: simplecases
-  password: <%= ENV['SIMPLECASES_DATABASE_PASSWORD'] %>
+  password: $1mpl3c4s3s
+  host: localhost
+  port: 5432
