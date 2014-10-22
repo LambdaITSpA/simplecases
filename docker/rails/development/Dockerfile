@@ -36,7 +36,7 @@ COPY webapp.dev.conf /etc/apache2/sites-available/webapp.dev.conf
 RUN a2ensite webapp.dev.conf
 RUN echo "127.0.0.1 webapp.dev" >> /etc/hosts
 EXPOSE 80
-ENTRYPOINT ["/usr/sbin/apache2"]
-CMD ["-D", "FOREGROUND"]
+#ENTRYPOINT ["/usr/sbin/apache2"]
+CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
 #CMD ["/bin/bash", "-l", "-c", "rails s -p 80"]
 #ENTRYPOINT ["rails s -p 80"]
