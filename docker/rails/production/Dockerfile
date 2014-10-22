@@ -14,7 +14,6 @@ COPY Gemfile /var/www/webapp/Gemfile
 COPY Gemfile.lock /var/www/webapp/Gemfile.lock
 WORKDIR /var/www/webapp
 RUN /bin/bash -l -c "gem install bundler -v '= 1.5.1'"
-RUN ["/bin/bash", "-l", "-c", "bundle update mime-types"]
 RUN ["/bin/bash", "-l", "-c", "bundle install"]
 RUN apt-get install -y apache2 apache2-dev
 ENV APACHE_RUN_USER www-data
@@ -37,7 +36,7 @@ COPY simplecases.cl.conf /etc/apache2/sites-available/simplecases.cl.conf
 RUN a2ensite simplecases.cl.conf
 RUN echo "127.0.0.1 simplecases.cl" >> /etc/hosts
 EXPOSE 80
-ENTRYPOINT ["/usr/sbin/apache2"]
-CMD ["-D", "FOREGROUND"]
+#ENTRYPOINT ["/usr/sbin/apache2"]
+CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
 #CMD ["/bin/bash", "-l", "-c", "rails s -p 80"]
 #ENTRYPOINT ["rails s -p 80"]
