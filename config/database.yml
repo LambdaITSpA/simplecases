@@ -87,8 +87,8 @@ production:
   #database: simplecases_production
   #username: simplecases
   #password: <%= ENV['SIMPLECASES_DATABASE_PASSWORD'] %>
-  database: simplecases_development
+  database: simplecases_production
   username: simplecases
   password: $1mpl3c4s3s
-  host: localhost
+  host: simplecases-production.cem5jyc53ice.us-west-2.rds.amazonaws.com
   port: 5432
