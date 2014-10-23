@@ -36,7 +36,7 @@ COPY simplecases.cl.conf /etc/apache2/sites-available/simplecases.cl.conf
 RUN a2ensite simplecases.cl.conf
 RUN echo "127.0.0.1 simplecases.cl" >> /etc/hosts
 EXPOSE 80
-ENV SECRET_KEY_BASE = 'e59c550c9f5fb6de051bcce0372f05d705f047a9b0d2dcde83b6085aa7c155ee67959cf5ab2cda99227247f24c98e6c56050f1a3b092b8ffa178ce03dacea020'
+ENV SECRET_KEY_BASE e59c550c9f5fb6de051bcce0372f05d705f047a9b0d2dcde83b6085aa7c155ee67959cf5ab2cda99227247f24c98e6c56050f1a3b092b8ffa178ce03dacea020
 #ENTRYPOINT ["/usr/sbin/apache2"]
 CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
 #CMD ["/bin/bash", "-l", "-c", "rails s -p 80"]
