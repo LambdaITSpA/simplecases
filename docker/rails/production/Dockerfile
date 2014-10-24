@@ -1,5 +1,5 @@
 FROM ubuntu:12.04
-ENV REFRESHED_AT 2014-21-10 21:42
+ENV REFRESHED_AT 2014-23-10 00:00
 
 RUN apt-get update
 RUN apt-get install -y curl nano nodejs build-essential libcurl4-openssl-dev
@@ -14,7 +14,6 @@ COPY Gemfile /var/www/webapp/Gemfile
 COPY Gemfile.lock /var/www/webapp/Gemfile.lock
 WORKDIR /var/www/webapp
 RUN /bin/bash -l -c "gem install bundler -v '= 1.5.1'"
-RUN ["/bin/bash", "-l", "-c", "bundle update mime-types"]
 RUN ["/bin/bash", "-l", "-c", "bundle install"]
 RUN apt-get install -y apache2 apache2-dev
 ENV APACHE_RUN_USER www-data
@@ -37,7 +36,8 @@ COPY simplecases.cl.conf /etc/apache2/sites-available/simplecases.cl.conf
 RUN a2ensite simplecases.cl.conf
 RUN echo "127.0.0.1 simplecases.cl" >> /etc/hosts
 EXPOSE 80
-ENTRYPOINT ["/usr/sbin/apache2"]
-CMD ["-D", "FOREGROUND"]
-#CMD ["/bin/bash", "-l", "-c", "rails s -p 80"]
+ENV SECRET_KEY_BASE e59c550c9f5fb6de051bcce0372f05d705f047a9b0d2dcde83b6085aa7c155ee67959cf5ab2cda99227247f24c98e6c56050f1a3b092b8ffa178ce03dacea020
+ENTRYPOINT /bin/bash -l -c "rake assets:precompile RAILS_ENV=production";
+CMD /usr/sbin/apache2 -D FOREGROUND
+#CMD /usr/sbin/apache2 -D FOREGROUND
 #ENTRYPOINT ["rails s -p 80"]
