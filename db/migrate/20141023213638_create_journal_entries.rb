@@ -4,7 +4,7 @@ class CreateJournalEntries < ActiveRecord::Migration
       t.string :action
       t.datetime :date
       t.references :cause_state, index: true
-
+      t.references :user, index: true
       t.timestamps
     end
   end

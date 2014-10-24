@@ -81,11 +81,13 @@ ActiveRecord::Schema.define(version: 20141023213853) do
     t.string   "action"
     t.datetime "date"
     t.integer  "cause_state_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "journal_entries", ["cause_state_id"], name: "index_journal_entries_on_cause_state_id", using: :btree
+  add_index "journal_entries", ["user_id"], name: "index_journal_entries_on_user_id", using: :btree
 
   create_table "organizations", force: true do |t|
     t.string   "name"
