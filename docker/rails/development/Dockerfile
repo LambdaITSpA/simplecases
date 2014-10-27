@@ -37,6 +37,4 @@ RUN a2ensite webapp.dev.conf
 RUN echo "127.0.0.1 webapp.dev" >> /etc/hosts
 EXPOSE 80
 #ENTRYPOINT ["/usr/sbin/apache2"]
-CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
-#CMD ["/bin/bash", "-l", "-c", "rails s -p 80"]
-#ENTRYPOINT ["rails s -p 80"]
+CMD /bin/bash -l -c "rake db:migrate RAILS_ENV=development"; /usr/sbin/apache2 -D FOREGROUND
