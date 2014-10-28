@@ -1,4 +1,7 @@
-
+<% content_for :styles do %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<% end %>
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
@@ -188,3 +191,7 @@
     </div>
 </footer>
 
+<!-- jQuery Version 1.11.0 -->
+<%= javascript_include_tag 'jquery-1.11.0.js' %>
+<!-- Bootstrap Core JavaScript -->
+<%= javascript_include_tag 'bootstrap.min.js' %>
