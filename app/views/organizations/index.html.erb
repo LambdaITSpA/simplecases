@@ -1,13 +1,13 @@
 <% content_for :styles do %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 <% end %>
-<h1>Listing organizations</h1>
+<h1>Organizaciones</h1>
 
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Id number</th>
+      <th>Nombre</th>
+      <th>RUT</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -27,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Organization', new_organization_path %>
+<%= link_to 'Nueva Organización', new_organization_path, class: 'btn btn-success' %>

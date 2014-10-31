@@ -1,0 +1,30 @@
+<% content_for :styles do %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<% end %>
+<h1>Listing users</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Id number</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.id_number %></td>
+        <td><%= link_to 'Ver', organization_user_path(@organization, user), class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Editar', edit_organization_user_path(@organization, user), class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Eliminar', organization_user_path(@organization, user), class: 'btn btn-danger btn-xs', method: :delete, data: { confirm: "¿Estás seguro de eliminar al usuario #{user.name}?" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_organization_user_path, class: 'btn btn-success' %>

@@ -32,11 +32,25 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
-<%= yield %>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-</div>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<div class="navbar-brand">Simple Cases</div>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><%= link_to('<span class="glyphicon glyphicon-off"></span> Salir'.html_safe, destroy_user_session_path, :method => :delete) %></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container">
+		<%= yield %>
+		<% if notice %>
+			<div class="alert alert-success" role="alert"><%= notice %></div>
+		<% end %>
+		<% if alert %>
+			<div class="alert alert-danger" role="alert"><%= alert %></div>
+		<% end %>
+	</div>
 </body>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
