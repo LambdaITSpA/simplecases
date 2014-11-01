@@ -13,6 +13,10 @@ class UsersController < ApplicationController
   def home
   end
 
+  def profile
+    
+  end
+
   # GET /users/1
   # GET /users/1.json
   def show
