@@ -1,6 +1,25 @@
 <% content_for :styles do %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 <% end %>
+<% content_for :sidenav do %>
+<li>
+    <a href="<%= user_root_url %>"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+</li>
+<li class="active">
+    <a href="<%= organizations_url %>"><i class="fa fa-fw fa-bar-chart-o"></i> Organizaciones</a>
+</li>
+<li>
+    <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
+    <ul id="demo" class="collapse">
+        <li>
+            <a href="#">Dropdown Item</a>
+        </li>
+        <li>
+            <a href="#">Dropdown Item</a>
+        </li>
+    </ul>
+</li>
+<% end %>
 <h1>Organizaciones</h1>
 
 <table class="table table-hover">
