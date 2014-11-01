@@ -28,6 +28,7 @@
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"> -->
 
     <%= yield :styles %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
 	<%= csrf_meta_tags %>
 </head>
@@ -147,6 +148,7 @@
                         </li>
                     </ul>
                 </li>
+                <% if current_user %>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%= current_user.name %> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -161,10 +163,11 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        	<%= link_to('<span class="glyphicon glyphicon-off"></span> Salir'.html_safe, destroy_user_session_path, :method => :delete) %>
                         </li>
                     </ul>
                 </li>
+                <% end %>
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -250,9 +253,9 @@
     <!-- /#wrapper -->
 </body>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) ->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<!- Latest compiled and minified JavaScript -->
 
 </html>
