@@ -1,2 +1,6 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h1>Editar usuario <%= @user.name %></h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Ver', organization_user_path(@organization, @user), class: 'btn btn-default btn-xs' %> |
+<%= link_to 'Atrás', organization_users_path, class: 'btn btn-default btn-xs' %>

@@ -1,7 +1,7 @@
 <% content_for :styles do %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 <% end %>
-<h1>Listing users</h1>
+<h1>Usuarios de <%= @organization.name %></h1>
 
 <table class="table table-hover">
   <thead>
@@ -27,4 +27,5 @@
 
 <br>
 
-<%= link_to 'New User', new_organization_user_path, class: 'btn btn-success' %>
+<%= link_to 'Nuevo usuario', new_organization_user_path, class: 'btn btn-success' %>
+<%= link_to 'Atrás', organizations_path, class: 'btn btn-default btn-xs' %>

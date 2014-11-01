@@ -14,3 +14,6 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
+
+<%= link_to 'Editar', edit_organization_user_path(@organization, @user), class: 'btn btn-default btn-xs' %> |
+<%= link_to 'Atrás', organization_users_path, class: 'btn btn-default btn-xs' %>
