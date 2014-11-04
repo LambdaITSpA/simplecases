@@ -1,6 +1,6 @@
 <li class="<%= nav_active_controller 'organizations' %>">
 	<%= link_to 'Organizaciones', organizations_url %>
-	<% if @organization %>
+	<% if @organization and @organization.id %>
 	<ul>
 		<li class="<%= nav_active_controller 'users' %>">
 			<%= link_to("Usuarios", organization_users_path(@organization)) %>
