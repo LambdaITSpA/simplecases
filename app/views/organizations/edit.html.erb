@@ -1,5 +1,16 @@
-<h1>Editar organización <%= @organization.name %></h1>
-
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Organizaciones <small>Editar <%= @organization.name %></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li class="active">
+                <i class="fa fa-dashboard"></i> <%= link_to 'Organizaciones', organization_path(@organization) %> > Editar
+            </li>
+        </ol>
+    </div>
+</div>
 <%= render 'form' %>
 
 <%= link_to 'Ver', @organization, class: 'btn btn-default btn-xs' %> |

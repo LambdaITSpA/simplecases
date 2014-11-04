@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_organization, only: [:index, :create, :show, :edit, :update, :destroy]
+  before_action :set_organization, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     @user.organization = @organization
     respond_to do |format|
       if @user.save
-        format.html { redirect_to organization_user(@organization, @user), notice: 'User was successfully created.' }
+        format.html { redirect_to organization_user_path(@organization, @user), notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
