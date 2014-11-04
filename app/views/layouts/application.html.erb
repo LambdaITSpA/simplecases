@@ -62,8 +62,11 @@
                 <ul class="nav navbar-nav side-nav">
                     <% if current_user %>
                         <li><%= nav_link 'Dashboard', user_root_url %></li>
-                		<%= render 'layouts/admin_sidenav' %>
-                        <%= render 'layouts/user_sidenav' %>
+                        <% if current_user.admin? %>
+                		    <%= render 'layouts/admin_sidenav' %>
+                        <% else %>
+                            <%= render 'layouts/user_sidenav' %>
+                        <% end %>
                     <% end %>
                 </ul>
             </div>
