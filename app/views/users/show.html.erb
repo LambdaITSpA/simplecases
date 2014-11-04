@@ -1,3 +1,16 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Usuarios <small>de <%= @organization.name %></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li class="active">
+                <i class="fa fa-dashboard"></i> <%= link_to 'Organizaciones', organization_path(@organization) %> > <%= link_to 'Usuarios', organization_users_path %> > Ver
+            </li>
+        </ol>
+    </div>
+</div>
 <p id="notice"><%= notice %></p>
 
 <p>

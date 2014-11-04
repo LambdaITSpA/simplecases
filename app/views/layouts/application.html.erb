@@ -7,25 +7,13 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<title>Simple Cases</title>
-	<% #stylesheet_link_tag 'bootstrap.min.css' %>
-	<% #stylesheet_link_tag 'landing-page.css' %>
-	<% #stylesheet_link_tag 'font-awesome.min.css' %>
-	<% #stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic' %>
 
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="assets/sb-admin.css">-->
+    <%= stylesheet_link_tag 'sb-admin.css' %>
 
-	<!--<link rel="stylesheet" type="text/css" href="assets/sb-admin.css">-->
-	<%= stylesheet_link_tag 'sb-admin.css' %>
-    <!-- Bootstrap Core CSS
-    <link href="css/bootstrap.min.css" rel="stylesheet"> -->
-
-    <!-- Custom CSS 
-    <link href="css/landing-page.css" rel="stylesheet"> -->
-
-    <!-- Custom Fonts
-    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"> -->
+	<%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic' %>
 
     <%= yield :styles %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -33,25 +21,6 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
-	<!--<nav class="navbar navbar-default" role="navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<div class="navbar-brand">Simple Cases</div>
-			</div>
-			<ul class="nav navbar-nav navbar-right">
-				<li><%= link_to('<span class="glyphicon glyphicon-off"></span> Salir'.html_safe, destroy_user_session_path, :method => :delete) %></li>
-			</ul>
-		</div>
-	</nav>
-	<div class="container">
-		YIELD HERE!!
-		<% if notice %>
-			<div class="alert alert-success" role="alert"><%= notice %></div>
-		<% end %>
-		<% if alert %>
-			<div class="alert alert-danger" role="alert"><%= alert %></div>
-		<% end %>
-	</div>-->
 	<div id="wrapper">
 
         <!-- Navigation -->
@@ -64,90 +33,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<%= user_root_url %>">Simple Cases</a>
+                <% if current_user %>
+                    <%= link_to 'Simple Cases', user_root_url, class: 'navbar-brand' %>
+                <% else %>
+                    <%= link_to 'Simple Cases', root_url, class: 'navbar-brand' %>
+                <% end %>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu message-dropdown">
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-footer">
-                            <a href="#">Read All New Messages</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu alert-dropdown">
-                        <li>
-                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">View All</a>
-                        </li>
-                    </ul>
-                </li>
                 <% if current_user %>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%= current_user.name %> <b class="caret"></b></a>
@@ -167,7 +60,11 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-            		<%= yield :sidenav %>
+                    <% if current_user %>
+                        <li><%= nav_link 'Dashboard', user_root_url %></li>
+                		<%= render 'layouts/admin_sidenav' %>
+                        <%= render 'layouts/user_sidenav' %>
+                    <% end %>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
