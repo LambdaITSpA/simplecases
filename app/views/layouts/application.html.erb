@@ -7,55 +7,147 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<title>Simple Cases</title>
-	<% #stylesheet_link_tag 'bootstrap.min.css' %>
-	<% #stylesheet_link_tag 'landing-page.css' %>
-	<% #stylesheet_link_tag 'font-awesome.min.css' %>
-	<% #stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic' %>
 
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="assets/sb-admin.css">-->
+    <%= stylesheet_link_tag 'sb-admin.css' %>
 
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <!-- Bootstrap Core CSS
-    <link href="css/bootstrap.min.css" rel="stylesheet"> -->
-
-    <!-- Custom CSS 
-    <link href="css/landing-page.css" rel="stylesheet"> -->
-
-    <!-- Custom Fonts
-    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"> -->
+	<%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic' %>
 
     <%= yield :styles %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
 	<%= csrf_meta_tags %>
 </head>
 <body>
-	<nav class="navbar navbar-default" role="navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<div class="navbar-brand">Simple Cases</div>
-			</div>
-			<ul class="nav navbar-nav navbar-right">
-				<li><%= link_to('<span class="glyphicon glyphicon-off"></span> Salir'.html_safe, destroy_user_session_path, :method => :delete) %></li>
-			</ul>
-		</div>
-	</nav>
-	<div class="container">
-		<%= yield %>
-		<% if notice %>
-			<div class="alert alert-success" role="alert"><%= notice %></div>
-		<% end %>
-		<% if alert %>
-			<div class="alert alert-danger" role="alert"><%= alert %></div>
-		<% end %>
-	</div>
+	<div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <% if current_user %>
+                    <%= link_to 'Simple Cases', user_root_url, class: 'navbar-brand' %>
+                <% else %>
+                    <%= link_to 'Simple Cases', root_url, class: 'navbar-brand' %>
+                <% end %>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <% if current_user %>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%= current_user.name %> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                        	<%= link_to '<span class="glyphicon glyphicon-user"></span> Perfil'.html_safe, user_profile_path %>
+                        </li>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                        	<%= link_to('<span class="glyphicon glyphicon-off"></span> Salir'.html_safe, destroy_user_session_path, :method => :delete) %>
+                        </li>
+                    </ul>
+                </li>
+                <% end %>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <% if current_user %>
+                        <li><%= nav_link 'Dashboard', user_root_url %></li>
+                		<%= render 'layouts/admin_sidenav' %>
+                        <%= render 'layouts/user_sidenav' %>
+                    <% end %>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+				<%= yield %>
+                <div class="row">
+                    <div class="col-lg-12">
+	                    <% if notice %>
+							<div class="alert alert-success alert-dismissable" role="alert"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><%= notice %></div>
+						<% end %>
+						<% if alert %>
+							<div class="alert alert-danger alert-dismissable" role="alert"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><%= alert %></div>
+						<% end %>
+                    </div>
+                </div>
+
+                <!-- /.row -->
+
+                
+                    <!--
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-yellow">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-shopping-cart fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">124</div>
+                                        <div>New Orders!</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-red">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-support fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">13</div>
+                                        <div>Support Tickets!</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>-->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
 </body>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) ->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<!- Latest compiled and minified JavaScript -->
 
 </html>

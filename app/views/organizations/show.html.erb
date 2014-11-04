@@ -1,3 +1,16 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Organizaciones <small>Show</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li class="active">
+                <i class="fa fa-dashboard"></i> <%= link_to 'Organizaciones', organizations_path %> > Ver
+            </li>
+        </ol>
+    </div>
+</div>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -12,5 +25,5 @@
 
 <p><%= link_to 'Usuarios', organization_users_path(@organization), class: 'btn btn-primary' %></p>
 
-<%= link_to 'Edit', edit_organization_path(@organization), class: 'btn btn-default btn-xs' %> |
-<%= link_to 'Back', organizations_path, class: 'btn btn-default btn-xs' %>
+<%= link_to 'Editar', edit_organization_path(@organization), class: 'btn btn-default btn-xs' %> |
+<%= link_to 'Atrás', organizations_path, class: 'btn btn-default btn-xs' %>

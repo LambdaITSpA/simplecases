@@ -16,20 +16,14 @@
             <a class="navbar-brand" href="#">Simple Cases</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling 
+         /.navbar-collapse -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
+                    <%= link_to 'Login', new_user_session_path, class: 'btn btn-link' %>
                 </li>
             </ul>
         </div>
-         /.navbar-collapse -->
     </div>
     <!-- /.container -->
 </nav>

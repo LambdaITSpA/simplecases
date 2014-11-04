@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+  get "home" => "users#home", as: 'user_root'
+  get "profile" => "users#profile", as: 'user_profile'
   resources :organizations do
     resources :users
   end
