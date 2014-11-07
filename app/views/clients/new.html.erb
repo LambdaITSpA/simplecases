@@ -1,0 +1,60 @@
+ <% content_for :js do %>
+	<script type="text/javascript">
+	$( document ).ready(function() {
+		$('#status').change(function(){
+			id = $('#status option:selected').val();
+		    if (id == "people") {
+		        $("#people").slideDown();
+		        $("#company").slideUp();
+		    }
+
+		    if (id == "company") {
+		    	$("#company").slideDown();
+		        $("#people").slideUp(); 
+		    }
+		});
+	});
+	</script>
+
+<% end %>
+	<h2>Ingresar Cliente</h2>
+
+	<select name="status" id="status">
+	  <option value="company">Empresa</option>
+	  <option value="people">Persona</option>
+	</select>
+<div id="company">
+	<h3> Empresa</h3>
+    <%= form_tag("/client/new", method: "get") do %>
+		  <%= label_tag(:name_social_reason, "Nombre o Razón Social:") %>
+		  <%= text_field_tag(:name_social_reason) %>
+		  
+		  <%= label_tag(:company_id_number, "Rut Empresa:") %>
+		  <%= text_field_tag(:company_id_number) %>
+
+		  <%= label_tag(:address, "Dirección:") %>
+		  <%= text_field_tag(:address) %>
+
+
+		  <%= label_tag(:phone, "Telefono:") %>
+		  <%= text_field_tag(:phone) %>
+
+
+		  <%= label_tag(:email, "Email:") %>
+		  <%= text_field_tag(:email) %>
+
+		  <%= submit_tag("Ingresar") %>
+	<% end %>
+</div>
+<div id="people" style="display:none;">
+	<h2> Persona Natural</h2>
+	    <%= form_tag("/client/new", method: "get") do %>
+			  <%= label_tag(:name_social_reason, "Nombre o Razón Social:") %>
+			  <%= text_field_tag(:name_social_reason) %>
+			  
+			  <%= label_tag(:company_id_number, "Rut Empresa:") %>
+			  <%= text_field_tag(:company_id_number) %>
+
+			  <%= submit_tag("Ingresar") %>
+		<% end %>
+</div>

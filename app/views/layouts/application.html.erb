@@ -17,6 +17,7 @@
 
     <%= yield :styles %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= yield :js %>
 
 	<%= csrf_meta_tags %>
 </head>
@@ -34,7 +35,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <% if current_user %>
-                    <%= link_to 'Simple Cases', user_root_url, class: 'navbar-brand' %>
+                    <%= link_to 'Simple Casesss', user_root_url, class: 'navbar-brand' %>
                 <% else %>
                     <%= link_to 'Simple Cases', root_url, class: 'navbar-brand' %>
                 <% end %>

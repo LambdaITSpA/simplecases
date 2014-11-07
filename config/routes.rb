@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get "home" => "users#home", as: 'user_root'
   get "profile" => "users#profile", as: 'user_profile'
+  resources :clients
   resources :organizations do
     resources :users
   end
