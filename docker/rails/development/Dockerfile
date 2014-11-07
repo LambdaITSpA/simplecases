@@ -38,4 +38,4 @@ RUN a2ensite webapp.dev.conf
 RUN echo "127.0.0.1 webapp.dev" >> /etc/hosts
 EXPOSE 80
 #ENTRYPOINT ["/usr/sbin/apache2"]
-CMD /bin/bash -l -c "/usr/sbin/apache2 -D FOREGROUND
+CMD /usr/sbin/apache2 -D FOREGROUND
