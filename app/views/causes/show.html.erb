@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id number:</strong>
+  <%= @cause.id_number %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @cause.role %>
+</p>
+
+<p>
+  <strong>Court:</strong>
+  <%= @cause.court %>
+</p>
+
+<p>
+  <strong>Matter:</strong>
+  <%= @cause.matter %>
+</p>
+
+<p>
+  <strong>Honorary:</strong>
+  <%= @cause.honorary %>
+</p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @cause.client %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @cause.user %>
+</p>
+
+<p>
+  <strong>Cause type:</strong>
+  <%= @cause.cause_type %>
+</p>
+
+<%= link_to 'Edit', edit_cause_path(@cause) %> |
+<%= link_to 'Back', causes_path %>

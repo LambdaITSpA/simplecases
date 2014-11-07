@@ -3,6 +3,7 @@ ENV REFRESHED_AT 2014-23-10 00:00
 
 RUN apt-get update
 RUN apt-get install -y curl nano nodejs build-essential libcurl4-openssl-dev
+RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
 RUN \curl -sSL https://get.rvm.io | bash -s stable
 RUN /bin/bash -l -c "rvm requirements"
 RUN /bin/bash -l -c "rvm install 2.1.0"
@@ -38,6 +39,6 @@ RUN echo "127.0.0.1 simplecases.cl" >> /etc/hosts
 EXPOSE 80
 ENV SECRET_KEY_BASE e59c550c9f5fb6de051bcce0372f05d705f047a9b0d2dcde83b6085aa7c155ee67959cf5ab2cda99227247f24c98e6c56050f1a3b092b8ffa178ce03dacea020
 ENTRYPOINT /bin/bash -l -c "rake assets:precompile RAILS_ENV=production";
-CMD /bin/bash -l -c "/usr/sbin/apache2 -D FOREGROUND
+CMD /usr/sbin/apache2 -D FOREGROUND
 #CMD /usr/sbin/apache2 -D FOREGROUND
 #ENTRYPOINT ["rails s -p 80"]
