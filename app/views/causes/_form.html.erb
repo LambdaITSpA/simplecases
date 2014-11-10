@@ -1,3 +1,5 @@
+<div class="row">
+  <div class="col-md-6">
 <%= form_for(@cause) do |f| %>
   <% if @cause.errors.any? %>
     <div id="error_explanation">
@@ -13,29 +15,32 @@
 
   <div class="field">
     <%= f.label :role %><br>
-    <%= f.text_field :role %>
+    <%= f.text_field :role, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :matter %><br>
-    <%= f.text_field :matter %>
+    <%= f.text_field :matter, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :honorary %><br>
-    <%= f.text_field :honorary %>
+    <%= f.text_field :honorary, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :client_id %><br>
-    <%= f.text_field :client_id %>
+    <%= f.select :client_id, options_from_collection_for_select(Client.all, :id, :id_number), {}, {class: 'form-control'} %>
   </div>
   <div class="field">
     <%= f.label :cause_type_id %><br>
-    <%= f.text_field :cause_type_id %>
+    <%= f.select :cause_type_id, options_from_collection_for_select(CauseType.all, :id, :name), {}, {class: 'form-control'} %>
   </div>
   <div class="field">
     <%= f.label :court_id %><br>
-    <%= f.text_field :court_id %>
+    <%= f.select :court_id, options_from_collection_for_select(Court.all, :id, :name), {}, {class: 'form-control'} %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, class: 'btn btn-primary' %>
   </div>
 <% end %>
+  </div>
+  <div class="col-md-6"></div>
+</div>
