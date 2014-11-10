@@ -3,5 +3,5 @@ class Cause < ActiveRecord::Base
   belongs_to :cause_type
   belongs_to :court
   has_many :user_causes
-  has_many :user
+  has_many :users, through: :user_causes
 end

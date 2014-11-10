@@ -1,16 +1,25 @@
-<h1>Listing causes</h1>
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Causas <small>Index</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li class="active">
+                <i class="fa fa-dashboard"></i> Causas
+            </li>
+        </ol>
+    </div>
+</div>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>Id number</th>
-      <th>Role</th>
-      <th>Court</th>
-      <th>Matter</th>
-      <th>Honorary</th>
-      <th>Client</th>
-      <th>User</th>
-      <th>Cause type</th>
+      <th>Rol</th>
+      <th>Materia</th>
+      <th>Honorarios</th>
+      <th>Cliente</th>
+      <th>Tipo de causa</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,17 +27,14 @@
   <tbody>
     <% @causes.each do |cause| %>
       <tr>
-        <td><%= cause.id_number %></td>
         <td><%= cause.role %></td>
-        <td><%= cause.court %></td>
         <td><%= cause.matter %></td>
         <td><%= cause.honorary %></td>
-        <td><%= cause.client %></td>
-        <td><%= cause.user %></td>
-        <td><%= cause.cause_type %></td>
-        <td><%= link_to 'Show', cause %></td>
-        <td><%= link_to 'Edit', edit_cause_path(cause) %></td>
-        <td><%= link_to 'Destroy', cause, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= cause.client.id_number %></td>
+        <td><%= cause.cause_type.name %></td>
+        <td><%= link_to 'Ver', cause, class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Editar', edit_cause_path(cause), class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Eliminar', cause, class: 'btn btn-danger btn-xs', method: :delete, data: { confirm: "Estás seguro de eliminar la causa #{cause.role}?" } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,4 +42,4 @@
 
 <br>
 
-<%= link_to 'New Cause', new_cause_path %>
+<%= link_to 'New Cause', new_cause_path, class: 'btn btn-success' %>

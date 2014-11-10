@@ -1,9 +1,17 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Causa <small>Ver</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li class="active">
+                <i class="fa fa-dashboard"></i> <%= link_to 'Causas', causes_path %> > Ver
+            </li>
+        </ol>
+    </div>
+</div>
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Id number:</strong>
-  <%= @cause.id_number %>
-</p>
 
 <p>
   <strong>Role:</strong>
@@ -12,7 +20,7 @@
 
 <p>
   <strong>Court:</strong>
-  <%= @cause.court %>
+  <%= @cause.court.name %>
 </p>
 
 <p>
@@ -27,18 +35,13 @@
 
 <p>
   <strong>Client:</strong>
-  <%= @cause.client %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @cause.user %>
+  <%= @cause.client.id_number %>
 </p>
 
 <p>
   <strong>Cause type:</strong>
-  <%= @cause.cause_type %>
+  <%= @cause.cause_type.name %>
 </p>
 
-<%= link_to 'Edit', edit_cause_path(@cause) %> |
-<%= link_to 'Back', causes_path %>
+<%= link_to 'Edit', edit_cause_path(@cause), class: 'btn btn-default btn-xs' %> |
+<%= link_to 'Back', causes_path, class: 'btn btn-default btn-xs' %>

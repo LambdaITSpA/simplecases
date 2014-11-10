@@ -4,6 +4,10 @@ class CausesController < ApplicationController
 
   def index
     @causes = Cause.all
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def show
@@ -18,7 +22,16 @@ class CausesController < ApplicationController
 
   def create
     @cause = Cause.new(cause_params)
-    @cause.save
+    @cause.users << current_user
+    respond_to do |format|
+      if @cause.save
+        format.html { redirect_to @cause, notice: 'Cause was successfully created.' }
+        format.json { render :show, status: :created, location: @cause }
+      else
+        format.html { render :new }
+        format.json { render json: @cause.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update
@@ -35,6 +48,6 @@ class CausesController < ApplicationController
     end
 
     def cause_params
-      params.require(:cause).permit(:id_number, :role, :court, :matter, :honorary, :client_id, :user_id, :cause_type_id)
+      params.require(:cause).permit(:role, :court_id, :matter, :honorary, :client_id, :cause_type_id)
     end
 end
