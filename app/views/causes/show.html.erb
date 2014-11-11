@@ -29,6 +29,11 @@
 </p>
 
 <p>
+  <strong>State:</strong>
+  <%= @cause.state %>
+</p>
+
+<p>
   <strong>Honorary:</strong>
   <%= @cause.honorary %>
 </p>
@@ -42,6 +47,27 @@
   <strong>Cause type:</strong>
   <%= @cause.cause_type.name %>
 </p>
+<%= link_to 'Ingresar Avance', new_cause_journal_entry_path(@cause), class: 'btn btn-primary' %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Asunto</th>
+      <th>Cuerpo</th>
+      <th>Fecha</th>
+      <th>Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cause.journal_entries.each do |je| %>
+      <tr>
+        <td><%= je.subject %></td>
+        <td><%= je.body %></td>
+        <td><%= je.date %></td>
+        <td><%= je.cause_state.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_cause_path(@cause), class: 'btn btn-default btn-xs' %> |
 <%= link_to 'Back', causes_path, class: 'btn btn-default btn-xs' %>

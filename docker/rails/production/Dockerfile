@@ -2,7 +2,11 @@ FROM ubuntu:12.04
 ENV REFRESHED_AT 2014-23-10 00:00
 
 RUN apt-get update
+RUN apt-get install -y python-software-properties software-properties-common
+RUN apt-add-repository ppa:chris-lea/node.js
+RUN apt-get update
 RUN apt-get install -y curl nano nodejs build-essential libcurl4-openssl-dev
+RUN npm install bower
 RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
 RUN \curl -sSL https://get.rvm.io | bash -s stable
 RUN /bin/bash -l -c "rvm requirements"

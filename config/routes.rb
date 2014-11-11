@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :causes
-
   devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -13,6 +11,9 @@ Rails.application.routes.draw do
   resources :clients
   resources :organizations do
     resources :users
+  end
+  resources :causes do
+    resources :journal_entries
   end
 
   # Example of regular route:

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @journal_entry.subject %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @journal_entry.body %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @journal_entry.date %>
+</p>
+
+<%= link_to 'Edit', edit_cause_journal_entry_path(@cause.id, @journal_entry.id) %> |
+<%= link_to 'Back', cause_journal_entries_path %>

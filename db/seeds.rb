@@ -14,6 +14,8 @@ organization = Organization.create name: 'Admin', id_number: '1234', users: [cla
 #static stuff
 juridica = CauseType.create name: 'Causa Jurídica'
 no_judicial = CauseType.create name: 'Gestión no Judicial'
+CauseState.create name: 'Iniciada'
+CauseState.create name: 'Finalizada'
 cliente_persona = ClientType.create name: 'Persona'
 cliente_empresa = ClientType.create name: 'Empresa'
 tribunal_familia = CourtType.create name: 'Tribunal de Familia'

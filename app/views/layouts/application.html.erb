@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="receta">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,7 +35,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <% if current_user %>
-                    <%= link_to 'Simple Casesss', user_root_url, class: 'navbar-brand' %>
+                    <%= link_to 'Simple Cases', user_root_url, class: 'navbar-brand' %>
                 <% else %>
                     <%= link_to 'Simple Cases', root_url, class: 'navbar-brand' %>
                 <% end %>
