@@ -14,20 +14,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :role %><br>
+    <%= f.label :rol %><br>
     <%= f.text_field :role, class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :matter %><br>
+    <%= f.label :materia %><br>
     <%= f.text_field :matter, class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :honorary %><br>
+    <%= f.label :honorario %><br>
     <%= f.text_field :honorary, class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :client_id %><br>
-    <%= f.select :client_id, options_from_collection_for_select(Client.all, :id, :id_number), {}, {class: 'form-control'} %>
+    <%= f.label :Rut_Cliente %><br>
+    <%= f.text_field :client, class: 'form-control', maxlength: 12 %>
   </div>
   <div class="field">
     <%= f.label :cause_type_id %><br>
@@ -44,3 +44,9 @@
   </div>
   <div class="col-md-6"></div>
 </div>
+<script type="text/javascript">
+      $(function(){
+        $("input#cause_client").rut({formatOn: 'keyup', validateOn: 'keyup'}).on('rutInvalido', function(){ $(this).parents(".field").addClass("has-error")}).on('rutValido', function(){ $(this).parents(".field").removeClass("has-error")});
+        
+      });
+    </script>
