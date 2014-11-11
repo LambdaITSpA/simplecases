@@ -1,0 +1,32 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Causa <small>Ver</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li class="active">
+                <i class="fa fa-dashboard"></i> <%= link_to 'Clientes', user_root_path %> > Ver
+            </li>
+        </ol>
+    </div>
+</div>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rut:</strong>
+  <%= @client.id_number %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @client.name %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @client.client_type.name %>
+</p>
+
+<%= link_to 'Edit', user_root_path, class: 'btn btn-default btn-xs' %> |
+<%= link_to 'Back', user_root_path, class: 'btn btn-default btn-xs' %>

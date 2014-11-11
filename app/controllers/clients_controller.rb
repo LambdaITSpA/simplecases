@@ -1,4 +1,5 @@
 class ClientsController < ApplicationController
+  before_action :set_client, only: [:show]
 	def index
 		@clients = current_user.clients
 		respond_to do |format|
@@ -6,6 +7,11 @@ class ClientsController < ApplicationController
 			format.json
 		end
 	end
+
+	def show
+		
+	end
+
 	def new
 		
 	end
@@ -37,5 +43,9 @@ class ClientsController < ApplicationController
 				end
 		    end
     	end					
+	end
+	private
+	def set_client
+		@client = Client.find(params[:id])
 	end
 end
