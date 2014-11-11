@@ -1,5 +1,11 @@
 class ClientsController < ApplicationController
-
+	def index
+		@clients = current_user.clients
+		respond_to do |format|
+			format.html
+			format.json
+		end
+	end
 	def new
 		
 	end

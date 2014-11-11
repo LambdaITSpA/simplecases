@@ -3,4 +3,11 @@ class Client < ActiveRecord::Base
   has_many :causes
   has_one :company
   has_one :person
+  def name
+  	if self.client_type.name == 'Persona'
+  		self.person.name
+  	elsif self.client_type.name == 'Empresa'
+  		self.company.name
+  	end
+  end
 end
