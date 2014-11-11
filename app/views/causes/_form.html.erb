@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-6" ng-controller="GetClientController">
 <%= form_for(@cause) do |f| %>
   <% if @cause.errors.any? %>
     <div id="error_explanation">
@@ -27,7 +27,7 @@
   </div>
   <div class="field">
     <label for="Rut">Rut:</label>
-    <input type="text" class="form-control" id="client_id_number" placeholder="14.569.484-1"/>
+    <input type="text" class="form-control" id="client_id_number" placeholder="14.569.484-1" ng-click="getClient()" ng-model="rut"/>
    </div> 
     <%= f.hidden_field :client_id %>
   <div class="field">
@@ -47,7 +47,7 @@
 </div>
 <script type="text/javascript">
       $(function(){
-        $("input#client_id_number").rut({formatOn: 'keyup', validateOn: 'keyup'}).on('rutInvalido', function(){ $(this).parents(".field").addClass("has-error")}).on('rutValido', function(){ $(this).parents(".field").removeClass("has-error")});
+        $("input#client_id_number").rut({formatOn: 'keyup', validateOn: 'keyup'}).on('rutInvalido', function(){ $(this).parents(".field").addClass("has-error").removeClass("has-success")}).on('rutValido', function(){ $(this).parents(".field").removeClass("has-error").addClass("has-success")});
         
       });
     </script>

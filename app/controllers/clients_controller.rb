@@ -4,12 +4,24 @@ class ClientsController < ApplicationController
 		@clients = current_user.clients
 		respond_to do |format|
 			format.html
-			format.json
+			unless params[:id_number]
+				format.json
+			else
+				@client = Client.find_by id_number: params[:id_number] if params[:id_number]
+				unless @client.nil?
+					format.json { render json: @client, status: :ok, location: @client}
+				else
+					format.json { render json: [], status: :not_found}
+				end
+			end
 		end
 	end
 
 	def show
-		
+		respond_to do |format|
+			format.html
+			format.json
+		end
 	end
 
 	def new
