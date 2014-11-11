@@ -26,9 +26,10 @@
     <%= f.text_field :honorary, class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :Rut_Cliente %><br>
-    <%= f.text_field :client, class: 'form-control', maxlength: 12 %>
-  </div>
+    <label for="Rut">Rut:</label>
+    <input type="text" class="form-control" id="client_id_number" placeholder="14.569.484-1"/>
+   </div> 
+    <%= f.hidden_field :client_id %>
   <div class="field">
     <%= f.label :cause_type_id %><br>
     <%= f.select :cause_type_id, options_from_collection_for_select(CauseType.all, :id, :name), {}, {class: 'form-control'} %>
@@ -46,7 +47,7 @@
 </div>
 <script type="text/javascript">
       $(function(){
-        $("input#cause_client").rut({formatOn: 'keyup', validateOn: 'keyup'}).on('rutInvalido', function(){ $(this).parents(".field").addClass("has-error")}).on('rutValido', function(){ $(this).parents(".field").removeClass("has-error")});
+        $("input#client_id_number").rut({formatOn: 'keyup', validateOn: 'keyup'}).on('rutInvalido', function(){ $(this).parents(".field").addClass("has-error")}).on('rutValido', function(){ $(this).parents(".field").removeClass("has-error")});
         
       });
     </script>
