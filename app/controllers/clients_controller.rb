@@ -12,7 +12,7 @@ class ClientsController < ApplicationController
 				unless @client.nil?
 					format.json { render json: @client, status: :ok, location: @client}
 				else
-					format.json { render json: [], status: :not_found}
+					format.json { render json: [], status: 404}
 				end
 			end
 		end
