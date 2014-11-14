@@ -1,4 +1,5 @@
 class ClientsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_client, only: [:show]
 	def index
 		@clients = current_user.clients
