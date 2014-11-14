@@ -14,3 +14,11 @@ app.controller "GetClientController", ($scope, $http) ->
 			else
 				console.log 'No está'
 				angular.element('#cause_client_id').val(null)
+app.controller "CourtController", ($scope, $http) ->
+	$scope.area_select = 1
+	console.log(angular.element('#cause_area_id').val())
+	$http.get('http://webapp.dev/courts.json?area_id=' + angular.element('#cause_area_id').val()).success (data, status) ->
+		$scope.courts = data
+	$scope.getCourts = ->
+		$http.get('http://webapp.dev/courts.json?area_id=' + angular.element('#cause_area_id').val()).success (data, status) ->
+			$scope.courts = data

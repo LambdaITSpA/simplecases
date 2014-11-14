@@ -25,7 +25,7 @@ class CausesController < ApplicationController
     @cause.users << current_user
     respond_to do |format|
       if @cause.save
-        je = JournalEntry.create subject: '1', body: '1', cause_state: CauseState.find(1)
+        je = JournalEntry.create subject: '1', body: '1', cause_state: CauseState.find(1), date: Time.now
         @cause.user_causes.first.journal_entries << je
         format.html { redirect_to @cause, notice: 'Cause was successfully created.' }
         format.json { render :show, status: :created, location: @cause }
@@ -50,6 +50,6 @@ class CausesController < ApplicationController
     end
 
     def cause_params
-      params.require(:cause).permit(:role, :court_id, :matter, :honorary, :client_id, :cause_type_id)
+      params.require(:cause).permit(:role, :court_id, :matter, :honorary, :client_id, :area_id)
     end
 end
