@@ -12,22 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :subject %><br>
-    <%= f.text_field :subject %>
+    <%= f.label :subject, 'Asunto' %><br>
+    <%= f.text_field :subject, class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_field :body %>
+    <%= f.label :body, 'Descripción' %><br>
+    <%= f.text_area :body, class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :date %><br>
-    <%= f.datetime_select :date %>
+    <%= f.label :date, 'Fecha inicio' %><br>
+    <% #f.datetime_select :date %>
+    <input type="date" name="journal_entry[date]" value="<%= Time.now.strftime('%F') %>" class="form-control">
   </div>
   <div class="field">
-    <%= f.label :cause_state_id %><br>
+    <%= f.label :cause_state_id, 'Estado de causa' %><br>
     <%= f.select :cause_state_id, options_from_collection_for_select(CauseState.all, :id, :name), {}, {class: 'form-control'} %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, class: 'btn btn-primary' %>
   </div>
 <% end %>

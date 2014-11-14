@@ -14,33 +14,33 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Role:</strong>
+  <strong>Rol:</strong>
   <%= @cause.role %>
 </p>
 
 <p>
-  <strong>Court:</strong>
+  <strong>Tribunal:</strong>
   <%= @cause.court.name %>
 </p>
 
 <p>
-  <strong>Matter:</strong>
+  <strong>Materia:</strong>
   <%= @cause.matter %>
 </p>
 
 <p>
-  <strong>State:</strong>
+  <strong>Estado:</strong>
   <%= @cause.state %>
 </p>
 
 <p>
-  <strong>Honorary:</strong>
+  <strong>Honorarios:</strong>
   <%= @cause.honorary %>
 </p>
 
 <p>
-  <strong>Client:</strong>
-  <%= @cause.client.id_number %>
+  <strong>Cliente:</strong>
+  <%= @cause.client.name %>
 </p>
 
 <p>
@@ -55,6 +55,7 @@
       <th>Cuerpo</th>
       <th>Fecha</th>
       <th>Estado</th>
+      <th colspan="3"></th>
     </tr>
   </thead>
   <tbody>
@@ -64,10 +65,13 @@
         <td><%= je.body %></td>
         <td><%= je.date %></td>
         <td><%= je.cause_state.name %></td>
+        <td><%= link_to 'Ver', cause_journal_entry_path(@cause.id, je.id) %></td>
+        <td></td>
+        <td></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'Edit', edit_cause_path(@cause), class: 'btn btn-default btn-xs' %> |
-<%= link_to 'Back', causes_path, class: 'btn btn-default btn-xs' %>
+<%= link_to 'Editar', edit_cause_path(@cause), class: 'btn btn-default btn-xs' %> |
+<%= link_to 'Atras', causes_path, class: 'btn btn-default btn-xs' %>

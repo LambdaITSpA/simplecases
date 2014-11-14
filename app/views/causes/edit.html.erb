@@ -1,6 +1,18 @@
-<h1>Editing cause</h1>
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Causa <small>Editar</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li class="active">
+                <i class="fa fa-dashboard"></i> <%= link_to 'Causas', causes_path %> > Editar
+            </li>
+        </ol>
+    </div>
+</div>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @cause %> |
-<%= link_to 'Back', causes_path %>
+<%= link_to 'Ver', @cause, class: 'btn btn-default btn-xs' %> |
+<%= link_to 'Atras', causes_path, class: 'btn btn-default btn-xs' %>
