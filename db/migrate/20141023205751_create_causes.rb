@@ -6,7 +6,7 @@ class CreateCauses < ActiveRecord::Migration
       t.string :honorary
       t.datetime :date
       t.references :client, index: true
-      t.references :cause_type, index: true
+      t.references :area, index: true
       t.references :court, index: true
 
       t.timestamps

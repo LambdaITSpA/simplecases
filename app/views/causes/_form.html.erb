@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-6" ng-controller="GetClientController">
+  <div class="col-md-6">
 <%= form_for(@cause) do |f| %>
   <% if @cause.errors.any? %>
     <div id="error_explanation">
@@ -25,18 +25,22 @@
     <%= f.label :honorario %><br>
     <%= f.text_field :honorary, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="field" ng-controller="GetClientController" id="GetClientController">
     <label for="Rut">Rut:</label>
-    <input type="text" class="form-control" id="client_id_number" placeholder="14.569.484-1" ng-click="getClient()" ng-model="rut"/>
-   </div> 
+    <input type="text" class="form-control" id="client_id_number" placeholder="14.569.484-1" ng-model="rut"/>
     <%= f.hidden_field :client_id %>
-  <div class="field">
-    <%= f.label :cause_type_id %><br>
-    <%= f.select :cause_type_id, options_from_collection_for_select(CauseType.all, :id, :name), {}, {class: 'form-control'} %>
-  </div>
-  <div class="field">
-    <%= f.label :court_id %><br>
-    <%= f.select :court_id, options_from_collection_for_select(Court.all, :id, :name), {}, {class: 'form-control'} %>
+   </div> 
+  <div ng-controller="CourtController">
+    <div class="field">
+      <%= f.label :area_id %><br>
+      <%= f.select :area_id, options_from_collection_for_select(Area.all, :id, :name), {}, {class: 'form-control', 'ng-change' => 'getCourts()', 'ng-model' => 'area_select'} %>
+    </div>
+    <div class="field">
+      <label>Tribunal</label><br>
+      <select id='cause_court_id' name='cause[court_id]' class='form-control' >
+        <option ng-repeat="court in courts" value='{{court.id}}'>{{court.name}}</option>
+      </select>
+    </div>
   </div>
   <div class="actions">
     <%= f.submit nil, class: 'btn btn-primary' %>
@@ -47,7 +51,6 @@
 </div>
 <script type="text/javascript">
       $(function(){
-        $("input#client_id_number").rut({formatOn: 'keyup', validateOn: 'keyup'}).on('rutInvalido', function(){ $(this).parents(".field").addClass("has-error").removeClass("has-success")}).on('rutValido', function(){ $(this).parents(".field").removeClass("has-error").addClass("has-success")});
-        
+        $("input#client_id_number").rut({formatOn: 'keyup', validateOn: 'keyup'}).on('rutInvalido', function(){ $(this).parents(".field").addClass("has-error").removeClass("has-success")}).on('rutValido', function(){ $(this).parents(".field").removeClass("has-error").addClass("has-success"); angular.element('#GetClientController').scope().getClient()});
       });
     </script>

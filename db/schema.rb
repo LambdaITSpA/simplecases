@@ -16,13 +16,13 @@ ActiveRecord::Schema.define(version: 20141107143216) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cause_states", force: true do |t|
+  create_table "areas", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "cause_types", force: true do |t|
+  create_table "cause_states", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -34,13 +34,13 @@ ActiveRecord::Schema.define(version: 20141107143216) do
     t.string   "honorary"
     t.datetime "date"
     t.integer  "client_id"
-    t.integer  "cause_type_id"
+    t.integer  "area_id"
     t.integer  "court_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "causes", ["cause_type_id"], name: "index_causes_on_cause_type_id", using: :btree
+  add_index "causes", ["area_id"], name: "index_causes_on_area_id", using: :btree
   add_index "causes", ["client_id"], name: "index_causes_on_client_id", using: :btree
   add_index "causes", ["court_id"], name: "index_causes_on_court_id", using: :btree
 
@@ -73,21 +73,15 @@ ActiveRecord::Schema.define(version: 20141107143216) do
   add_index "companies", ["client_id"], name: "index_companies_on_client_id", using: :btree
   add_index "companies", ["person_id"], name: "index_companies_on_person_id", using: :btree
 
-  create_table "court_types", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "courts", force: true do |t|
     t.string   "name"
     t.integer  "region_id"
-    t.integer  "court_type_id"
+    t.integer  "area_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "courts", ["court_type_id"], name: "index_courts_on_court_type_id", using: :btree
+  add_index "courts", ["area_id"], name: "index_courts_on_area_id", using: :btree
   add_index "courts", ["region_id"], name: "index_courts_on_region_id", using: :btree
 
   create_table "journal_entries", force: true do |t|

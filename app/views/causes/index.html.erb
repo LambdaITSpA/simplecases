@@ -19,7 +19,7 @@
       <th>Materia</th>
       <th>Honorarios</th>
       <th>Cliente</th>
-      <th>Tipo de causa</th>
+      <th>Area</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -31,7 +31,7 @@
         <td><%= cause.matter %></td>
         <td><%= cause.honorary %></td>
         <td><%= cause.client.id_number %></td>
-        <td><%= cause.cause_type.name %></td>
+        <td><%= cause.area.name %></td>
         <td><%= link_to 'Ver', cause, class: 'btn btn-default btn-xs' %></td>
         <td><%= link_to 'Editar', edit_cause_path(cause), class: 'btn btn-primary btn-xs' %></td>
         <td><%= link_to 'Eliminar', cause, class: 'btn btn-danger btn-xs', method: :delete, data: { confirm: "Estás seguro de eliminar la causa #{cause.role}?" } %></td>

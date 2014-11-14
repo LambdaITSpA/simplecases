@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :causes do
     resources :journal_entries
   end
+  resources :courts, only: [:index]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
