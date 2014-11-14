@@ -9,11 +9,16 @@ app.controller "GetCausesController", ($scope, $http) ->
 app.controller "GetClientController", ($scope, $http) ->
 	$scope.getClient = -> 
 		$http.get('http://webapp.dev/clients.json?id_number=' + angular.element('#client_id_number').val()).success (data, status) ->
-			if status == 200
-				angular.element('#cause_client_id').val(data.id)
-			else
-				console.log 'No está'
-				angular.element('#cause_client_id').val(null)
+			console.log 'code: ' + status
+			angular.element('#cause_client_id').val(data.id)
+		.error (data, status) ->
+			console.log 'No está'
+			console.log data
+			console.log status
+			angular.element('.id_number_company').val(angular.element("input#client_id_number").val())
+			angular.element('.id_number_person').val(angular.element("input#client_id_number").val())																																																																								
+			angular.element('#addclient').modal('show')
+			angular.element('#cause_client_id').val(null)
 app.controller "CourtController", ($scope, $http) ->
 	$scope.area_select = 1
 	console.log(angular.element('#cause_area_id').val())

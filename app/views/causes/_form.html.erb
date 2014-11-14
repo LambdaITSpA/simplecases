@@ -49,8 +49,111 @@
   </div>
   <div class="col-md-6"></div>
 </div>
+<!-- modal cliente-->
+<div class="modal fade" id="addclient" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+       <div class="modal-header">
+         <h4 class="modal-title" id="myModalLabel">Ingresar Cliente</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <div class="col-lg-6">
+          <h4 >Seleccione el tipo de cliente</h4>
+            <div class="col-xs-8">
+              <select name="status" id="status" class="form-control">
+                <option value="people">Persona</option>
+                <option value="company">Empresa</option>
+              </select>
+            </div><br><br>
+          <div id="company" style="display:none;">
+            <h3> Empresa</h3><br>
+              <%= form_tag("/clients", method: "post") do %>
+                <div class="form-group">
+                <%= label_tag(:name, "Nombre o Razón Social:") %>
+                <%= text_field_tag(:name, nil, class: "form-control") %>
+              </div>
+              <div class="form-group">  
+                <%= label_tag(:id_number, "Rut Empresa:") %>
+                <%= text_field_tag(:id_number, nil, class: "form-control id_number_company", readonly: true) %>
+              </div>
+              <div class="form-group">  
+                <%= label_tag(:address, "Dirección:") %>
+                <%= text_field_tag(:address, nil, class: "form-control") %>
+              </div>  
+              <div class="form-group">
+                <%= label_tag(:phone, "Telefono:") %>
+                <%= text_field_tag(:phone, nil, class: "form-control") %>
+              </div>
+              <div class="form-group">
+                <%= label_tag(:email, "Email:") %>
+                <%= text_field_tag(:email, nil, class: "form-control") %>
+              </div> 
+              <%= hidden_field_tag(:client_type_id, 2) %>
+              <div class="actions"> 
+                <%= submit_tag(value = "Ingresar", class: 'btn btn-primary') %>
+              </div>
+            <% end %>
+          </div>
+          <div id="people" style="display:block;">
+            <h2> Persona Natural</h2>
+                <%= form_tag("/clients", method: "post") do %>
+                  <div class="form-group">
+                  <%= label_tag(:name, "Nombre o Razón Social:") %>
+                  <%= text_field_tag(:name, nil, class: "form-control") %>
+                </div>
+                <div class="form-group">
+                  <%= label_tag(:id_number, "Rut Empresa:") %>
+                  <%= text_field_tag(:id_number, nil, class: "form-control id_number_person", readonly: true) %>
+                </div>
+                <div class="form-group">  
+                  <%= label_tag(:email, "Email:") %>
+                  <%= text_field_tag(:email, nil, class: "form-control") %>
+                </div>
+                <div class="form-group">
+                  <%= label_tag(:phone, "Telefono:") %>
+                  <%= text_field_tag(:phone, nil, class: "form-control") %>
+                </div>  
+                <div class="form-group">
+                  <%= label_tag(:address, "Dirección:") %>
+                  <%= text_field_tag(:address, nil, class: "form-control") %>
+                </div>
+                <div class="form-group">
+                  <%= label_tag(:other, "Otro Dato:") %>
+                  <%= text_field_tag(:otrer, nil, class: "form-control") %>
+                </div>
+                <%= hidden_field_tag(:client_type_id, 1) %>
+                <div class="actions">   
+                  <%= submit_tag(value = "Ingresamelo", class: 'btn btn-primary') %>
+                </div>
+              <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>
 <script type="text/javascript">
       $(function(){
         $("input#client_id_number").rut({formatOn: 'keyup', validateOn: 'keyup'}).on('rutInvalido', function(){ $(this).parents(".field").addClass("has-error").removeClass("has-success")}).on('rutValido', function(){ $(this).parents(".field").removeClass("has-error").addClass("has-success"); angular.element('#GetClientController').scope().getClient()});
       });
+      // Función para agregar una persona u organización
+        $( document ).ready(function() {
+            $('#status').change(function(){
+              id = $('#status option:selected').val();
+                if (id == "people") {
+                    $("#people").slideDown();
+                    $("#company").slideUp();
+                }
+
+                if (id == "company") {
+                  $("#company").slideDown();
+                    $("#people").slideUp(); 
+                }
+            });
+          });
+
     </script>
