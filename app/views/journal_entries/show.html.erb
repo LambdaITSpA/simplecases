@@ -1,19 +1,32 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Avance <small>Ver</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li class="active">
+                <i class="fa fa-dashboard"></i> <%= link_to 'Causas', causes_path %> > <%= link_to "Causa #{@cause.role}", @cause %> > Ver
+            </li>
+        </ol>
+    </div>
+</div>
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Subject:</strong>
+  <strong>Asunto:</strong>
   <%= @journal_entry.subject %>
 </p>
 
 <p>
-  <strong>Body:</strong>
+  <strong>Descripción:</strong>
   <%= @journal_entry.body %>
 </p>
 
 <p>
-  <strong>Date:</strong>
+  <strong>Fecha:</strong>
   <%= @journal_entry.date %>
 </p>
 
-<%= link_to 'Edit', edit_cause_journal_entry_path(@cause.id, @journal_entry.id) %> |
-<%= link_to 'Back', cause_journal_entries_path %>
+<%= link_to 'Edit', edit_cause_journal_entry_path(@cause.id, @journal_entry.id), class: 'btn btn-default btn-xs' %> |
+<%= link_to 'Back', @cause, class: 'btn btn-default btn-xs' %>

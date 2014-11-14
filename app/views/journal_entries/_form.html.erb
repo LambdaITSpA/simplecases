@@ -20,7 +20,7 @@
     <%= f.text_area :body, class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :date, 'Fecha inicio' %><br>
+    <%= f.label :date, 'Fecha' %><br>
     <% #f.datetime_select :date %>
     <input type="date" name="journal_entry[date]" value="<%= Time.now.strftime('%F') %>" class="form-control">
   </div>

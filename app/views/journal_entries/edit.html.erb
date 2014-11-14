@@ -1,6 +1,18 @@
-<h1>Editing journal_entry</h1>
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Avance <small>Editar</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li class="active">
+                <i class="fa fa-dashboard"></i> <%= link_to 'Causas', causes_path %> > <%= link_to "Causa #{@cause.role}", @cause %> > Ver
+            </li>
+        </ol>
+    </div>
+</div>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', cause_journal_entry_path(@cause.id, @journal_entry.id) %> |
-<%= link_to 'Back', cause_journal_entries_path %>
+<%= link_to 'Show', cause_journal_entry_path(@cause.id, @journal_entry.id), class: 'btn btn-default btn-xs' %> |
+<%= link_to 'Back', @cause, class: 'btn btn-default btn-xs' %>

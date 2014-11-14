@@ -65,9 +65,9 @@
         <td><%= je.body %></td>
         <td><%= je.date %></td>
         <td><%= je.cause_state.name %></td>
-        <td><%= link_to 'Ver', cause_journal_entry_path(@cause.id, je.id) %></td>
-        <td></td>
-        <td></td>
+        <td><%= link_to 'Ver', cause_journal_entry_path(@cause.id, je.id), class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Editar', edit_cause_journal_entry_path(@cause.id, je.id), class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Eliminar', cause_journal_entry_path(@cause.id, je.id), class: 'btn btn-danger btn-xs', method: :delete, data: { confirm: "Estás seguro de eliminar #{je.subject}?" } %></td>
       </tr>
     <% end %>
   </tbody>
