@@ -67,7 +67,9 @@
         <td><%= je.cause_state.name %></td>
         <td><%= link_to 'Ver', cause_journal_entry_path(@cause.id, je.id), class: 'btn btn-default btn-xs' %></td>
         <td><%= link_to 'Editar', edit_cause_journal_entry_path(@cause.id, je.id), class: 'btn btn-primary btn-xs' %></td>
+        <% if je != @cause.journal_entries.first %>
         <td><%= link_to 'Eliminar', cause_journal_entry_path(@cause.id, je.id), class: 'btn btn-danger btn-xs', method: :delete, data: { confirm: "Estás seguro de eliminar #{je.subject}?" } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

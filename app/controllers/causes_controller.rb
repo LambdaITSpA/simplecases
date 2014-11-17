@@ -38,6 +38,7 @@ class CausesController < ApplicationController
 
   def update
     @cause.update(cause_params)
+    redirect_to @cause
   end
 
   def destroy

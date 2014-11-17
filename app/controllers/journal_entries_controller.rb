@@ -31,7 +31,7 @@ class JournalEntriesController < ApplicationController
 
   def destroy
     @journal_entry.destroy
-    respond_with(@journal_entry)
+    redirect_to cause_url(@cause)
   end
 
   private

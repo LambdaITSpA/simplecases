@@ -10,4 +10,7 @@ class Client < ActiveRecord::Base
   		self.company.name
   	end
   end
+  def type
+    self.client_type
+  end
 end
