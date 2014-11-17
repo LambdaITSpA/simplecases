@@ -11,42 +11,32 @@
         </ol>
     </div>
 </div>
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Rol:</strong>
-  <%= @cause.role %>
-</p>
-
-<p>
-  <strong>Tribunal:</strong>
-  <%= @cause.court.name %>
-</p>
-
-<p>
-  <strong>Materia:</strong>
-  <%= @cause.matter %>
-</p>
-
-<p>
-  <strong>Estado:</strong>
-  <%= @cause.state %>
-</p>
-
-<p>
-  <strong>Honorarios:</strong>
-  <%= @cause.honorary %>
-</p>
-
-<p>
-  <strong>Cliente:</strong>
-  <%= @cause.client.name %>
-</p>
-
-<p>
-  <strong>Area:</strong>
-  <%= @cause.area.name %>
-</p>
+<div class="row">
+  <div class="list-group col-md-4">
+    <a href="#" class="list-group-item active">
+       Detalle de la Causa
+    </a>
+    <a class="list-group-item">ROL: <%= @cause.role %></a>
+    <a class="list-group-item">TRIBUNAL: <%= @cause.court.name %></a>
+    <a class="list-group-item">MATERIA: <%= @cause.matter %></a>
+    <a class="list-group-item"><span class="label label-success">ESTADO: <%= @cause.state %></span></a>
+    <a class="list-group-item">HONORARIOS: <%= @cause.honorary %></a>
+    <a class="list-group-item">CLIENTE: <%= @cause.client.name %></a>
+    <a class="list-group-item">ÁREA: <%= @cause.area.name %></a>
+  </div>
+  <div class="list-group col-md-4">
+    <a href="#" class="list-group-item active">
+       Detalle Cliente
+    </a>
+    <a class="list-group-item">Nombre: <%= @cause.client.data.name %></a>
+    <a class="list-group-item">E-mail: <%= @cause.client.data.email %></a>
+    <a class="list-group-item">Telefono: <%= @cause.client.data.phone %></a>
+    <a class="list-group-item">Dirección: <%= @cause.client.data.address %></a>
+    <% if @cause.client.client_type.name == 'Persona' %>
+      <a class="list-group-item">Otro: <%= @cause.client.data.other %></a>
+    <% end %>
+  </div>
+</div>
 <%= link_to 'Ingresar Avance', new_cause_journal_entry_path(@cause), class: 'btn btn-primary' %>
 <table class="table table-hover">
   <thead>
