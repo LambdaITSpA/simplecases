@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20141107143216) do
 
   create_table "cause_states", force: true do |t|
     t.string   "name"
+    t.string   "color"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -10,6 +10,13 @@ class Client < ActiveRecord::Base
   		self.company.name
   	end
   end
+  def data
+    if self.client_type.name == 'Persona'
+      self.person
+    elsif self.client_type.name == 'Empresa'
+      self.company  
+    end
+  end
   def type
     self.client_type
   end
