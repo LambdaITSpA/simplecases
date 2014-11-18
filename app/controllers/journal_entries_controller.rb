@@ -26,7 +26,7 @@ class JournalEntriesController < ApplicationController
 
   def update
     @journal_entry.update(journal_entry_params)
-    respond_with(@journal_entry)
+    redirect_to cause_url(@cause)
   end
 
   def destroy

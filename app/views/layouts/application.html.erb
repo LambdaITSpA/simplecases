@@ -57,7 +57,7 @@
             <ul class="nav navbar-right top-nav">
                 <% if current_user %>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%= current_user.name %> <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <%= current_user.name %> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                         	<%= link_to '<span class="glyphicon glyphicon-user"></span> Perfil'.html_safe, user_profile_path %>
@@ -75,7 +75,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <% if current_user %>
-                        <li><%= nav_link 'Dashboard', user_root_url %></li>
+                        <li><%= nav_link '<span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home'.html_safe, user_root_url %></li>
                         <% if current_user.admin? %>
                 		    <%= render 'layouts/admin_sidenav' %>
                         <% else %>
@@ -87,7 +87,7 @@
             <!-- /.navbar-collapse -->
         </nav>
 
-        <div id="page-wrapper">
+        <div id="page-wrapper" style="min-height:600px;">
 
             <div class="container-fluid">
 				<%= yield %>
