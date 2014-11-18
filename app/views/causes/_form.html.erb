@@ -25,9 +25,10 @@
     <%= f.label :honorary, 'Honorarios' %><br>
     <%= f.text_field :honorary, class: 'form-control' %>
   </div>
-  <div class="field" ng-controller="GetClientController" id="GetClientController">
+  <div class="field has-feedback" ng-controller="GetClientController" id="GetClientController">
     <label for="client_id_number">Rut Cliente:</label>
     <input type="text" class="form-control" id="client_id_number" placeholder="14.569.484-1" ng-model="rut" name="client_id_number"/>
+    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" style="display:none;"></span>
     <%= f.hidden_field :client_id %>
    </div> 
   <div ng-controller="CourtController">
@@ -138,7 +139,7 @@
 </div>
 <script type="text/javascript">
       $(function(){
-        $("input#client_id_number").rut({formatOn: 'keyup', validateOn: 'keyup'}).on('rutInvalido', function(){ $(this).parents(".field").addClass("has-error").removeClass("has-success")}).on('rutValido', function(){ $(this).parents(".field").removeClass("has-error").addClass("has-success"); angular.element('#GetClientController').scope().getClient()});
+        $("input#client_id_number").rut({formatOn: 'keyup', validateOn: 'keyup'}).on('rutInvalido', function(){ $(this).parents(".field").addClass("has-error").removeClass("has-success");$(this).parent().children('.glyphicon-ok').hide();}).on('rutValido', function(){ $(this).parents(".field").removeClass("has-error").addClass("has-success");$(this).parent().children('.glyphicon-ok').show(); angular.element('#GetClientController').scope().getClient()});
       });
       // Función para agregar una persona u organización
         $( document ).ready(function() {
