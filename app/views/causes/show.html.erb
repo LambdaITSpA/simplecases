@@ -19,7 +19,7 @@
     <a class="list-group-item">ROL: <%= @cause.role %></a>
     <a class="list-group-item">TRIBUNAL: <%= @cause.court.name %></a>
     <a class="list-group-item">MATERIA: <%= @cause.matter %></a>
-    <a class="list-group-item"><span class="label label-success">ESTADO: <%= @cause.state %></span></a>
+    <a class="list-group-item"><span class="label label-<%= @cause.state.color || 'default' %>">ESTADO: <%= @cause.state.name %></span></a>
     <a class="list-group-item">HONORARIOS: <%= @cause.honorary %></a>
     <a class="list-group-item">CLIENTE: <%= @cause.client.name %></a>
     <a class="list-group-item">ÁREA: <%= @cause.area.name %></a>

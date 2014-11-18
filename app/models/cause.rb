@@ -9,6 +9,6 @@ class Cause < ActiveRecord::Base
   	self.user_causes.first.journal_entries
   end
   def state
-  	self.journal_entries.last.cause_state.name
+  	self.journal_entries.last.cause_state
   end
 end
