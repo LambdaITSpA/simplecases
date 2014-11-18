@@ -14,7 +14,7 @@ organization = Organization.create name: 'Admin', id_number: '1234', users: [cla
 #static stuff
 #juridica = CauseType.create name: 'Causa Jurídica'
 #no_judicial = CauseType.create name: 'Gestión no Judicial'
-CauseState.create [{name: 'Ingreso'}, {name: 'Discución', color: 'info'}, {name: 'Prueba', color: 'success'}, {name: 'Sentencia', color: 'danger'}, {name: 'Apelación', color: 'warning'}, {name: 'Archivada', color: 'active'}]
+CauseState.create [{name: 'Ingreso'}, {name: 'Discución', color: 'info'}, {name: 'Prueba', color: 'success'}, {name: 'Sentencia', color: 'danger'}, {name: 'Apelación', color: 'warning'}, {name: 'Archivada', color: 'default'}]
 cliente_persona = ClientType.create name: 'Persona'
 cliente_empresa = ClientType.create name: 'Empresa'
 rm = Region.create name: 'Santiago'

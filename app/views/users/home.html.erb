@@ -2,11 +2,11 @@
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
-            Home <small></small>
+            <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home <small></small>
         </h1>
         <ol class="breadcrumb">
             <li class="active">
-                <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home
+                Home
             </li>
         </ol>
     </div>
@@ -61,6 +61,7 @@
 <% else %>
 <!-- /.row -->
 <div class="row">
+    <div class="col-md-3"></div>
     <div class="col-lg-3 col-md-6">
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -107,26 +108,22 @@
     </div>
 </div>
 <!-- /.row -->
+<% current_user.journal_entries.each do |je| %>
 <div class="row">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>Asunto</th>
-          <th>Cuerpo</th>
-          <th>Fecha</th>
-          <th>Estado</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% current_user.journal_entries.each do |je| %>
-          <tr class="active">
-            <td><%= je.subject %></td>
-            <td><%= je.body %></td>
-            <td><%= je.created_at %></td>
-            <td><%= je.cause_state.name %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <div class="col-md-<%= cycle('2', '4') %>"></div>
+    <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><span class="label label-<%= je.cause.state.color || 'default' %> pull-right">ESTADO: <%= je.cause.state.name %></span><%= link_to "Actuación en causa: #{je.cause.matter}", je.cause %><br>
+                <%= link_to "#{time_ago_in_words(je.created_at)} ago", cause_journal_entry_path(je.cause.id, je.id), class: 'small' %></h3>
+          </div>
+          <div class="panel-body">
+            Cliente: <%= je.cause.client.name %><br>
+            Asunto: <%= je.subject %><br>
+            <%= je.body %>
+          </div>
+        </div>
+    </div>
 </div>
+<% end %>
 <% end %>
