@@ -2,11 +2,11 @@
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
-            Dashboard <small>Statistics Overview</small>
+            Home <small></small>
         </h1>
         <ol class="breadcrumb">
             <li class="active">
-                <i class="fa fa-dashboard"></i> Dashboard
+                <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home
             </li>
         </ol>
     </div>
@@ -58,4 +58,75 @@
             </a>
         </div>
     </div>
+<% else %>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="glyphicon glyphicon-user" style="font-size:60px;"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge"><%= current_user.clients.count %></div>
+                        <div>Clientes</div>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer">
+                    <span class="pull-left">View Details</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-green">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="glyphicon glyphicon-briefcase" style="font-size:60px;"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge"><%= current_user.causes.count %></div>
+                        <div>Casos</div>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer">
+                    <span class="pull-left">View Details</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- /.row -->
+<div class="row">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Asunto</th>
+          <th>Cuerpo</th>
+          <th>Fecha</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% current_user.journal_entries.each do |je| %>
+          <tr class="active">
+            <td><%= je.subject %></td>
+            <td><%= je.body %></td>
+            <td><%= je.created_at %></td>
+            <td><%= je.cause_state.name %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>
 <% end %>

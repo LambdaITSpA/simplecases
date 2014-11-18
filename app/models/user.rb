@@ -19,4 +19,8 @@ class User < ActiveRecord::Base
     end
     clients
   end
+
+  def journal_entries
+    JournalEntry.joins(:user_cause).where(user_causes: {user_id: self.id}).order(created_at: :desc)
+  end
 end
