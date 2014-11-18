@@ -1,21 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= current_user.name %>
-</p>
 
-<p>
-  <strong>Organización:</strong>
-  <%= current_user.organization.name %>
-</p>
+<div class="row">
+	<div class="col-md-3"></div>
+	<div class="col-md-6">
+		<i class="glyphicon glyphicon-user" style="color: #428bca; font-size:90px; padding-bottom: 30px;"></i>
 
-<p>
-  <strong>RUT:</strong>
-  <%= current_user.id_number %>
-</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-3"></div>	
+	<div class="col-md-6">
+		<div class="panel panel-info">
+	  		<div class="panel-heading">Nombre</div>
+	  			<div class="panel-body"><%= current_user.name %></div>
+		</div>
+		<div class="panel panel-info">
+	  		<div class="panel-heading">Organización</div>
+	  			<div class="panel-body"><%= current_user.organization.name %></div>
+		</div>
+		<div class="panel panel-info">
+	  		<div class="panel-heading">Rut</div>
+	  			<div class="panel-body"><%= current_user.id_number %></div>
+		</div>
+		<div class="panel panel-info">
+	  		<div class="panel-heading">Email</div>
+	  			<div class="panel-body"><%= current_user.organization.name %></div>
+	 	</div>
+	</div>
 
-<p>
-  <strong>e-mail:</strong>
-  <%= current_user.email %>
-</p>
+</div>

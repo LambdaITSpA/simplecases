@@ -2,8 +2,8 @@
   <div class="col-md-6">
 <%= form_for(@cause) do |f| %>
   <% if @cause.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@cause.errors.count, "error") %> prohibited this cause from being saved:</h2>
+    <div class="alert alert-warning" id="error_explanation">
+      <h5><%= pluralize(@cause.errors.count, "error") %>, Impidió que su causa se guardará, debido a:</h5>
 
       <ul>
       <% @cause.errors.full_messages.each do |message| %>
@@ -27,7 +27,7 @@
   </div>
   <div class="field has-feedback" ng-controller="GetClientController" id="GetClientController">
     <label for="client_id_number">Rut Cliente:</label>
-    <input type="text" class="form-control" id="client_id_number" placeholder="14.569.484-1" ng-model="rut" name="client_id_number"/>
+    <input type="text" class="form-control" id="client_id_number" placeholder="Ejemplo: 145694841" ng-model="rut" name="client_id_number"/>
     <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" style="display:none;"></span>
     <%= f.hidden_field :client_id %>
    </div> 
