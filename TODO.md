@@ -1,5 +1,5 @@
 journal_entries#update submit not working
-causes#show view, estado visible
+causes#show view, estado visible 
 cause#show ordenar detalles (tres paneles: causa, cliente, ultimo avance)
 estadisticas dashboard
 timeline dashboard (avances)
