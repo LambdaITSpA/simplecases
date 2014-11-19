@@ -1,0 +1,103 @@
+ <% content_for :js do %>
+	<script type="text/javascript">
+	$( document ).ready(function() {
+		$('#status').change(function(){
+			id = $('#status option:selected').val();
+		    if (id == "people") {
+		        $("#people").slideDown();
+		        $("#company").slideUp();
+		    }
+
+		    if (id == "company") {
+		    	$("#company").slideDown();
+		        $("#people").slideUp(); 
+		    }
+		});
+	});
+	</script>
+
+<% end %>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Cliente <small>Nuevo</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li class="active">
+                <i class="fa fa-dashboard"></i> <%= link_to 'Clientes', new_client_path %> > Nuevo
+            </li>
+        </ol>
+    </div>
+</div>
+ <div class="col-lg-6">
+	<h3>Seleccione el tipo de cliente:</h3>
+		<div class="col-xs-4">
+			<select name="status" id="status" class="form-control">
+			  <option value="people">Persona</option>
+			  <option value="company">Empresa</option>
+			</select>
+		</div><br><br>
+	<div id="people">
+		<h2> Persona Natural</h2>
+		    <%= form_tag(client_path(@client), method: "put") do %>
+			    <div class="form-group">
+					<%= label_tag(:name, "Nombre o Razón Social:") %>
+					<%= text_field_tag(:name, @client.data.name	, class: "form-control") %>
+				</div>
+				<div class="form-group">
+					<%= label_tag(:id_number, "Rut Empresa:") %>
+					<%= text_field_tag(:id_number, @client.id_number, class: "form-control") %>
+				</div>
+				<div class="form-group">	
+					<%= label_tag(:email, "Email:") %>
+					<%= text_field_tag(:email, @client.data.email, class: "form-control") %>
+				</div>
+				<div class="form-group">
+					<%= label_tag(:phone, "Telefono:") %>
+					<%= text_field_tag(:phone, @client.data.phone, class: "form-control") %>
+				</div>	
+				<div class="form-group">
+					<%= label_tag(:address, "Dirección:") %>
+					<%= text_field_tag(:address, @client.data.address, class: "form-control") %>
+				</div>
+				<!--<div class="form-group">
+					<%= label_tag(:other, "Otro Dato:") %>
+					<%= text_field_tag(:otrer, nil, class: "form-control") %>
+				</div>-->
+				<%= hidden_field_tag(:client_type_id, 1) %>
+				<div class="actions">	  
+					<%= submit_tag(value = "Actualizar", class: 'btn btn-primary') %>
+				</div>
+			<% end %>
+	</div>
+	<div id="company" style="display:none;">
+		<h3> Empresa</h3><br>
+	    <%= form_tag("/clients", method: "put") do %>
+	    	<div class="form-group">
+			  <%= label_tag(:name, "Nombre o Razón Social:") %>
+			  <%= text_field_tag(:name, @client.data.name, class: "form-control") %>
+			</div>
+			<div class="form-group">  
+			  <%= label_tag(:id_number, "Rut Empresa:") %>
+			  <%= text_field_tag(:id_number, @client.id_number, class: "form-control") %>
+			</div>
+			<div class="form-group">
+			  <%= label_tag(:email, "Email:") %>
+			  <%= text_field_tag(:email, @client.data.email, class: "form-control") %>
+			</div> 
+			<div class="form-group">
+			  <%= label_tag(:phone, "Telefono:") %>
+			  <%= text_field_tag(:phone, @client.data.phone, class: "form-control") %>
+			</div>
+			<div class="form-group">  
+			  <%= label_tag(:address, "Dirección:") %>
+			  <%= text_field_tag(:address, @client.data.address, class: "form-control") %>
+			</div>  
+			<%= hidden_field_tag(:client_type_id, 2) %>
+			<div class="actions"> 
+			  <%= submit_tag(value = "Actualizar", class: 'btn btn-primary') %>
+			</div>
+		<% end %>
+	</div>
+</div>

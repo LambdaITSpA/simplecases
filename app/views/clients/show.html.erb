@@ -2,31 +2,48 @@
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
-            Causa <small>Ver</small>
+            Cliente <small>Ver</small>
         </h1>
         <ol class="breadcrumb">
             <li class="active">
-                <i class="fa fa-dashboard"></i> <%= link_to 'Clientes', user_root_path %> > Ver
+                <i class="fa fa-dashboard"></i> <%= link_to 'Clientes', clients_path %> > Ver
             </li>
         </ol>
     </div>
 </div>
-<p id="notice"><%= notice %></p>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+    <p id="notice"><%= notice %></p>
+    <div class="list-group">
+        <div class="list-group-item active">
+          <h4><%= @client.name %></h4>
+        </div>
+        <p class="list-group-item">
+          <strong>Rut:</strong>
+          <%= @client.id_number %>
+        </p>
 
-<p>
-  <strong>Rut:</strong>
-  <%= @client.id_number %>
-</p>
+        <p class="list-group-item">
+          <strong>Tipo:</strong>
+          <%= @client.client_type.name %>
+        </p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @client.name %>
-</p>
+        <p class="list-group-item">
+          <strong>Email:</strong>
+          <%= @client.data.email %>
+        </p>
 
-<p>
-  <strong>Tipo:</strong>
-  <%= @client.client_type.name %>
-</p>
+        <p class="list-group-item">
+          <strong>Teléfono:</strong>
+          <%= @client.data.phone %>
+        </p>
 
-<%= link_to 'Edit', user_root_path, class: 'btn btn-default btn-xs' %> |
-<%= link_to 'Back', user_root_path, class: 'btn btn-default btn-xs' %>
+        <p class="list-group-item">
+          <strong>Dirección:</strong>
+          <%= @client.data.address %>
+        </p>
+    </div>
+    <%= link_to 'Editar', edit_client_path(@client), class: 'btn btn-default btn-xs' %>
+    <%= link_to 'Atras', clients_path, class: 'btn btn-default btn-xs' %>
+</div>

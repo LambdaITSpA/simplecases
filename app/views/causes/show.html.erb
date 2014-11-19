@@ -12,6 +12,7 @@
     </div>
 </div>
 <div class="row">
+  <div class="list-group col-md-2"></div>
   <div class="list-group col-md-4">
     <a href="#" class="list-group-item active">
        Detalle de la Causa
@@ -37,33 +38,42 @@
     <% end %>
   </div>
 </div>
+<div class="row">
+  <div class="list-group col-md-1"></div>
+  <div class="list-group col-md-10">
 <%= link_to 'Ingresar Avance', new_cause_journal_entry_path(@cause), class: 'btn btn-primary' %>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Asunto</th>
-      <th>Cuerpo</th>
-      <th>Fecha</th>
-      <th>Estado</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @cause.journal_entries.each do |je| %>
-        <tr class="<%= je.cause_state.color %>">
-          <td><%= je.subject %></td>
-          <td><%= je.body %></td>
-          <td><%= je.date %></td>
-          <td><%= je.cause_state.name %></td>
-          <td><%= link_to 'Ver', cause_journal_entry_path(@cause.id, je.id), class: 'btn btn-default btn-xs' %></td>
-          <td><%= link_to 'Editar', edit_cause_journal_entry_path(@cause.id, je.id), class: 'btn btn-primary btn-xs' %></td>
-          <% if je != @cause.journal_entries.first %>
-          <td><%= link_to 'Eliminar', cause_journal_entry_path(@cause.id, je.id), class: 'btn btn-danger btn-xs', method: :delete, data: { confirm: "Estás seguro de eliminar #{je.subject}?" } %></td>
-          <% end %>
-        </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="panel panel-default" style="margin-top:20px;">
+  <div class="panel-heading">Listado de avances</div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Asunto</th>
+        <th>Cuerpo</th>
+        <th>Fecha</th>
+        <th>Estado</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cause.journal_entries.each do |je| %>
+          <tr class="<%= je.cause_state.color %>">
+            <td><%= je.subject %></td>
+            <td><%= je.body %></td>
+            <td><%= je.date %></td>
+            <td><%= je.cause_state.name %></td>
+            <td><%= link_to 'Ver', cause_journal_entry_path(@cause.id, je.id), class: 'btn btn-default btn-xs' %></td>
+            <td><%= link_to 'Editar', edit_cause_journal_entry_path(@cause.id, je.id), class: 'btn btn-primary btn-xs' %></td>
+            <% if je != @cause.journal_entries.first %>
+            <td><%= link_to 'Eliminar', cause_journal_entry_path(@cause.id, je.id), class: 'btn btn-danger btn-xs', method: :delete, data: { confirm: "Estás seguro de eliminar #{je.subject}?" } %></td>
+            <% end %>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <%= link_to 'Editar', edit_cause_path(@cause), class: 'btn btn-default btn-xs' %> |
 <%= link_to 'Atras', causes_path, class: 'btn btn-default btn-xs' %>
+
+  </div>
+</div>

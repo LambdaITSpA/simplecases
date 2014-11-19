@@ -11,22 +11,36 @@
         </ol>
     </div>
 </div>
-<p id="notice"><%= notice %></p>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <p id="notice"><%= notice %></p>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="label label-<%= @journal_entry.cause_state.color || 'default' %> pull-right">ESTADO: <%= @journal_entry.cause_state.name %></span>
+            Avance en: <%= @journal_entry.cause.matter %><br>
+            <%= link_to "#{time_ago_in_words(@journal_entry.created_at)} ago", cause_journal_entry_path(@journal_entry.cause.id, @journal_entry.id), class: 'small' %>
+          </h3>
+        </div>
+        <div class="panel-body">
+          <p>
+            <strong>Cliente:</strong>
+            <%= @journal_entry.cause.client.name %>
+          </p>
+          <p>
+            <strong>Asunto:</strong>
+            <%= @journal_entry.subject %>
+          </p>
 
-<p>
-  <strong>Asunto:</strong>
-  <%= @journal_entry.subject %>
-</p>
+          <p>
+            <strong>Descripción:</strong>
+            <%= @journal_entry.body %>
+          </p>
+        </div>
+      </div>
 
-<p>
-  <strong>Descripción:</strong>
-  <%= @journal_entry.body %>
-</p>
-
-<p>
-  <strong>Fecha:</strong>
-  <%= @journal_entry.date %>
-</p>
-
-<%= link_to 'Edit', edit_cause_journal_entry_path(@cause.id, @journal_entry.id), class: 'btn btn-default btn-xs' %> |
-<%= link_to 'Back', @cause, class: 'btn btn-default btn-xs' %>
+      <%= link_to 'Editar', edit_cause_journal_entry_path(@cause.id, @journal_entry.id), class: 'btn btn-default btn-xs' %> |
+      <%= link_to 'Atras', @cause, class: 'btn btn-default btn-xs' %>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_client, only: [:show]
+  before_action :set_client, only: [:show, :edit, :update]
 	def index
 		@clients = current_user.clients
 		respond_to do |format|
@@ -58,6 +58,15 @@ class ClientsController < ApplicationController
 				end
 		    end
     	end					
+	end
+	def update
+		@client.update id_number: params[:id_number], client_type_id: params[:client_type_id]
+		if params[:client_type_id].to_i == 1
+			@client.person.update name: params[:name].split.map(&:capitalize).join(' '), email: params[:email], phone: params[:phone], address: params[:address], other: params[:other], client: @client
+		elsif params[:client_type_id].to_i == 2
+			@client.company.update name: params[:name].split.map(&:capitalize).join(' '), address: params[:address], phone: params[:phone], email: params[:email], client: @client
+		end
+		redirect_to @client
 	end
 	private
 	def set_client
