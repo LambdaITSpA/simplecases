@@ -1,20 +1,12 @@
 <div class="row">
   <div class="col-md-2"></div>
   <div class="col-md-6">
-<<<<<<< HEAD
-<%= form_for(@cause) do |f| %>
-  <% if @cause.errors.any? %>
-    <div class="alert alert-warning" id="error_explanation">
-      <h5><%= pluralize(@cause.errors.count, "error") %>, Impidió que su causa se guardará, debido a:</h5>
-=======
     <div class="panel panel-default">
       <div class="panel-body">
         <%= form_for(@cause) do |f| %>
           <% if @cause.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@cause.errors.count, "error") %> prohibited this cause from being saved:</h2>
->>>>>>> b155133c2b48b670db371f2ac69f6854ac756f5d
-
+            <div class="alert alert-warning" id="error_explanation">
+              <h2><%= pluralize(@cause.errors.count, "error") %> , Impidió que su causa se guardara, debido a:</h2>
               <ul>
               <% @cause.errors.full_messages.each do |message| %>
                 <li><%= message %></li>
@@ -22,37 +14,6 @@
               </ul>
             </div>
           <% end %>
-
-<<<<<<< HEAD
-  <div class="field">
-    <%= f.label :role, 'Rol' %><br>
-    <%= f.text_field :role, class: 'form-control' %>
-  </div>
-  <div class="field">
-    <%= f.label :matter, 'Materia' %><br>
-    <%= f.text_field :matter, class: 'form-control' %>
-  </div>
-  <div class="field">
-    <%= f.label :honorary, 'Honorarios' %><br>
-    <%= f.text_field :honorary, class: 'form-control' %>
-  </div>
-  <div class="field has-feedback" ng-controller="GetClientController" id="GetClientController">
-    <label for="client_id_number">Rut Cliente:</label>
-    <input type="text" class="form-control" id="client_id_number" placeholder="Ejemplo: 145694841" ng-model="rut" name="client_id_number"/>
-    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" style="display:none;"></span>
-    <%= f.hidden_field :client_id %>
-   </div> 
-  <div ng-controller="CourtController">
-    <div class="field">
-      <%= f.label :area_id %><br>
-      <%= f.select :area_id, options_from_collection_for_select(Area.all, :id, :name), {}, {class: 'form-control', 'ng-change' => 'getCourts()', 'ng-model' => 'area_select'} %>
-    </div>
-    <div class="field">
-      <label>Tribunal</label><br>
-      <select id='cause_court_id' name='cause[court_id]' class='form-control' >
-        <option ng-repeat="court in courts" value='{{court.id}}'>{{court.name}}</option>
-      </select>
-=======
           <div class="field">
             <%= f.label :role, 'Rol' %><br>
             <%= f.text_field :role, class: 'form-control' %>
@@ -65,9 +26,10 @@
             <%= f.label :honorary, 'Honorarios' %><br>
             <%= f.text_field :honorary, class: 'form-control' %>
           </div>
-          <div class="field" ng-controller="GetClientController" id="GetClientController">
+          <div class="field has-feedback" ng-controller="GetClientController" id="GetClientController">
             <label for="client_id_number">Rut Cliente:</label>
-            <input type="text" class="form-control" id="client_id_number" placeholder="14.569.484-1" ng-model="rut" name="client_id_number"/>
+            <input type="text" class="form-control" id="client_id_number" placeholder="Ejemplo: 14569484-1" ng-model="rut" name="client_id_number"/>
+             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" style="display:none;"></span>
             <%= f.hidden_field :client_id %>
            </div> 
           <div ng-controller="CourtController">
@@ -87,7 +49,6 @@
           </div>
         <% end %>
       </div>
->>>>>>> b155133c2b48b670db371f2ac69f6854ac756f5d
     </div>
   </div>
 </div>

@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-<%= form_for([@cause, @journal_entry], html: {role: 'form'}) do |f| %>
-  <% if @journal_entry.errors.any? %>
-    <div class="alert alert-success" id="error_explanation">
-      <h2><%= pluralize(@journal_entry.errors.count, "error") %> prohibited this journal_entry from being saved:</h2>
-=======
 <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6">
@@ -11,18 +5,15 @@
         <div class="panel-body">
           <%= form_for([@cause, @journal_entry], html: {role: 'form'}) do |f| %>
             <% if @journal_entry.errors.any? %>
-              <div id="error_explanation">
+              <div class="alert alert-success" id="error_explanation">
                 <h2><%= pluralize(@journal_entry.errors.count, "error") %> prohibited this journal_entry from being saved:</h2>
->>>>>>> b155133c2b48b670db371f2ac69f6854ac756f5d
-
                 <ul>
-                <% @journal_entry.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-                <% end %>
-                </ul>
+                  <% @journal_entry.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
               </div>
             <% end %>
-
             <div class="field">
               <%= f.label :subject, 'Asunto' %><br>
               <%= f.text_field :subject, class: 'form-control' %>
