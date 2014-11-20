@@ -1,0 +1,162 @@
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= form_for(@cause) do |f| %>
+          <% if @cause.errors.any? %>
+            <div class="alert alert-warning" id="error_explanation">
+              <h2><%= pluralize(@cause.errors.count, "error") %> , Impidió que su causa se guardara, debido a:</h2>
+              <ul>
+              <% @cause.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div class="field">
+            <%= f.label :role, 'Rol' %><br>
+            <%= f.text_field :role, class: 'form-control' %>
+          </div>
+          <div class="field">
+            <%= f.label :matter, 'Materia' %><br>
+            <%= f.text_field :matter, class: 'form-control' %>
+          </div>
+          <div class="field">
+            <%= f.label :honorary, 'Honorarios' %><br>
+            <%= f.text_field :honorary, class: 'form-control' %>
+          </div>
+          <div class="field has-feedback" ng-controller="GetClientController" id="GetClientController">
+            <label for="client_id_number">Rut Cliente:</label>
+            <input type="text" class="form-control" id="client_id_number" placeholder="Ejemplo: 14569484-1" ng-model="rut" name="client_id_number"/>
+             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" style="display:none;"></span>
+            <%= f.hidden_field :client_id %>
+           </div> 
+          <div ng-controller="CourtController">
+            <div class="field">
+              <%= f.label :area_id %><br>
+              <%= f.select :area_id, options_from_collection_for_select(Area.all, :id, :name), {}, {class: 'form-control', 'ng-change' => 'getCourts()', 'ng-model' => 'area_select'} %>
+            </div>
+            <div class="field">
+              <label>Tribunal</label><br>
+              <select id='cause_court_id' name='cause[court_id]' class='form-control' >
+                <option ng-repeat="court in courts" value='{{court.id}}'>{{court.name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="actions" style="margin-top:20px;">
+            <%= f.submit nil, class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modal cliente-->
+<div class="modal fade" id="addclient" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Ingresar Cliente</h4>
+      </div>
+      <div class="modal-body">
+        <div class="col-lg-6">
+          <h4 >Seleccione el tipo de cliente</h4>
+            <div class="col-xs-8">
+              <select name="status" id="status" class="form-control">
+                <option value="people">Persona</option>
+                <option value="company">Empresa</option>
+              </select>
+            </div><br><br>
+          <div id="company" style="display:none;">
+            <h3> Empresa</h3><br>
+              <%= form_tag("/clients.json", method: "post", remote: true) do %>
+                <div class="form-group">
+                <%= label_tag(:name, "Nombre o Razón Social:") %>
+                <%= text_field_tag(:name, nil, class: "form-control company_name") %>
+              </div>
+              <div class="form-group">  
+                <%= label_tag(:id_number, "Rut Empresa:") %>
+                <%= text_field_tag(:id_number, nil, class: "form-control id_number_company", readonly: true) %>
+              </div>
+              <div class="form-group">  
+                <%= label_tag(:address, "Dirección:") %>
+                <%= text_field_tag(:address, nil, class: "form-control") %>
+              </div>  
+              <div class="form-group">
+                <%= label_tag(:phone, "Telefono:") %>
+                <%= text_field_tag(:phone, nil, class: "form-control") %>
+              </div>
+              <div class="form-group">
+                <%= label_tag(:email, "Email:") %>
+                <%= text_field_tag(:email, nil, class: "form-control") %>
+              </div> 
+              <%= hidden_field_tag(:client_type_id, 2) %>
+              <div class="actions"> 
+                <%= submit_tag(value = "Ingresar", class: 'btn btn-primary') %>
+              </div>
+            <% end %>
+          </div>
+          <div id="people" style="display:block;">
+            <h2> Persona Natural</h2>
+                <%= form_tag("/clients.json", method: "post", remote: true) do %>
+                  <div class="form-group">
+                  <%= label_tag(:name, "Nombre o Razón Social:") %>
+                  <%= text_field_tag(:name, nil, class: "form-control person_name") %>
+                </div>
+                <div class="form-group">
+                  <%= label_tag(:id_number, "Rut Empresa:") %>
+                  <%= text_field_tag(:id_number, nil, class: "form-control id_number_person", readonly: true) %>
+                </div>
+                <div class="form-group">  
+                  <%= label_tag(:email, "Email:") %>
+                  <%= text_field_tag(:email, nil, class: "form-control") %>
+                </div>
+                <div class="form-group">
+                  <%= label_tag(:phone, "Telefono:") %>
+                  <%= text_field_tag(:phone, nil, class: "form-control") %>
+                </div>  
+                <div class="form-group">
+                  <%= label_tag(:address, "Dirección:") %>
+                  <%= text_field_tag(:address, nil, class: "form-control") %>
+                </div>
+                <div class="form-group">
+                  <%= label_tag(:other, "Otro Dato:") %>
+                  <%= text_field_tag(:other, nil, class: "form-control") %>
+                </div>
+                <%= hidden_field_tag(:client_type_id, 1) %>
+                <div class="actions">   
+                  <%= submit_tag(value = "Ingresar", class: 'btn btn-primary') %>
+                </div>
+              <% end %>
+          </div>
+          <div class="alert alert-success" role="alert" id="client_success" style="display: none;"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+      $(function(){
+        $("input#client_id_number").rut({formatOn: 'keyup', validateOn: 'keyup'}).on('rutInvalido', function(){ $(this).parents(".field").addClass("has-error").removeClass("has-success");$(this).parent().children('.glyphicon-ok').hide();}).on('rutValido', function(){ $(this).parents(".field").removeClass("has-error").addClass("has-success");$(this).parent().children('.glyphicon-ok').show(); angular.element('#GetClientController').scope().getClient()});
+      });
+      // Función para agregar una persona u organización
+        $( document ).ready(function() {
+            $('#status').change(function(){
+              id = $('#status option:selected').val();
+                if (id == "people") {
+                    $("#people").slideDown();
+                    $("#company").slideUp();
+                }
+
+                if (id == "company") {
+                  $("#company").slideDown();
+                    $("#people").slideUp(); 
+                }
+            });
+          });
+
+    </script>

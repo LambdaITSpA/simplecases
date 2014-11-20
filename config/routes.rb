@@ -6,9 +6,16 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+  get "home" => "users#home", as: 'user_root'
+  get "profile" => "users#profile", as: 'user_profile'
+  resources :clients
   resources :organizations do
     resources :users
   end
+  resources :causes do
+    resources :journal_entries
+  end
+  resources :courts, only: [:index]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

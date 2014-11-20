@@ -1,0 +1,46 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Avance <small>Ver</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li class="active">
+                <i class="fa fa-dashboard"></i> <%= link_to 'Causas', causes_path %> > <%= link_to "Causa #{@cause.role}", @cause %> > Ver
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <p id="notice"><%= notice %></p>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="label label-<%= @journal_entry.cause_state.color || 'default' %> pull-right">ESTADO: <%= @journal_entry.cause_state.name %></span>
+            Avance en: <%= @journal_entry.cause.matter %><br>
+            <%= link_to "#{time_ago_in_words(@journal_entry.created_at)} ago", cause_journal_entry_path(@journal_entry.cause.id, @journal_entry.id), class: 'small' %>
+          </h3>
+        </div>
+        <div class="panel-body">
+          <p>
+            <strong>Cliente:</strong>
+            <%= @journal_entry.cause.client.name %>
+          </p>
+          <p>
+            <strong>Asunto:</strong>
+            <%= @journal_entry.subject %>
+          </p>
+
+          <p>
+            <strong>Descripción:</strong>
+            <%= @journal_entry.body %>
+          </p>
+        </div>
+      </div>
+
+      <%= link_to 'Editar', edit_cause_journal_entry_path(@cause.id, @journal_entry.id), class: 'btn btn-default btn-xs' %> |
+      <%= link_to 'Atras', @cause, class: 'btn btn-default btn-xs' %>
+    </div>
+</div>

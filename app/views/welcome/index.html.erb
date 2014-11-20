@@ -16,20 +16,18 @@
             <a class="navbar-brand" href="#">Simple Cases</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling 
+         /.navbar-collapse -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
+                    <% if current_user %>
+                    <%= link_to 'Dashboard', user_root_path, class: 'btn btn-link' %>
+                    <% else %>
+                    <%= link_to 'Iniciar sesión', new_user_session_path, class: 'btn btn-default btn-lg' %>
+                    <% end %>
                 </li>
             </ul>
         </div>
-         /.navbar-collapse -->
     </div>
     <!-- /.container -->
 </nav>
@@ -99,10 +97,10 @@
                 <hr class="section-heading-spacer">
                 <div class="clearfix"></div>
                 <h2 class="section-heading">Rápido</h2>
-                <p class="lead">Nuestra tecnología le permite obtener información sobre el caso que busca al instante.</p>
+                <p class="lead">Nuestra tecnología te permite obtener información sobre el caso que busca al instante, ahorrandole mucho tiempo en buscar sus causas</p>
             </div>
             <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-            	<%= image_tag 'ruby-on-rails-logo.png', { class: 'img-responsive' } %>
+            	<%= image_tag 'ui.jpg', { class: 'img-responsive' } %>
             </div>
         </div>
 
@@ -121,7 +119,7 @@
                 <hr class="section-heading-spacer">
                 <div class="clearfix"></div>
                 <h2 class="section-heading">A su alcance</h2>
-                <p class="lead">Ponemos a su disposición nuestra plataforma por una subscripción mensual de $25.000.</p>
+                <p class="lead">Ponemos a su disposición nuestra plataforma por una subscripción mensual de $28.000.</p>
             </div>
             <div class="col-lg-5 col-lg-offset-2 col-sm-6">
             	<%= image_tag 'phones.png', { class: 'img-responsive' } %>

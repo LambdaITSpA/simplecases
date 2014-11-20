@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_organization#, only: [:show, :edit, :update, :destroy]
+  before_action :set_organization, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -8,6 +8,13 @@ class UsersController < ApplicationController
   def index
     #@users = User.all
     @users = @organization.users
+  end
+
+  def home
+  end
+
+  def profile
+    
   end
 
   # GET /users/1
@@ -28,10 +35,10 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    @user.organization = @organization
     respond_to do |format|
       if @user.save
-        @organization.users << @user
-        format.html { redirect_to organization_user(@organization, @user), notice: 'User was successfully created.' }
+        format.html { redirect_to organization_user_path(@organization, @user), notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }

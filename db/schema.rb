@@ -11,49 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141028175348) do
+ActiveRecord::Schema.define(version: 20141107143216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cause_states", force: true do |t|
+  create_table "areas", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "cause_types", force: true do |t|
-    t.string   "nombre"
+  create_table "cause_states", force: true do |t|
+    t.string   "name"
+    t.string   "color"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "causes", force: true do |t|
-    t.string   "client"
-    t.string   "id_number"
     t.string   "role"
-    t.string   "court"
     t.string   "matter"
     t.string   "honorary"
     t.datetime "date"
     t.integer  "client_id"
-    t.integer  "user_id"
-    t.integer  "cause_type_id"
+    t.integer  "area_id"
+    t.integer  "court_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "causes", ["cause_type_id"], name: "index_causes_on_cause_type_id", using: :btree
+  add_index "causes", ["area_id"], name: "index_causes_on_area_id", using: :btree
   add_index "causes", ["client_id"], name: "index_causes_on_client_id", using: :btree
-  add_index "causes", ["user_id"], name: "index_causes_on_user_id", using: :btree
+  add_index "causes", ["court_id"], name: "index_causes_on_court_id", using: :btree
 
   create_table "client_types", force: true do |t|
-    t.string   "nombre"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "clients", force: true do |t|
+    t.string   "id_number"
     t.integer  "client_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -62,9 +61,7 @@ ActiveRecord::Schema.define(version: 20141028175348) do
   add_index "clients", ["client_type_id"], name: "index_clients_on_client_type_id", using: :btree
 
   create_table "companies", force: true do |t|
-    t.string   "name_social_reason"
-    t.string   "company_name"
-    t.string   "company_id_number"
+    t.string   "name"
     t.string   "address"
     t.integer  "phone"
     t.string   "email"
@@ -77,17 +74,29 @@ ActiveRecord::Schema.define(version: 20141028175348) do
   add_index "companies", ["client_id"], name: "index_companies_on_client_id", using: :btree
   add_index "companies", ["person_id"], name: "index_companies_on_person_id", using: :btree
 
+  create_table "courts", force: true do |t|
+    t.string   "name"
+    t.integer  "region_id"
+    t.integer  "area_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "courts", ["area_id"], name: "index_courts_on_area_id", using: :btree
+  add_index "courts", ["region_id"], name: "index_courts_on_region_id", using: :btree
+
   create_table "journal_entries", force: true do |t|
-    t.string   "action"
+    t.string   "subject"
+    t.string   "body"
     t.datetime "date"
     t.integer  "cause_state_id"
-    t.integer  "user_id"
+    t.integer  "user_cause_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "journal_entries", ["cause_state_id"], name: "index_journal_entries_on_cause_state_id", using: :btree
-  add_index "journal_entries", ["user_id"], name: "index_journal_entries_on_user_id", using: :btree
+  add_index "journal_entries", ["user_cause_id"], name: "index_journal_entries_on_user_cause_id", using: :btree
 
   create_table "organizations", force: true do |t|
     t.string   "name"
@@ -98,9 +107,8 @@ ActiveRecord::Schema.define(version: 20141028175348) do
 
   create_table "people", force: true do |t|
     t.string   "name"
-    t.string   "id_numbrer"
     t.string   "email"
-    t.integer  "phone"
+    t.string   "phone"
     t.string   "address"
     t.text     "other"
     t.integer  "client_id"
@@ -109,6 +117,12 @@ ActiveRecord::Schema.define(version: 20141028175348) do
   end
 
   add_index "people", ["client_id"], name: "index_people_on_client_id", using: :btree
+
+  create_table "regions", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "user_causes", force: true do |t|
     t.integer  "user_id"

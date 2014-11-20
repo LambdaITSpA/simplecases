@@ -1,8 +1,13 @@
 FROM ubuntu:12.04
-ENV REFRESHED_AT 2014-19-10 22:00
+ENV REFRESHED_AT 2014-10-11 19:27
 
 RUN apt-get update
+RUN apt-get install -y python-software-properties software-properties-common
+RUN apt-add-repository ppa:chris-lea/node.js
+RUN apt-get update
 RUN apt-get install -y curl nano nodejs build-essential libcurl4-openssl-dev
+RUN npm install bower
+RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
 RUN \curl -sSL https://get.rvm.io | bash -s stable
 RUN /bin/bash -l -c "rvm requirements"
 RUN /bin/bash -l -c "rvm install 2.1.0"
@@ -37,4 +42,4 @@ RUN a2ensite webapp.dev.conf
 RUN echo "127.0.0.1 webapp.dev" >> /etc/hosts
 EXPOSE 80
 #ENTRYPOINT ["/usr/sbin/apache2"]
-CMD /bin/bash -l -c "rake db:migrate RAILS_ENV=development"; /usr/sbin/apache2 -D FOREGROUND
+CMD /usr/sbin/apache2 -D FOREGROUND

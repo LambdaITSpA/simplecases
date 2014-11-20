@@ -31,7 +31,8 @@ Rails.application.configure do
 
   # Generate digests for assets URLs.
   config.assets.digest = true
-
+  config.action_mailer.default_url_options = { :host => "simplecases.cl" }
+  config.action_mailer.asset_host = "simplecases.cl"
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Specifies the header that your server uses for sending files.
