@@ -37,8 +37,11 @@ class CausesController < ApplicationController
   end
 
   def update
-    @cause.update(cause_params)
-    redirect_to @cause
+    if @cause.update(cause_params)
+      redirect_to @cause
+    else
+      render :edit
+    end
   end
 
   def destroy

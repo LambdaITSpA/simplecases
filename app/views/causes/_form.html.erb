@@ -6,7 +6,7 @@
         <%= form_for(@cause) do |f| %>
           <% if @cause.errors.any? %>
             <div class="alert alert-warning" id="error_explanation">
-              <h2><%= pluralize(@cause.errors.count, "error") %> , Impidió que su causa se guardara, debido a:</h2>
+              <%= pluralize(@cause.errors.count, "error") %> , Impidió que su causa se guardara, debido a:
               <ul>
               <% @cause.errors.full_messages.each do |message| %>
                 <li><%= message %></li>
