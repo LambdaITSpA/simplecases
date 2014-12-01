@@ -19,9 +19,12 @@ class JournalEntriesController < ApplicationController
 
   def create
     @journal_entry = JournalEntry.new(journal_entry_params)
-    @journal_entry.save
-    @cause.journal_entries << @journal_entry
-    redirect_to cause_url(@cause)
+    if @journal_entry.save
+      @cause.journal_entries << @journal_entry
+      redirect_to cause_url(@cause)
+    else
+      render :new
+    end
   end
 
   def update

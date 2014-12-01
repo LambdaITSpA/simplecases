@@ -55,6 +55,29 @@
             <ul class="nav navbar-right top-nav">
                 <% if current_user %>
                 <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="glyphicon glyphicon-bell"></span> 
+                        <% if current_user.todays_payments.count + current_user.late_payments.count > 0 %>
+                        <span class="badge progress-bar-danger"><%= current_user.todays_payments.count + current_user.late_payments.count %></span> 
+                        <% end %>
+                        <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <% if current_user.todays_payments.count + current_user.late_payments.count > 0 %>
+                            <% current_user.todays_payments.each do |tp| %>
+                            <li class="bg-warning">
+                                <%= link_to "Cobrar causa #{tp.cause.matter}", "#{cause_path(tp.cause)}#payments" %>
+                            </li>    
+                            <% end %>
+                            <% current_user.late_payments.each do |tp| %>
+                            <li class="bg-danger">
+                                <%= link_to "Pago atrasado en causa #{tp.cause.matter}", "#{cause_path(tp.cause)}#payments" %>
+                            </li>    
+                            <% end %>
+                        <% else %>
+                            <li class="dropdown-header">Sin notificaciones</li>
+                        <% end %>
+                    </ul>
+                </li>
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <%= current_user.name %> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
