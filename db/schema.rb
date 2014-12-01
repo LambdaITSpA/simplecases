@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141107143216) do
+ActiveRecord::Schema.define(version: 20141130164732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,8 +32,10 @@ ActiveRecord::Schema.define(version: 20141107143216) do
   create_table "causes", force: true do |t|
     t.string   "role"
     t.string   "matter"
-    t.string   "honorary"
-    t.datetime "date"
+    t.integer  "honorary"
+    t.datetime "start_date"
+    t.datetime "first_payment_date"
+    t.integer  "fee_quantity"
     t.integer  "client_id"
     t.integer  "area_id"
     t.integer  "court_id"
@@ -104,6 +106,25 @@ ActiveRecord::Schema.define(version: 20141107143216) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "payment_states", force: true do |t|
+    t.string   "name"
+    t.string   "color"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "payments", force: true do |t|
+    t.date     "date"
+    t.boolean  "payed"
+    t.integer  "amount"
+    t.integer  "payment_number"
+    t.integer  "cause_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "payments", ["cause_id"], name: "index_payments_on_cause_id", using: :btree
 
   create_table "people", force: true do |t|
     t.string   "name"

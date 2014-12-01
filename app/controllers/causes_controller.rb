@@ -37,8 +37,11 @@ class CausesController < ApplicationController
   end
 
   def update
-    @cause.update(cause_params)
-    redirect_to @cause
+    if @cause.update(cause_params)
+      redirect_to @cause
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -51,6 +54,6 @@ class CausesController < ApplicationController
     end
 
     def cause_params
-      params.require(:cause).permit(:role, :court_id, :matter, :honorary, :client_id, :area_id)
+      params.require(:cause).permit(:role, :court_id, :matter, :honorary, :first_payment_date, :fee_quantity, :client_id, :area_id)
     end
 end
