@@ -54,6 +54,6 @@ class CausesController < ApplicationController
     end
 
     def cause_params
-      params.require(:cause).permit(:role, :court_id, :matter, :honorary, :client_id, :area_id)
+      params.require(:cause).permit(:role, :court_id, :matter, :honorary, :first_payment_date, :fee_quantity, :client_id, :area_id)
     end
 end

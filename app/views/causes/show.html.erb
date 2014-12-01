@@ -11,37 +11,97 @@
         </ol>
     </div>
 </div>
-<div class="row">
-  <div class="list-group col-md-2"></div>
-  <div class="list-group col-md-4">
-    <a href="#" class="list-group-item active">
-       Detalle de la Causa
-    </a>
-    <a class="list-group-item">ROL: <%= @cause.role %></a>
-    <a class="list-group-item">TRIBUNAL: <%= @cause.court.name %></a>
-    <a class="list-group-item">MATERIA: <%= @cause.matter %></a>
-    <a class="list-group-item"><span class="label label-<%= @cause.state.color || 'default' %>">ESTADO: <%= @cause.state.name %></span></a>
-    <a class="list-group-item">HONORARIOS: <%= @cause.honorary %></a>
-    <a class="list-group-item">CLIENTE: <%= @cause.client.name %></a>
-    <a class="list-group-item">ÁREA: <%= @cause.area.name %></a>
+<div role="tabpanel">
+  <ul class="nav nav-tabs" data-tabs="tabs" role="tablist">
+      <li role="presentation" class="active">
+        <a data-toggle="tab" href="#cause_detail" aria-controls="cause_detail" role="tab">
+          Detalle de Causa
+        </a>
+      </li>
+      <li role="presentation">
+        <a data-toggle="tab" href="#client" aria-controls="client" role="tab">
+          Cliente
+        </a>
+      </li>
+      <li role="presentation">
+        <a data-toggle="tab" href="#payments" aria-controls="payments" role="tab">
+          Pagos
+        </a>
+      </li>
+  </ul>
+  <div class="tab-content panel panel-default panel-body">
+      <div class="tab-pane fade in active" id="cause_detail">
+          <h2><%= @cause.matter.upcase %></h2>
+          <table class="table">
+            <tr>
+              <td>Rol: <%= @cause.role %></td>
+              <td>Materia: <%= @cause.area.name %></td>
+              <td>Tribunal: <%= @cause.court.name %></td>
+            </tr>
+            <tr>
+              <td>Cliente: <%= @cause.client.name %></td>
+              <td><span class="label label-<%= @cause.state.color || 'default' %>">ESTADO: <%= @cause.state.name %></span></td>
+              <td>Honorarios: <%= to_clp @cause.honorary %></td>
+            </tr>
+          </table>
+      </div>
+      <div class="tab-pane fade" id="client">
+          <h2><%= @cause.client.name %></h2>
+          <table class="table">
+            <tr>
+              <td>Rut: <%= @cause.client.id_number %></td>
+              <td>Telefono: <%= @cause.client.data.phone %></td>
+              <td>E-mail: <%= @cause.client.data.email %></td>
+            </tr>
+            <tr>
+              <td>Dirección: <%= @cause.client.data.address %></td>
+              <% if @cause.client.client_type.name == 'Persona' %>
+              <td>Otro: <%= @cause.client.data.other %></td>
+              <% end %>
+            </tr>
+          </table>
+      </div>
+      <div class="tab-pane fade" id="payments">
+          <div class="row text-center" style="margin-bottom: 10px;">
+            <div class="col-md-1"></div>
+            <div class="col-md-3 well well-sm">
+              <p class="text-muted">Estado</p>
+              <h2><%= @cause.payments.late? ? 'Mora' : 'Al día' %></h2>
+            </div>
+            <div class="col-md-3 well well-sm">
+              <p class="text-muted">Atraso</p>
+                <h2><%= @cause.payments.late_in_days %></h2>
+              </div>
+            <div class="col-md-3 well well-sm">
+              <p class="text-muted">Mora</p>
+              <h2><%= to_clp @cause.payments.late_amount %></h2>
+            </div>
+          </div>
+          <table class="table table-hover">
+            <tr>
+              <th>N° Cuota</th>
+              <th>Estado</th>
+              <th>Fecha de Pago</th>
+              <th>Monto</th>
+            </tr>
+            <% @cause.payments.each do |payment| %>
+            <tr class="<%= payment.state.color %>">
+              <td><%= payment.payment_number %></td><td><%= payment.state.name %></td><td><%= payment.date %></td><td><%= to_clp payment.amount %></td><td><%= link_to 'Pagar', pay_path(payment.id), class: 'btn btn-danger btn-xs', method: :post, data: { confirm: "#{payment.payment_number}° cuota está pagada?" } if payment == @cause.payments.unpayed.first %></td>
+            </tr>
+            <% end %>
+          </table>
+      </div>
   </div>
-  <div class="list-group col-md-4">
-    <a href="#" class="list-group-item active">
-       Detalle Cliente
-    </a>
-    <a class="list-group-item">Nombre: <%= @cause.client.data.name %></a>
-    <a class="list-group-item">E-mail: <%= @cause.client.data.email %></a>
-    <a class="list-group-item">Telefono: <%= @cause.client.data.phone %></a>
-    <a class="list-group-item">Dirección: <%= @cause.client.data.address %></a>
-    <% if @cause.client.client_type.name == 'Persona' %>
-      <a class="list-group-item">Otro: <%= @cause.client.data.other %></a>
-    <% end %>
+</div>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-4">
   </div>
 </div>
 <div class="row">
   <div class="list-group col-md-1"></div>
   <div class="list-group col-md-10">
-<%= link_to 'Ingresar Avance', new_cause_journal_entry_path(@cause), class: 'btn btn-primary' %>
+<%= link_to 'Ingresar Avance', new_cause_journal_entry_path(@cause), class: 'btn btn-primary' unless @cause.state.name == 'Archivada' %>
 <div class="panel panel-default" style="margin-top:20px;">
   <div class="panel-heading">Listado de avances</div>
   <table class="table table-hover">
@@ -77,3 +137,13 @@
 
   </div>
 </div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('ul.nav.nav-tabs li').on('click', function(){
+      window.location=$(this).children('a').attr('href');
+    });
+    if (window.location.hash != ""){
+      $('ul.nav.nav-tabs li a[href="'+window.location.hash+'"]').tab('show');
+    }
+  });
+</script>

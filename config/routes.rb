@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   resources :causes do
     resources :journal_entries
   end
+  post 'payments/:id/pay', to: 'payments#pay', as: 'pay'
   resources :courts, only: [:index]
 
   # Example of regular route:
