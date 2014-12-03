@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 20141130164732) do
 
   create_table "journal_entries", force: true do |t|
     t.string   "subject"
-    t.string   "body"
+    t.text     "body"
     t.datetime "date"
     t.integer  "cause_state_id"
     t.integer  "user_cause_id"

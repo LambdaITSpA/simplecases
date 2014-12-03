@@ -43,6 +43,10 @@
           <strong>Dirección:</strong>
           <%= @client.data.address %>
         </p>
+        <p class="list-group-item">
+          <strong>Información Adicional:</strong>
+          <%= @client.data.other %>
+        </p>
     </div>
     <%= link_to 'Editar', edit_client_path(@client), class: 'btn btn-default btn-xs' %>
     <%= link_to 'Atras', clients_path, class: 'btn btn-default btn-xs' %>
