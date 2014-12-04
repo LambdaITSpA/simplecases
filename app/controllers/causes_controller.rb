@@ -46,6 +46,7 @@ class CausesController < ApplicationController
 
   def destroy
     @cause.destroy
+    redirect_to causes_path
   end
 
   private

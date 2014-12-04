@@ -6,7 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Simple Cases  <%= current_user.todays_payments.count + current_user.late_payments.count > 0 ? "(#{current_user.todays_payments.count + current_user.late_payments.count})" : ''  %></title>
+	<title>Simple Cases
+       <% if current_user %>
+            <%= current_user.todays_payments.count + current_user.late_payments.count > 0 ? "(#{current_user.todays_payments.count + current_user.late_payments.count})" : ''  %>
+        <% end %>
+    </title>
+
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
