@@ -28,8 +28,11 @@ class JournalEntriesController < ApplicationController
   end
 
   def update
-    @journal_entry.update(journal_entry_params)
-    redirect_to cause_url(@cause)
+    if @journal_entry.update(journal_entry_params)
+      redirect_to cause_url(@cause)
+    else
+      render :edit
+    end
   end
 
   def destroy

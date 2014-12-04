@@ -6,7 +6,7 @@
           <%= form_for([@cause, @journal_entry], html: {role: 'form'}) do |f| %>
             <% if @journal_entry.errors.any? %>
               <div class="alert alert-danger" id="error_explanation">
-                <h2><%= pluralize(@journal_entry.errors.count, "error") %> impidió que se ingresara el avance:</h2>
+                <%= pluralize(@journal_entry.errors.count, "error") %> Impidió que su avance se guardara, debido a:
                 <ul>
                   <% @journal_entry.errors.full_messages.each do |message| %>
                     <li><%= message %></li>
