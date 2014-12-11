@@ -22,7 +22,7 @@
                 <p><%= current_user.clients.count %></p>   
             </div>
             <div class="stats-link">
-                <a href="javascript:;">Ver Detalle <i class="fa fa-arrow-circle-o-right"></i></a>
+                <%= link_to 'Ver Detalle <i class="fa fa-arrow-circle-o-right"></i>'.html_safe, clients_path %>
             </div>
         </div>
     </div>
@@ -36,7 +36,7 @@
                 <p><%= current_user.causes.count %></p>    
             </div>
             <div class="stats-link">
-                <a href="javascript:;">Ver Detalle <i class="fa fa-arrow-circle-o-right"></i></a>
+                <%= link_to 'Ver Detalle <i class="fa fa-arrow-circle-o-right"></i>'.html_safe, causes_path %>
             </div>
         </div>
     </div>

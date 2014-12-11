@@ -8,7 +8,7 @@
 	<meta name="author" content="">
 	<title>Simple Cases
        <% if current_user %>
-            <%= current_user.todays_payments.count + current_user.late_payments.count > 0 ? "(#{current_user.todays_payments.count + current_user.late_payments.count})" : ''  %>
+            <%= current_user.notifications? ? "(#{current_user.notifications})" : ''  %>
         <% end %>
     </title>
 
@@ -162,7 +162,7 @@
                 <ul class="nav">
                     <li class="nav-header">Menu</li>
                     <% if current_user %>
-                        <li><%= nav_link '<span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home'.html_safe, user_root_url %></li>
+                        <li><%= nav_link '<span class="fa fa-home" aria-hidden="true"></span> Home'.html_safe, user_root_url %></li>
                         <% if current_user.admin? %>
                             <%= render 'layouts/admin_sidenav' %>
                         <% else %>
