@@ -12,6 +12,14 @@ class User < ActiveRecord::Base
   	self.organization.id == 1
   end
 
+  def notifications?
+    notifications > 0
+  end
+
+  def notifications
+    todays_payments.count + late_payments.count
+  end
+
   def clients
     clients = Hash.new
     self.causes.each do |c|

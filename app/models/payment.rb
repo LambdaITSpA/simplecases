@@ -9,6 +9,10 @@ class Payment < ActiveRecord::Base
 	def self.unpayed
 		where(payed: false)
 	end
+
+	def self.payed
+		where(payed: true)
+	end
 	# are there late payments?
 	def self.late?
 		self.unpayed.late.count > 0

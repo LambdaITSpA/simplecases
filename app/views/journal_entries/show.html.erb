@@ -17,11 +17,11 @@
       <p id="notice"><%= notice %></p>
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">
+          <h2 class="panel-title">
             <span class="label label-<%= @journal_entry.cause_state.color || 'default' %> pull-right">ESTADO: <%= @journal_entry.cause_state.name %></span>
             Avance en: <%= @journal_entry.cause.matter %><br>
             <%= link_to "#{time_ago_in_words(@journal_entry.created_at)} ago", cause_journal_entry_path(@journal_entry.cause.id, @journal_entry.id), class: 'small' %>
-          </h3>
+          </h2>
         </div>
         <div class="panel-body">
           <p>
