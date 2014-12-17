@@ -43,7 +43,7 @@
                 <!-- begin mobile sidebar expand / collapse button -->
                 <div class="navbar-header">
                     <%= link_to '<span class="navbar-logo"></span> Simple Cases'.html_safe, user_root_url, class: 'navbar-brand' %>
-                    <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+                    <button id="mobile-navbar-toggle" type="button" class="navbar-toggle" data-click="sidebar-toggled">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -65,7 +65,8 @@
                         <div class="nav navbar-form navbar-left dropdown open" role="search" ng-controller="GetCausesController">
                             <div class="form-group has-feedback">
                                 <input class="form-control" type="search" placeholder="Buscar" autofocus ng-model="search">
-                                <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                                <button class="btn btn-search" style="right:0px; top:0px;"><i class="fa fa-search"></i></button>
+                                <!--<span class="glyphicon glyphicon-search form-control-feedback"></span>-->
                                 <!--<h1 ng-if="name">Hello, {{name}}</h1>-->
                             </div>
                             <ul class="dropdown-menu" style="left:15px;margin:0px;" ng-if="search" role="menu">
@@ -162,13 +163,14 @@
                 <ul class="nav">
                     <li class="nav-header">Menu</li>
                     <% if current_user %>
-                        <li><%= nav_link '<span class="fa fa-home" aria-hidden="true"></span> Home'.html_safe, user_root_url %></li>
+                        <li class="active dropdown"><%= nav_link '<span class="fa fa-home" aria-hidden="true"></span> Home'.html_safe, user_root_url %></li>
                         <% if current_user.admin? %>
                             <%= render 'layouts/admin_sidenav' %>
                         <% else %>
                             <%= render 'layouts/user_sidenav' %>
                         <% end %>
                     <% end %>
+
                     <!-- begin sidebar minify button 
                     <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
                      end sidebar minify button -->
@@ -283,6 +285,12 @@
         <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
         <!-- end scroll to top btn -->
     </div>
+
+    <script>
+        $(document).ready(function() {
+            App.init();
+        });
+    </script>
     
 </body>
 </html>
