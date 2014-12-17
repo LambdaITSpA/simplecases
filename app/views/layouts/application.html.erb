@@ -6,14 +6,23 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Simple Cases</title>
+	<title>Simple Cases
+       <% if current_user %>
+            <%= current_user.notifications? ? "(#{current_user.notifications})" : ''  %>
+        <% end %>
+    </title>
+
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <!--<link rel="stylesheet" type="text/css" href="assets/sb-admin.css">-->
-    <%= stylesheet_link_tag 'sb-admin.css' %>
-	<%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic' %>
-
+	<%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' %>
+    <%= stylesheet_link_tag 'jquery-ui.min.css' %>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <%# stylesheet_link_tag 'font-awesome.min.css' %>
+    <%= stylesheet_link_tag 'animate.min.css' %>
+    <%= stylesheet_link_tag 'style.css' %>
+    <%= stylesheet_link_tag 'style-responsive.css' %>
+    <%= stylesheet_link_tag 'default.css', id: 'theme' %>
     <%= yield :styles %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= yield :js %>
@@ -21,148 +30,267 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
-	<div id="wrapper">
-
-        <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header" style="width:210px;">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                    <%= link_to 'Simple Cases', user_root_url, class: 'navbar-brand' %>
-                <% if current_user %>
-            </div>
-            <div class="nav navbar-form navbar-left dropdown open" role="search" ng-controller="GetCausesController">
-                <div class="form-group has-feedback">
-                    <input class="form-control" type="search" placeholder="Buscar" autofocus ng-model="search">
-                    <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                    <!--<h1 ng-if="name">Hello, {{name}}</h1>-->
+    <!-- begin #page-loader -->
+    <!--<div id="page-loader" class="fade in"><span class="spinner"></span></div>-->
+    <!-- end #page-loader -->
+     
+    <!-- begin #page-container -->
+    <div id="page-container" class="fade page-sidebar-fixed page-header-fixed in">
+        <!-- begin #header -->
+        <div id="header" class="header navbar navbar-default navbar-fixed-top">
+            <!-- begin container-fluid -->
+            <div class="container-fluid">
+                <!-- begin mobile sidebar expand / collapse button -->
+                <div class="navbar-header">
+                    <%= link_to '<span class="navbar-logo"></span> Simple Cases'.html_safe, user_root_url, class: 'navbar-brand' %>
+                    <button id="mobile-navbar-toggle" type="button" class="navbar-toggle" data-click="sidebar-toggled">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                 </div>
-                <ul class="dropdown-menu" style="left:15px;margin:0px;" ng-if="search" role="menu">
-                    <li role="presentation" class="dropdown-header">Causas</li>
-                    <li role="presentation" ng-repeat="cause in causes | filter:search"><a href="<%= causes_path %>/{{ cause.id }}">{{ cause.matter }}</a></li>
-                    <li role="presentation" class="divider"></li>
-                    <li role="presentation" class="dropdown-header">Clientes</li>
-                    <li role="presentation" ng-repeat="client in clients | filter:search"><a href="<%= clients_path %>/{{ client.id }}">{{ client.name }}</a></li>
+                <!-- end mobile sidebar expand / collapse button -->
+                
+                <!-- begin header navigation right -->
+                <% if current_user %>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <!--<form class="navbar-form full-width">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Enter keyword">
+                                <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
+                            </div>
+                        </form>-->
+
+                        <div class="nav navbar-form navbar-left dropdown open" role="search" ng-controller="GetCausesController">
+                            <div class="form-group has-feedback">
+                                <input class="form-control" type="search" placeholder="Buscar" autofocus ng-model="search">
+                                <button class="btn btn-search" style="right:0px; top:0px;"><i class="fa fa-search"></i></button>
+                                <!--<span class="glyphicon glyphicon-search form-control-feedback"></span>-->
+                                <!--<h1 ng-if="name">Hello, {{name}}</h1>-->
+                            </div>
+                            <ul class="dropdown-menu" style="left:15px;margin:0px;" ng-if="search" role="menu">
+                                <li role="presentation" class="dropdown-header">Causas</li>
+                                <li role="presentation" ng-repeat="cause in causes | filter:search"><a href="<%= causes_path %>/{{ cause.id }}">{{ cause.matter }}</a></li>
+                                <li role="presentation" class="divider"></li>
+                                <li role="presentation" class="dropdown-header">Clientes</li>
+                                <li role="presentation" ng-repeat="client in clients | filter:search"><a href="<%= clients_path %>/{{ client.id }}">{{ client.name }}</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
+                            <i class="fa fa-bell-o"></i>
+                            <% if current_user.notifications? %>
+                            <span class="label"><%= current_user.notifications %></span>
+                            <% end %>
+                        </a>
+                        <ul class="dropdown-menu media-list pull-right animated fadeInDown" style="min-width:250px;">
+                            <li class="dropdown-header">
+                                <% if current_user.notifications? %>
+                                    Notificaciones (<%= current_user.notifications %>)
+                                <% else %>
+                                    Sin notificaciones
+                                <% end %>
+                            </li>
+                            <% if current_user.notifications? %>
+                                <% current_user.todays_payments.each do |tp| %>
+                                <li class="media">
+                                <a href="<%= cause_path(tp.cause) %>#payments">
+                                    <div class="pull-left media-object bg-orange"><i class="fa fa-money"></i></div>
+                                    <div class="media-body">
+                                        <h6 class="media-heading">Cobrar causa</h6>
+                                        <div class="text-muted"><%= tp.cause.matter %></div>
+                                    </div>
+                                </a>
+                                </li>
+                                <% end %>
+                                <% current_user.late_payments.each do |tp| %>
+                                <li class="media">
+                                <a href="<%= cause_path(tp.cause) %>#payments">
+                                    <div class="pull-left media-object bg-red"><i class="fa fa-money"></i></div>
+                                    <div class="media-body">
+                                        <h6 class="media-heading">Pago atrasado en causa</h6>
+                                        <div class="text-muted"><%= tp.cause.matter %></div>
+                                    </div>
+                                </a>  
+                                <% end %>
+                            <% end %>
+                            <!--<li class="dropdown-footer text-center">
+                                <a href="javascript:;">Ver más</a>
+                            </li>-->
+                        </ul>
+                    </li>
+                    <li class="dropdown navbar-user">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                            <div class="pull-left media-object bg-purple" style="border-radius:50%;width:36px;height:36px;text-align:center;color:white;margin-top:-10px;margin-right:10px;padding-top:8px;"><i class="fa fa-3x fa-user"></i></div>
+                            <!--<img src="assets/img/user-13.jpg" alt="">-->
+                            <span class="hidden-xs"><%= current_user.name %></span> <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu animated fadeInLeft">
+                            <li class="arrow"></li>
+                            <li><%= link_to '<span class="glyphicon glyphicon-user"></span> Perfil'.html_safe, user_profile_path %></li>
+                            <li class="divider"></li>
+                            <li><%= link_to('<span class="fa fa-sign-out"></span> Salir'.html_safe, destroy_user_session_path, :method => :delete) %></li>
+                        </ul>
+                    </li>
                 </ul>
                 <% end %>
+                <!-- end header navigation right -->
             </div>
-            <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
-                <% if current_user %>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <%= current_user.name %> <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                        	<%= link_to '<span class="glyphicon glyphicon-user"></span> Perfil'.html_safe, user_profile_path %>
-                        </li>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                        	<%= link_to('<span class="glyphicon glyphicon-off"></span> Salir'.html_safe, destroy_user_session_path, :method => :delete) %>
-                        </li>
-                    </ul>
-                </li>
-                <% end %>
-            </ul>
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
+            <!-- end container-fluid -->
+        </div>
+        <!-- end #header -->
+        
+        <!-- begin #sidebar -->
+        <div id="sidebar" class="sidebar">
+            <!-- begin sidebar scrollbar 
+            <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;"><div data-scrollbar="true" data-height="100%" style="overflow: hidden; width: auto; height: 100%;">-->
+                <!-- begin sidebar user 
+                <ul class="nav">
+                    <li class="nav-profile">
+                        <div class="image">
+                            <a href="javascript:;"><img src="assets/img/user-13.jpg" alt=""></a>
+                        </div>
+                        <div class="info">
+                            Claudio Guerra
+                            <small>Ninja developer</small>
+                        </div>
+                    </li>
+                </ul>-->
+                <!-- end sidebar user -->
+                <!-- begin sidebar nav -->
+                <ul class="nav">
+                    <li class="nav-header">Menu</li>
                     <% if current_user %>
-                        <li><%= nav_link '<span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home'.html_safe, user_root_url %></li>
+                        <li class="active dropdown"><%= nav_link '<span class="fa fa-home" aria-hidden="true"></span> Home'.html_safe, user_root_url %></li>
                         <% if current_user.admin? %>
-                		    <%= render 'layouts/admin_sidenav' %>
+                            <%= render 'layouts/admin_sidenav' %>
                         <% else %>
                             <%= render 'layouts/user_sidenav' %>
                         <% end %>
                     <% end %>
+
+                    <!-- begin sidebar minify button 
+                    <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
+                     end sidebar minify button -->
                 </ul>
+                <!-- end sidebar nav -->
             </div>
-            <!-- /.navbar-collapse -->
-        </nav>
-
-        <div id="page-wrapper" style="min-height:600px;">
-
-            <div class="container-fluid">
-				<%= yield %>
-                <div class="row">
-                    <div class="col-lg-12">
-	                    <% if notice %>
-							<div class="alert alert-success alert-dismissable" role="alert"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><%= notice %></div>
-						<% end %>
-						<% if alert %>
-							<div class="alert alert-danger alert-dismissable" role="alert"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><%= alert %></div>
-						<% end %>
-                    </div>
-                </div>
-
-                <!-- /.row -->
-
-                
-                    <!--
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-yellow">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-shopping-cart fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">124</div>
-                                        <div>New Orders!</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-red">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-support fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">13</div>
-                                        <div>Support Tickets!</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>-->
-                </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container-fluid -->
-
+            <!--<div class="slimScrollBar ui-draggable" style="width: 7px; position: absolute; top: 0px; opacity: 0.4; display: block; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; z-index: 99; right: 1px; height: 445.053855569156px; background: rgb(0, 0, 0);"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; opacity: 0.2; z-index: 90; right: 1px; background: rgb(51, 51, 51);"></div>-->
         </div>
-        <!-- /#page-wrapper -->
-
+            <!-- end sidebar scrollbar -->
+        </div>
+        <div class="sidebar-bg"></div>
+        <!-- end #sidebar -->
+        
+        <!-- begin #content -->
+        <div id="content" class="content">
+            <%= yield %>
+            <!-- begin row -->
+            <div class="row">
+                <!-- begin col-8 
+                <div class="col-md-8 ui-sortable">
+                    <div class="panel panel-inverse">
+                        <div class="panel-heading">
+                            <div class="panel-heading-btn">
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                            </div>
+                            <h4 class="panel-title">Website Analytics (Last 7 Days)</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div id="interactive-chart" class="height-sm" style="padding: 0px; position: relative;"><canvas class="flot-base" width="684" height="300" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 684px; height: 300px;"></canvas><div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 34px; top: 284px; left: 76px; text-align: center;">May&nbsp;15</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 34px; top: 284px; left: 177px; text-align: center;">May&nbsp;19</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 34px; top: 284px; left: 278px; text-align: center;">May&nbsp;22</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 34px; top: 284px; left: 380px; text-align: center;">May&nbsp;25</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 34px; top: 284px; left: 481px; text-align: center;">May&nbsp;28</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 34px; top: 284px; left: 582px; text-align: center;">May&nbsp;31</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; top: 272px; left: 14px; text-align: right;">0</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 244px; left: 7px; text-align: right;">20</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 217px; left: 7px; text-align: right;">40</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 190px; left: 7px; text-align: right;">60</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 163px; left: 7px; text-align: right;">80</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 136px; left: 1px; text-align: right;">100</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 109px; left: 1px; text-align: right;">120</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 82px; left: 1px; text-align: right;">140</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 55px; left: 1px; text-align: right;">160</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 28px; left: 1px; text-align: right;">180</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 1px; left: 1px; text-align: right;">200</div></div></div><canvas class="flot-overlay" width="684" height="300" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 684px; height: 300px;"></canvas><div class="legend"><div style="position: absolute; width: 85px; height: 44px; top: 18px; right: 27px; opacity: 0.85; background-color: rgb(255, 255, 255);"> </div><table style="position:absolute;top:18px;right:27px;;font-size:smaller;color:#545454"><tbody><tr><td class="legendColorBox"><div style="border:1px solid #ddd;padding:1px"><div style="width:4px;height:0;border:5px solid #348fe2;overflow:hidden"></div></div></td><td class="legendLabel">Page Views</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ddd;padding:1px"><div style="width:4px;height:0;border:5px solid #00acac;overflow:hidden"></div></div></td><td class="legendLabel">Visitors</td></tr></tbody></table></div></div>
+                        </div>
+                    </div>
+                    
+                </div>
+                 end col-8 -->
+                <!-- begin col-4 
+                <div class="col-md-4 ui-sortable">
+                    <div class="panel panel-inverse">
+                        <div class="panel-heading">
+                            <div class="panel-heading-btn">
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                            </div>
+                            <h4 class="panel-title">Analytics Details</h4>
+                        </div>
+                        <div class="panel-body p-t-0">
+                            <table class="table table-valign-middle m-b-0">
+                                <thead>
+                                    <tr>    
+                                        <th>Source</th>
+                                        <th>Total</th>
+                                        <th>Trend</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><label class="label label-danger">Unique Visitor</label></td>
+                                        <td>13,203 <span class="text-success"><i class="fa fa-arrow-up"></i></span></td>
+                                        <td><div id="sparkline-unique-visitor"><canvas width="89" height="23" style="display: inline-block; width: 89px; height: 23px; vertical-align: top;"></canvas></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="label label-warning">Bounce Rate</label></td>
+                                        <td>28.2%</td>
+                                        <td><div id="sparkline-bounce-rate"><canvas width="89" height="23" style="display: inline-block; width: 89px; height: 23px; vertical-align: top;"></canvas></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="label label-success">Total Page Views</label></td>
+                                        <td>1,230,030</td>
+                                        <td><div id="sparkline-total-page-views"><canvas width="89" height="23" style="display: inline-block; width: 89px; height: 23px; vertical-align: top;"></canvas></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="label label-primary">Avg Time On Site</label></td>
+                                        <td>00:03:45</td>
+                                        <td><div id="sparkline-avg-time-on-site"><canvas width="89" height="23" style="display: inline-block; width: 89px; height: 23px; vertical-align: top;"></canvas></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="label label-default">% New Visits</label></td>
+                                        <td>40.5%</td>
+                                        <td><div id="sparkline-new-visits"><canvas width="89" height="23" style="display: inline-block; width: 89px; height: 23px; vertical-align: top;"></canvas></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="label label-inverse">Return Visitors</label></td>
+                                        <td>73.4%</td>
+                                        <td><div id="sparkline-return-visitors"><canvas width="89" height="23" style="display: inline-block; width: 89px; height: 23px; vertical-align: top;"></canvas></div></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                 end col-4 -->
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <% if notice %>
+                        <div class="alert alert-success alert-dismissable" role="alert"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><%= notice %></div>
+                    <% end %>
+                    <% if alert %>
+                        <div class="alert alert-danger alert-dismissable" role="alert"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><%= alert %></div>
+                    <% end %>
+                </div>
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end #content -->
+        
+        <!-- begin scroll to top btn -->
+        <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+        <!-- end scroll to top btn -->
     </div>
-    <!-- /#wrapper -->
+
+    <script>
+        $(document).ready(function() {
+            App.init();
+        });
+    </script>
+    
 </body>
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) ->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<!- Latest compiled and minified JavaScript -->
-
 </html>

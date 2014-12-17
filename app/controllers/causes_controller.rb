@@ -27,7 +27,7 @@ class CausesController < ApplicationController
       if @cause.save
         je = JournalEntry.create subject: 'Inicio Causa', body: 'Se da inicio a una nueva Causa.', cause_state: CauseState.find(1), date: Time.now
         @cause.user_causes.first.journal_entries << je
-        format.html { redirect_to @cause, notice: 'Cause was successfully created.' }
+        format.html { redirect_to @cause, notice: "La causa #{@cause.matter} ha sido creada exitosamente." }
         format.json { render :show, status: :created, location: @cause }
       else
         format.html { render :new }
@@ -37,12 +37,16 @@ class CausesController < ApplicationController
   end
 
   def update
-    @cause.update(cause_params)
-    redirect_to @cause
+    if @cause.update(cause_params)
+      redirect_to @cause
+    else
+      render :edit
+    end
   end
 
   def destroy
     @cause.destroy
+    redirect_to causes_path
   end
 
   private
@@ -51,6 +55,6 @@ class CausesController < ApplicationController
     end
 
     def cause_params
-      params.require(:cause).permit(:role, :court_id, :matter, :honorary, :client_id, :area_id)
+      params.require(:cause).permit(:role, :court_id, :matter, :honorary, :first_payment_date, :fee_quantity, :client_id, :area_id)
     end
 end
