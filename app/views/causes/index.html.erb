@@ -11,7 +11,9 @@
         </ol>
     </div>
 </div>
+<% if can? :create, Cause %>
 <%= link_to 'Nueva Causa', new_cause_path, class: 'btn btn-success' %>
+<% end %>
 <% if @causes.count > 0 %>
 <div class="panel panel-default" style="margin-top:20px;">
   <div class="panel-body">
@@ -24,7 +26,9 @@
       <tr>
         <th>Rol</th>
         <th>Caratula</th>
+        <% if can? :read, Payment %>
         <th>Honorarios</th>
+        <% end %>
         <th>Cliente</th>
         <th>Materia</th>
         <th colspan="2"></th>
@@ -36,7 +40,9 @@
         <tr>
           <td><%= cause.role %></td>
           <td><%= cause.matter %></td>
+          <% if can? :read, Payment %>
           <td><%= to_clp cause.honorary %></td>
+          <% end %>
           <td><%= cause.client.id_number %></td>
           <td><%= cause.area.name %></td>
           <td><%= link_to '<span class="glyphicon glyphicon-search" aria-hidden="true"></span> Ver'.html_safe, cause, class: 'btn btn-default btn-xs' %></td>

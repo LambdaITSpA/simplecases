@@ -19,7 +19,7 @@
             <div class="stats-icon"><i class="fa fa-users"></i></div>
             <div class="stats-info">
                 <h4>CLIENTES</h4>
-                <p><%= current_user.clients.count %></p>   
+                <p><%= current_user.organization.clients.count %></p>   
             </div>
             <div class="stats-link">
                 <%= link_to 'Ver Detalle <i class="fa fa-arrow-circle-o-right"></i>'.html_safe, clients_path %>
@@ -33,7 +33,7 @@
             <div class="stats-icon"><i class="fa fa-briefcase"></i></div>
             <div class="stats-info">
                 <h4>CAUSAS</h4>
-                <p><%= current_user.causes.count %></p>    
+                <p><%= current_user.organization.causes.count %></p>    
             </div>
             <div class="stats-link">
                 <%= link_to 'Ver Detalle <i class="fa fa-arrow-circle-o-right"></i>'.html_safe, causes_path %>

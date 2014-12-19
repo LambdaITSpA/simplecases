@@ -5,14 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+admin = UserType.create name: 'admin', long_name: 'Administrador'
+chief_lawyer = UserType.create name: 'chief_lawyer', long_name: 'Abogado Jefe'
+assistant = UserType.create name: 'assistant', long_name: 'Asistente'
 
 #Admins
-claudio = User.create name: 'Claudio Guerra', id_number: '1', email: 'claudevandort@gmail.com', password: '12345678', password_confirmation: '12345678'
-pato = User.create name: 'Patricio Jara', id_number: '2', email: 'patricioalfredo18@gmail.com', password: 'qwe12qwe', password_confirmation: 'qwe12qwe'
+claudio = User.create name: 'Claudio Guerra', user_type: admin, id_number: '1', email: 'claudevandort@gmail.com', password: '12345678', password_confirmation: '12345678'
+pato = User.create name: 'Patricio Jara', user_type: admin, id_number: '2', email: 'patricioalfredo18@gmail.com', password: 'qwe12qwe', password_confirmation: 'qwe12qwe'
 organization = Organization.create name: 'Admin', id_number: '1234', users: [claudio, pato]
 
-test_user = User.create name: 'Juan Perez', id_number: '3', email: 'juan@perez.com', password: 'juanperez', password_confirmation: 'juanperez'
-test_org = Organization.create name: 'Test Company', id_number: '111', users: [test_user]
+test_lawyer = User.create name: 'Juan Perez', user_type: chief_lawyer, id_number: '3', email: 'juan@perez.com', password: 'juanperez', password_confirmation: 'juanperez'
+test_assistant = User.create name: 'Nicolás Vera', user_type: assistant, id_number: '4', email: 'nico@vera.com', password: 'nicovera', password_confirmation: 'nicovera'
+test_org = Organization.create name: 'Test Company', id_number: '111', users: [test_lawyer, test_assistant]
 
 #static stuff
 #juridica = CauseType.create name: 'Causa Jurídica'

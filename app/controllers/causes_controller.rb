@@ -3,7 +3,7 @@ class CausesController < ApplicationController
   before_action :set_cause, only: [:show, :edit, :update, :destroy]
 
   def index
-    @causes = Cause.all
+    @causes = current_user.organization.causes
     respond_to do |format|
       format.html
       format.json

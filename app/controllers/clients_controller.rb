@@ -2,7 +2,7 @@ class ClientsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_client, only: [:show, :edit, :update]
 	def index
-		@clients = current_user.clients
+		@clients = current_user.organization.clients
 		respond_to do |format|
 			format.html
 			unless params[:id_number]

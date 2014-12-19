@@ -4,5 +4,5 @@ docker run -d -p 127.0.0.1:5432:5432 --name simplecases-pg-dev claudevandort/sim
 /bin/bash -l -c "rake db:migrate RAILS_ENV=development"
 /bin/bash -l -c "rake db:seed --trace"
 docker run -d --net="host" -v $PWD:/var/www/webapp:rw --name simplecases-rails-dev claudevandort/simplecases-rails:dev
-#docker run --net="host" -v $PWD:/var/www/webapp:ro --name simplecases-rails-dev -i -t claudevandort/simplecases-rails:dev /bin/bash
+#docker run --net="host" -v $PWD:/var/www/webapp:rw --name simplecases-rails-dev -i -t claudevandort/simplecases-rails:dev /bin/bash
 #docker run --name simplecases-pg-dev -i -t claudevandort/simplecases-pg:dev /bin/bash
