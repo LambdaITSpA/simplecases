@@ -1,5 +1,5 @@
 FROM ubuntu:12.04
-ENV REFRESHED_AT 2014-23-10 00:00
+ENV REFRESHED_AT 2014-16-12 15:31
 
 RUN apt-get update
 RUN apt-get install -y python-software-properties software-properties-common
@@ -29,9 +29,9 @@ ENV APACHE_PID_FILE /var/run/apache2.pid
 
 RUN /bin/bash -l -c "gem install passenger"
 RUN /bin/bash -l -c "passenger-install-apache2-module"
-RUN echo "LoadModule passenger_module /usr/local/rvm/gems/ruby-2.1.0/gems/passenger-4.0.53/buildout/apache2/mod_passenger.so" >> /etc/apache2/apache2.conf
+RUN echo "LoadModule passenger_module /usr/local/rvm/gems/ruby-2.1.0/gems/passenger-4.0.55/buildout/apache2/mod_passenger.so" >> /etc/apache2/apache2.conf
 RUN echo "<IfModule mod_passenger.c>" >> /etc/apache2/apache2.conf
-RUN echo "  PassengerRoot /usr/local/rvm/gems/ruby-2.1.0/gems/passenger-4.0.53" >> /etc/apache2/apache2.conf
+RUN echo "  PassengerRoot /usr/local/rvm/gems/ruby-2.1.0/gems/passenger-4.0.55" >> /etc/apache2/apache2.conf
 RUN echo "  PassengerDefaultRuby /usr/local/rvm/gems/ruby-2.1.0/wrappers/ruby" >> /etc/apache2/apache2.conf
 RUN echo "</IfModule>" >> /etc/apache2/apache2.conf
 
