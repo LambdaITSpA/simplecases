@@ -11,7 +11,52 @@
         </ol>
     </div>
 </div>
-<%= render 'form' %>
+<div class="row">
+  <div class="col-md-6">
+<%= form_for(@user, url: {action: "update"}, html: {role: 'form'}) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :id_number %><br>
+    <%= f.text_field :id_number, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :user_type_id, 'Tipo de usuario' %><br>
+    <%= f.select :user_type_id, options_from_collection_for_select(UserType.all, :id, :name, @user.user_type.id.to_i), {}, {class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email %><br>
+    <%= f.text_field :email, class: 'form-control' %>
+  </div>
+  <!--<div class="form-group">
+    <%= f.label :password %><br>
+    <%= f.password_field :password, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
+  </div>-->
+  <div class="actions">
+    <%= f.submit nil, class: 'btn btn-primary' %>
+  </div>
+<% end %>
+  </div>
+  <div class="col-md-6"></div>
+</div>
 
 <%= link_to 'Ver', organization_user_path(@organization, @user), class: 'btn btn-default btn-xs' %> |
 <%= link_to 'Atrás', organization_users_path, class: 'btn btn-default btn-xs' %>
