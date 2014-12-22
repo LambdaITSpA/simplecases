@@ -36,20 +36,20 @@
   </div>
   <div class="field">
     <%= f.label :user_type_id, 'Tipo de usuario' %><br>
-    <%= f.select :user_type_id, options_from_collection_for_select(UserType.all, :id, :name), {}, {class: 'form-control'} %>
+    <%= f.select :user_type_id, options_from_collection_for_select(UserType.all, :id, :name, @user.user_type.id.to_i), {}, {class: 'form-control'} %>
   </div>
   <div class="form-group">
     <%= f.label :email %><br>
     <%= f.text_field :email, class: 'form-control' %>
   </div>
-  <div class="form-group">
+  <!--<div class="form-group">
     <%= f.label :password %><br>
     <%= f.password_field :password, class: 'form-control' %>
   </div>
   <div class="form-group">
     <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation, class: 'form-control' %>
-  </div>
+  </div>-->
   <div class="actions">
     <%= f.submit nil, class: 'btn btn-primary' %>
   </div>
