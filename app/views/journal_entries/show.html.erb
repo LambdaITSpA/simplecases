@@ -37,6 +37,11 @@
             <strong>Descripción:</strong>
             <%= @journal_entry.body %>
           </p>
+
+           <p>
+            <strong>Fecha:</strong>
+            <%= @journal_entry.date.strftime("%d-%b") %>
+          </p>
         </div>
       </div>
 
