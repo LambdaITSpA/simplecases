@@ -1,4 +1,4 @@
-json.array!(@clients) do |k, client|
+json.array!(@clients) do |client|
   json.id client.id
   json.id_number client.id_number
   json.name client.name

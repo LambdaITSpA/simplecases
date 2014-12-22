@@ -39,6 +39,7 @@
                 <option ng-repeat="court in courts" value='{{court.id}}'>{{court.name}}</option>
               </select>
             </div>
+            <% if can? :read, Payment %>
               <div class="field">
                 <%= f.label :honorary, 'Honorarios' %><br>
                 <%= f.text_field :honorary, class: 'form-control' %>
@@ -51,6 +52,7 @@
                 <%= f.label :fee_quantity, 'Cantidad de Cuotas' %><br>
                 <%= f.text_field :fee_quantity, class: 'form-control' %>
               </div>
+            <% end %>
           </div>
           <div class="actions" style="margin-top:20px;">
             <%= f.submit nil, class: 'btn btn-primary' %>

@@ -1,4 +1,4 @@
-    <% content_for :styles do %>
+<% content_for :styles do %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 <% end %>
@@ -21,9 +21,9 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <% if current_user %>
-                    <%= link_to 'Dashboard', user_root_path, class: 'btn btn-link' %>
+                        <%= link_to 'Dashboard', user_root_path, class: 'btn btn-link' %>
                     <% else %>
-                    <%= link_to 'Iniciar sesión', new_user_session_path, class: 'btn btn-default btn-lg' %>
+                        <%= link_to 'Iniciar sesión', new_user_session_path, class: 'btn btn-link btn-lg' %>
                     <% end %>
                 </li>
             </ul>
