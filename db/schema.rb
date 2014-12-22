@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141130164732) do
+ActiveRecord::Schema.define(version: 20141216174339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -155,12 +155,20 @@ ActiveRecord::Schema.define(version: 20141130164732) do
   add_index "user_causes", ["cause_id"], name: "index_user_causes_on_cause_id", using: :btree
   add_index "user_causes", ["user_id"], name: "index_user_causes_on_user_id", using: :btree
 
+  create_table "user_types", force: true do |t|
+    t.string   "name"
+    t.string   "long_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "id_number"
     t.string   "email",                  default: "", null: false
     t.string   "password"
     t.integer  "organization_id"
+    t.integer  "user_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "encrypted_password",     default: "", null: false
@@ -177,5 +185,6 @@ ActiveRecord::Schema.define(version: 20141130164732) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["organization_id"], name: "index_users_on_organization_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["user_type_id"], name: "index_users_on_user_type_id", using: :btree
 
 end

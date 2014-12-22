@@ -23,11 +23,13 @@
           Cliente
         </a>
       </li>
+      <% if can? :read, Payment %>
       <li role="presentation">
         <a data-toggle="tab" href="#payments" aria-controls="payments" role="tab">
           Pagos
         </a>
       </li>
+      <% end %>
   </ul>
   <div class="tab-content panel panel-default panel-body">
       <div class="tab-pane fade in active" id="cause_detail">
@@ -41,7 +43,9 @@
             <tr>
               <td>Cliente: <%= @cause.client.name %></td>
               <td><span class="label label-<%= @cause.state.color || 'default' %>">ESTADO: <%= @cause.state.name %></span></td>
+              <% if can? :read, Payment %>
               <td>Honorarios: <%= to_clp @cause.honorary %></td>
+              <% end %>
             </tr>
           </table>
       </div>
@@ -61,6 +65,7 @@
             </tr>
           </table>
       </div>
+      <% if can? :read, Payment %>
       <div class="tab-pane fade" id="payments">
           <div class="row text-center" style="margin-bottom: 10px;">
             <div class="col-md-1"></div>
@@ -91,6 +96,7 @@
             <% end %>
           </table>
       </div>
+      <% end %>
   </div>
 </div>
 <div class="row m-b-15">

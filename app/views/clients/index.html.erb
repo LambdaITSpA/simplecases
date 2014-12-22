@@ -21,7 +21,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @clients.each do |key, client| %>
+      <% @clients.each do |client| %>
         <tr onmouseover="this.style.cursor='pointer'" onclick="window.location ='<%=client_path client%>'">
           <td><%= link_to client.data.name, client %></td>
           <td><%= client.id_number %></td>

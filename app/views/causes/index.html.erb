@@ -11,7 +11,9 @@
         </ol>
     </div>
 </div>
+<% if can? :create, Cause %>
 <%= link_to 'Nueva Causa', new_cause_path, class: 'btn btn-success' %>
+<% end %>
 <% if @causes.count > 0 %>
 <div class="panel panel-default" style="margin-top:20px;">
   <div class="panel-body">

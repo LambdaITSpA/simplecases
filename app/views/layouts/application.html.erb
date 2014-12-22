@@ -7,9 +7,11 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<title>Simple Cases
-       <% if current_user %>
+    <% if can? :read, Payment %>
+        <% if current_user %>
             <%= current_user.notifications? ? "(#{current_user.notifications})" : ''  %>
         <% end %>
+    <% end %>
     </title>
 
 
@@ -81,19 +83,19 @@
                     <li class="dropdown">
                         <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
                             <i class="fa fa-bell-o"></i>
-                            <% if current_user.notifications? %>
+                            <% if current_user.notifications? and can? :read, Payment %>
                             <span class="label"><%= current_user.notifications %></span>
                             <% end %>
                         </a>
                         <ul class="dropdown-menu media-list pull-right animated fadeInDown" style="min-width:250px;">
                             <li class="dropdown-header">
-                                <% if current_user.notifications? %>
+                                <% if current_user.notifications? and can? :read, Payment %>
                                     Notificaciones (<%= current_user.notifications %>)
                                 <% else %>
                                     Sin notificaciones
                                 <% end %>
                             </li>
-                            <% if current_user.notifications? %>
+                            <% if current_user.notifications? and can? :read, Payment %>
                                 <% current_user.todays_payments.each do |tp| %>
                                 <li class="media">
                                 <a href="<%= cause_path(tp.cause) %>#payments">
