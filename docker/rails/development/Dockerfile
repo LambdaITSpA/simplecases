@@ -13,7 +13,8 @@ RUN /bin/bash -l -c "rvm requirements"
 RUN /bin/bash -l -c "rvm install 2.1.0"
 RUN /bin/bash -l -c "rvm --default use 2.1.0"
 RUN /bin/bash -l -c "gem install rails --no-ri --no-rdoc"
-RUN apt-get install -y postgresql-client libpq-dev
+RUN apt-get install -y postgresql-client libpq-dev 
+RUN apt-get install -y postfix
 
 COPY Gemfile /var/www/webapp/Gemfile
 COPY Gemfile.lock /var/www/webapp/Gemfile.lock
