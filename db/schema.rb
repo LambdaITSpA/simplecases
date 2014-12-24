@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141216174339) do
+ActiveRecord::Schema.define(version: 20141224113658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,12 +68,12 @@ ActiveRecord::Schema.define(version: 20141216174339) do
     t.integer  "phone"
     t.string   "email"
     t.integer  "person_id"
-    t.integer  "client_id"
+    t.integer  "organization_client_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "companies", ["client_id"], name: "index_companies_on_client_id", using: :btree
+  add_index "companies", ["organization_client_id"], name: "index_companies_on_organization_client_id", using: :btree
   add_index "companies", ["person_id"], name: "index_companies_on_person_id", using: :btree
 
   create_table "courts", force: true do |t|
@@ -99,6 +99,16 @@ ActiveRecord::Schema.define(version: 20141216174339) do
 
   add_index "journal_entries", ["cause_state_id"], name: "index_journal_entries_on_cause_state_id", using: :btree
   add_index "journal_entries", ["user_cause_id"], name: "index_journal_entries_on_user_cause_id", using: :btree
+
+  create_table "organization_clients", force: true do |t|
+    t.integer  "client_id"
+    t.integer  "organization_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "organization_clients", ["client_id"], name: "index_organization_clients_on_client_id", using: :btree
+  add_index "organization_clients", ["organization_id"], name: "index_organization_clients_on_organization_id", using: :btree
 
   create_table "organizations", force: true do |t|
     t.string   "name"
@@ -132,12 +142,12 @@ ActiveRecord::Schema.define(version: 20141216174339) do
     t.string   "phone"
     t.string   "address"
     t.text     "other"
-    t.integer  "client_id"
+    t.integer  "organization_client_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "people", ["client_id"], name: "index_people_on_client_id", using: :btree
+  add_index "people", ["organization_client_id"], name: "index_people_on_organization_client_id", using: :btree
 
   create_table "regions", force: true do |t|
     t.string   "name"

@@ -1,5 +1,7 @@
 class Organization < ActiveRecord::Base
 	has_many :users
+	has_many :organization_clients
+	has_many :clients, through: :organization_clients
 	def causes
 		Cause.joins(users: :organization).where(organizations: {id: self.id})
 	end
