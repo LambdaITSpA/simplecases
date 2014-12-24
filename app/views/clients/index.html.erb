@@ -18,17 +18,13 @@
       <tr>
         <th>Nombre</th>
         <th>Rut</th>
-        <th>Email</th>
-        <th>Teléfono</th>
       </tr>
     </thead>
     <tbody>
       <% @clients.each do |client| %>
-        <tr onmouseover="this.style.cursor='pointer'" onclick="window.location ='<%= client_path client %>'">
+        <tr onmouseover="this.style.cursor='pointer'" onclick="window.location ='<%=client_path client%>'">
           <td><%= link_to client.data(current_user.organization.id).name, client %></td>
           <td><%= client.id_number %></td>
-          <td><%= client.data(current_user.organization.id).email %></td>
-          <td><%= client.data(current_user.organization.id).phone %></td>
         </tr>
       <% end %>
     </tbody>
