@@ -1,4 +1,4 @@
 class Person < ActiveRecord::Base
-  belongs_to :client
+  belongs_to :organization_client
   has_one :company
 end

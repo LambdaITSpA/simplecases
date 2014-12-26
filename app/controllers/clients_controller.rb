@@ -46,7 +46,8 @@ class ClientsController < ApplicationController
 		    end
 		elsif params[:client_type_id].to_i == 1
 			@client = Client.new id_number: params[:id_number], client_type_id: params[:client_type_id]
-	      	@person = Person.new name: params[:name].split.map(&:capitalize).join(' '), email: params[:email], phone: params[:phone], address: params[:address], other: params[:other], client: @client
+			@organization_client = OrganizationClient.create client: @client, organization: current_user.organization
+	      	@person = Person.new name: params[:name].split.map(&:capitalize).join(' '), email: params[:email], phone: params[:phone], address: params[:address], other: params[:other], organization_client_id: @organization_client.id
 	      	respond_to do |format|
 				if @client.save and @person.save
 					@notice = 'Persona creada exitosamente.'
@@ -61,11 +62,7 @@ class ClientsController < ApplicationController
 	end
 	def update
 		@client.update id_number: params[:id_number], client_type_id: params[:client_type_id]
-		if params[:client_type_id].to_i == 1
-			@client.person.update name: params[:name].split.map(&:capitalize).join(' '), email: params[:email], phone: params[:phone], address: params[:address], other: params[:other], client: @client
-		elsif params[:client_type_id].to_i == 2
-			@client.company.update name: params[:name].split.map(&:capitalize).join(' '), address: params[:address], phone: params[:phone], email: params[:email], client: @client
-		end
+		@client.data(current_user.organization.id).update name: params[:name].split.map(&:capitalize).join(' '), email: params[:email], phone: params[:phone], address: params[:address], other: params[:other]
 		redirect_to @client
 	end
 	private

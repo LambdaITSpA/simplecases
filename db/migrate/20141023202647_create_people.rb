@@ -6,7 +6,7 @@ class CreatePeople < ActiveRecord::Migration
       t.string :phone
       t.string :address
       t.text :other
-      t.references :client, index: true
+      t.references :organization_client, index: true
 
       t.timestamps
     end

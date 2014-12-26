@@ -26,7 +26,7 @@
         <div class="panel-body">
           <p>
             <strong>Cliente:</strong>
-            <%= @journal_entry.cause.client.name %>
+            <%= @journal_entry.cause.client.data(current_user.organization.id).name %>
           </p>
           <p>
             <strong>Asunto:</strong>

@@ -35,6 +35,7 @@ laboral = Area.create name: 'Laboral'
 cobranza = Area.create name: 'Cobranza'
 familia = Area.create name: 'Familia'
 penal = Area.create name: 'Penal'
+general = Area.create name: 'General'
 Court.create [{name: '1º Juzgado Civil de Santiago', area: civil, region: santiago},
 				{name: '2º Juzgado Civil de Santiago', area: civil, region: santiago},
 				{name: '3º Juzgado Civil de Santiago', area: civil, region: santiago},
@@ -133,5 +134,6 @@ Court.create [{name: '1º Juzgado Civil de Santiago', area: civil, region: santi
 				{name: 'Tribunal de Juicio Oral en lo Penal de Talagante', area: penal, region: san_miguel},
 				{name: 'Tribunal de Juicio Oral en lo Penal de Puente Alto', area: penal, region: san_miguel},
 				{name: 'Tribunal de Juicio Oral en lo Penal de San Bernardo', area: penal, region: san_miguel},
-				{name: 'Tribunal de Juicio Oral en lo Penal de Melipilla', area: penal, region: san_miguel}]
+				{name: 'Tribunal de Juicio Oral en lo Penal de Melipilla', area: penal, region: san_miguel},
+				{name: 'Sin Tribunal', area: general, region: santiago}]
 

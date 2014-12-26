@@ -31,6 +31,15 @@ class User < ActiveRecord::Base
     todays_payments.count + late_payments.count
   end
 
+  def self.notify
+    users = User.all
+    users.each do |u|
+      if u.notifications?
+        UserMailer.test(u).deliver
+      end
+    end
+  end
+
   def clients
     clients = Hash.new
     self.causes.each do |c|
@@ -53,7 +62,8 @@ class User < ActiveRecord::Base
   end
 
   def late_payments
+    Payment.joins(cause: {users: :organization}).where('organizations.id = ? AND payments.date < ? AND payments.payed = ?', self.organization.id, Date.today, false) #organizations: {id: self.organization.id}, payments:{date: Date.today, payed: false})
     #Payment.joins(cause: :user_causes).where('user_causes.user_id = ? AND payments.date < ? AND payments.payed = ?', self.id, Date.today, false)
-    self.organization.open_causes.count > 0 ? self.organization.open_causes.map(&:payments)[0].where('date < ? AND payed = ?', Date.today, false) : []
+    #self.organization.open_causes.count > 0 ? self.organization.open_causes.map(&:payments)[0].where('date < ? AND payed = ?', Date.today, false) : []
   end
 end
