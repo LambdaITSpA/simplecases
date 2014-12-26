@@ -10,7 +10,7 @@
 <!-- begin row -->
 <div class="row">
     <!-- begin col-3 -->
-    <div class="col-md-3 col-sm-6 ui-sortable">
+    <div class="col-md-12 col-sm-8 ui-sortable">
     </div>
     <!-- end col-3 -->
     <!-- begin col-3 -->
@@ -34,6 +34,30 @@
             <div class="stats-info">
                 <h4>CAUSAS</h4>
                 <p><%= current_user.organization.causes.count %></p>    
+            </div>
+            <div class="stats-link">
+                <%= link_to 'Ver Detalle <i class="fa fa-arrow-circle-o-right"></i>'.html_safe, causes_path %>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 ui-sortable">
+        <div class="widget widget-stats bg-blue">
+            <div class="stats-icon"><i class="fa fa-briefcase"></i></div>
+            <div class="stats-info">
+                <h4>CAUSAS DE FAMILIA</h4>
+                <p><%= current_user.organization.causes.family.count %></p>    
+            </div>
+            <div class="stats-link">
+                <%= link_to 'Ver Detalle <i class="fa fa-arrow-circle-o-right"></i>'.html_safe, causes_path %>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 ui-sortable">
+        <div class="widget widget-stats bg-green">
+            <div class="stats-icon"><i class="fa fa-briefcase"></i></div>
+            <div class="stats-info">
+                <h4>CAUSAS PENALES</h4>
+                <p><%= current_user.organization.causes.penal.count %></p>    
             </div>
             <div class="stats-link">
                 <%= link_to 'Ver Detalle <i class="fa fa-arrow-circle-o-right"></i>'.html_safe, causes_path %>

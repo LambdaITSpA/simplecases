@@ -4,7 +4,7 @@ class Organization < ActiveRecord::Base
 		Cause.joins(users: :organization).where(organizations: {id: self.id})
 	end
 	def clients
-		Client.joins(causes: {users: :organization}).where(organizations: {id: self.id})
+		Client.joins(causes: {users: :organization}).where(organizations: {id: self.id}).distinct
 	end
 
 	def open_causes
