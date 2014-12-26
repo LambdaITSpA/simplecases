@@ -1,0 +1,21 @@
+<p>Estimado <%= @user.name %>,</p>
+
+<p>Usted tiene:</p>
+
+<% if @user.late_payments.count > 0 %>
+<%= @user.late_payments.count %> cobros atrasados.
+	<ul>
+		<% @user.late_payments.each do |lp| %>
+			<li><%= link_to "Cuota #{lp.payment_number} de causa #{lp.cause.matter}", "#{cause_url(lp.cause)}#payments" %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<% if @user.todays_payments.count > 0 %>
+<%= @user.todays_payments.count %> cuotas por cobrar el día de hoy.
+	<ul>
+		<% @user.todays_payments.each do |tp| %>
+			<li><%= link_to "Cuota #{tp.payment_number} de causa #{tp.cause.matter}", "#{cause_url(tp.cause)}#payments" %></li>
+		<% end %>
+	</ul>
+<% end %>
