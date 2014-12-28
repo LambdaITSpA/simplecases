@@ -7,11 +7,20 @@ class User < ActiveRecord::Base
   has_many :user_causes
   has_many :causes, through: :user_causes
   has_many :journal_entries
+  belongs_to :organization_profile
   belongs_to :user_type
 
   def admin?
   	#self.user_type.id == 1
     self.role :admin
+  end
+
+  def permissions
+    self.organization_profile.profile.permissions
+  end
+
+  def profile
+    self.organization_profile.profile
   end
 
   def self.causes

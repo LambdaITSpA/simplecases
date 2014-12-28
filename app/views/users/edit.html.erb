@@ -31,12 +31,12 @@
     <%= f.text_field :name, class: 'form-control' %>
   </div>
   <div class="form-group">
+    <%= f.label :organization_profile_id, 'Perfil' %><br>
+    <%= f.select :organization_profile_id, options_from_collection_for_select(@organization.profiles, :id, :long_name, @user.profile.id.to_i), {}, {class: 'form-control'} %>
+  </div>
+  <div class="form-group">
     <%= f.label :id_number %><br>
     <%= f.text_field :id_number, class: 'form-control' %>
-  </div>
-  <div class="field">
-    <%= f.label :user_type_id, 'Tipo de usuario' %><br>
-    <%= f.select :user_type_id, options_from_collection_for_select(UserType.all, :id, :name, @user.user_type.id.to_i), {}, {class: 'form-control'} %>
   </div>
   <div class="form-group">
     <%= f.label :email %><br>
