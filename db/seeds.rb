@@ -11,7 +11,7 @@ assistant = UserType.create name: 'assistant', long_name: 'Asistente'
 
 #Profiles
 #puts 'LOL!'
-all = Subject.create name: 'All', class_name: ':all'
+all = Subject.create name: 'Todo', class_name: ':all'
 causas = Subject.create name: 'Causas', class_name: 'Cause'
 avances = Subject.create name: 'Avances', class_name: 'JournalEntry'
 pagos = Subject.create name: 'Pagos', class_name: 'Payment'

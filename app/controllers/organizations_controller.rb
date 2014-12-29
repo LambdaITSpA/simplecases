@@ -26,7 +26,19 @@ class OrganizationsController < ApplicationController
   # POST /organizations.json
   def create
     @organization = Organization.new(organization_params)
+    causas = Subject.find_by class_name: 'Cause'
+    avances = Subject.find_by class_name: 'JournalEntry'
+    pagos = Subject.find_by class_name: 'Payment'
+    manage = Action.find_by name: 'manage'
+    manage_causes = Permission.find_by_subject_id_and_action_id causas.id, manage.id
+    manage_je = Permission.find_by_subject_id_and_action_id avances.id, manage.id
+    manage_payments = Permission.find_by_subject_id_and_action_id pagos.id, manage.id
 
+    admin = Profile.create long_name: 'Administrador', name: 'admin', permissions: [manage_causes, manage_je, manage_payments]
+    lawyer = Profile.create long_name: 'Abogado', name: 'lawyer', permissions: [manage_causes, manage_je]
+    executive = Profile.create long_name: 'Ejecutivo', name: 'executive', permissions: [manage_payments]
+
+    @organization.profiles = [admin, lawyer, executive]
     respond_to do |format|
       if @organization.save
         format.html { redirect_to @organization, notice: 'Organization was successfully created.' }

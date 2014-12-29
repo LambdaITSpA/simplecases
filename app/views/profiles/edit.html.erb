@@ -1,0 +1,45 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Perfil <small><%= @profile.long_name %> de <%= @organization.name %></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li class="active">
+                <i class="fa fa-dashboard"></i> <%= link_to 'Organizaciones', organization_path(@organization) %> > <%= link_to 'Perfiles', organization_profiles_path(@organization) %> > Editar
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+<%= form_for(@profile, url: {action: "update"}, html: {role: 'form'}) do |f| %>
+  <% if @profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% @profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :long_name %><br>
+    <%= f.text_field :long_name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="actions">
+    <%= f.submit nil, class: 'btn btn-primary' %>
+  </div>
+<% end %>
+  </div>
+  <div class="col-md-6"></div>
+</div>
+
+<%= link_to 'Ver', organization_profile_path(@organization, @profile), class: 'btn btn-default btn-xs' %> |
+<%= link_to 'Atrás', organization_profiles_path(@organization), class: 'btn btn-default btn-xs' %>
