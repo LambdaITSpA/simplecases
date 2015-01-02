@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141216174339) do
+ActiveRecord::Schema.define(version: 20141227145013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "actions", force: true do |t|
+    t.string   "long_name"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "areas", force: true do |t|
     t.string   "name"
@@ -68,12 +75,12 @@ ActiveRecord::Schema.define(version: 20141216174339) do
     t.integer  "phone"
     t.string   "email"
     t.integer  "person_id"
-    t.integer  "client_id"
+    t.integer  "organization_client_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "companies", ["client_id"], name: "index_companies_on_client_id", using: :btree
+  add_index "companies", ["organization_client_id"], name: "index_companies_on_organization_client_id", using: :btree
   add_index "companies", ["person_id"], name: "index_companies_on_person_id", using: :btree
 
   create_table "courts", force: true do |t|
@@ -99,6 +106,26 @@ ActiveRecord::Schema.define(version: 20141216174339) do
 
   add_index "journal_entries", ["cause_state_id"], name: "index_journal_entries_on_cause_state_id", using: :btree
   add_index "journal_entries", ["user_cause_id"], name: "index_journal_entries_on_user_cause_id", using: :btree
+
+  create_table "organization_clients", force: true do |t|
+    t.integer  "client_id"
+    t.integer  "organization_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "organization_clients", ["client_id"], name: "index_organization_clients_on_client_id", using: :btree
+  add_index "organization_clients", ["organization_id"], name: "index_organization_clients_on_organization_id", using: :btree
+
+  create_table "organization_profiles", force: true do |t|
+    t.integer  "organization_id"
+    t.integer  "profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "organization_profiles", ["organization_id"], name: "index_organization_profiles_on_organization_id", using: :btree
+  add_index "organization_profiles", ["profile_id"], name: "index_organization_profiles_on_profile_id", using: :btree
 
   create_table "organizations", force: true do |t|
     t.string   "name"
@@ -132,15 +159,50 @@ ActiveRecord::Schema.define(version: 20141216174339) do
     t.string   "phone"
     t.string   "address"
     t.text     "other"
-    t.integer  "client_id"
+    t.integer  "organization_client_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "people", ["client_id"], name: "index_people_on_client_id", using: :btree
+  add_index "people", ["organization_client_id"], name: "index_people_on_organization_client_id", using: :btree
+
+  create_table "permissions", force: true do |t|
+    t.integer  "subject_id"
+    t.integer  "action_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "permissions", ["action_id"], name: "index_permissions_on_action_id", using: :btree
+  add_index "permissions", ["subject_id"], name: "index_permissions_on_subject_id", using: :btree
+
+  create_table "profile_permissions", force: true do |t|
+    t.integer  "permission_id"
+    t.integer  "profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "profile_permissions", ["permission_id"], name: "index_profile_permissions_on_permission_id", using: :btree
+  add_index "profile_permissions", ["profile_id"], name: "index_profile_permissions_on_profile_id", using: :btree
+
+  create_table "profiles", force: true do |t|
+    t.string   "long_name"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "regions", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subjects", force: true do |t|
+    t.string   "name"
+    t.string   "class_name"
+    t.string   "scope"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -165,17 +227,18 @@ ActiveRecord::Schema.define(version: 20141216174339) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "id_number"
-    t.string   "email",                  default: "", null: false
+    t.string   "email",                   default: "", null: false
     t.string   "password"
     t.integer  "organization_id"
     t.integer  "user_type_id"
+    t.integer  "organization_profile_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "encrypted_password",      default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",           default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -184,6 +247,7 @@ ActiveRecord::Schema.define(version: 20141216174339) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["organization_id"], name: "index_users_on_organization_id", using: :btree
+  add_index "users", ["organization_profile_id"], name: "index_users_on_organization_profile_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["user_type_id"], name: "index_users_on_user_type_id", using: :btree
 

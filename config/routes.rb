@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :clients
   resources :organizations do
     resources :users
+    resources :profiles
   end
   resources :causes do
     resources :journal_entries

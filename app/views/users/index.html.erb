@@ -19,6 +19,7 @@
     <tr>
       <th>Name</th>
       <th>Id number</th>
+      <th>Profile</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -28,6 +29,7 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.id_number %></td>
+        <td><%= user.profile.long_name %></td>
         <td><%= link_to 'Ver', organization_user_path(@organization, user), class: 'btn btn-default btn-xs' %></td>
         <td><%= link_to 'Editar', edit_organization_user_path(@organization, user), class: 'btn btn-primary btn-xs' %></td>
         <td><%= link_to 'Eliminar', organization_user_path(@organization, user), class: 'btn btn-danger btn-xs', method: :delete, data: { confirm: "¿Estás seguro de eliminar al usuario #{user.name}?" } %></td>
@@ -39,4 +41,4 @@
 <br>
 
 <%= link_to 'Nuevo usuario', new_organization_user_path, class: 'btn btn-success' %>
-<%= link_to 'Atrás', organizations_path, class: 'btn btn-default btn-xs' %>
+<%= link_to 'Atrás', @organization, class: 'btn btn-default btn-xs' %>

@@ -35,4 +35,13 @@ class Cause < ActiveRecord::Base
   def state
   	self.journal_entries.last.cause_state
   end
+
+  def self.family
+    where(causes:{area_id:4})
+  end
+
+  def self.penal
+    where(causes:{area_id:5})
+  end
+  
 end

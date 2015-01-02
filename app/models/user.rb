@@ -7,11 +7,20 @@ class User < ActiveRecord::Base
   has_many :user_causes
   has_many :causes, through: :user_causes
   has_many :journal_entries
+  belongs_to :organization_profile
   belongs_to :user_type
 
   def admin?
   	#self.user_type.id == 1
     self.role :admin
+  end
+
+  def permissions
+    self.organization_profile.profile.permissions
+  end
+
+  def profile
+    self.organization_profile.profile
   end
 
   def self.causes
@@ -29,6 +38,15 @@ class User < ActiveRecord::Base
 
   def notifications
     todays_payments.count + late_payments.count
+  end
+
+  def self.notify
+    users = User.all
+    users.each do |u|
+      if u.notifications?
+        UserMailer.test(u).deliver
+      end
+    end
   end
 
   def clients
@@ -53,7 +71,8 @@ class User < ActiveRecord::Base
   end
 
   def late_payments
+    Payment.joins(cause: {users: :organization}).where('organizations.id = ? AND payments.date < ? AND payments.payed = ?', self.organization.id, Date.today, false) #organizations: {id: self.organization.id}, payments:{date: Date.today, payed: false})
     #Payment.joins(cause: :user_causes).where('user_causes.user_id = ? AND payments.date < ? AND payments.payed = ?', self.id, Date.today, false)
-    self.organization.open_causes.count > 0 ? self.organization.open_causes.map(&:payments)[0].where('date < ? AND payed = ?', Date.today, false) : []
+    #self.organization.open_causes.count > 0 ? self.organization.open_causes.map(&:payments)[0].where('date < ? AND payed = ?', Date.today, false) : []
   end
 end

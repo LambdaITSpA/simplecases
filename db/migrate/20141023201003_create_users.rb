@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password
       t.references :organization, index: true
       t.references :user_type, index: true
+      t.references :organization_profile, index: true
 
       t.timestamps
     end

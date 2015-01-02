@@ -3,11 +3,17 @@ class Ability
 
   def initialize(user)
     user ||= User.new
+    user.permissions.each do |permission|
+        can permission.action.name.to_sym, permission.subject.class_name_rep
+    end
+=begin
     if user.role :chief_lawyer
         can :manage, [Cause, JournalEntry, Payment]
     elsif user.role :assistant
         can :manage, [JournalEntry, Cause]
     end
+=end
+
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

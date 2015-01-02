@@ -7,8 +7,8 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<title>Simple Cases
-    <% if can? :read, Payment %>
-        <% if current_user %>
+    <% if current_user %>
+        <% if can? :read, Payment %>
             <%= current_user.notifications? ? "(#{current_user.notifications})" : ''  %>
         <% end %>
     <% end %>
@@ -33,7 +33,7 @@
 </head>
 <body>
     <!-- begin #page-loader -->
-    <!--<div id="page-loader" class="fade in"><span class="spinner"></span></div>-->
+    <div id="page-loader" class="fade in"><span class="spinner"></span></div>
     <!-- end #page-loader -->
      
     <!-- begin #page-container -->

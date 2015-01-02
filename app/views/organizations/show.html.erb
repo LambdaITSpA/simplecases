@@ -23,7 +23,7 @@
   <%= @organization.id_number %>
 </p>
 
-<p><%= link_to 'Usuarios', organization_users_path(@organization), class: 'btn btn-primary' %></p>
+<p><%= link_to 'Usuarios', organization_users_path(@organization), class: 'btn btn-primary' %> <%= link_to 'Perfiles', organization_profiles_path(@organization), class: 'btn btn-primary' %></p>
 
 <%= link_to 'Editar', edit_organization_path(@organization), class: 'btn btn-default btn-xs' %> |
 <%= link_to 'Atrás', organizations_path, class: 'btn btn-default btn-xs' %>
