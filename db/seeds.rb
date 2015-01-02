@@ -9,14 +9,51 @@ admin = UserType.create name: 'admin', long_name: 'Administrador'
 chief_lawyer = UserType.create name: 'chief_lawyer', long_name: 'Abogado Jefe'
 assistant = UserType.create name: 'assistant', long_name: 'Asistente'
 
-#Admins
-claudio = User.create name: 'Claudio Guerra', user_type: admin, id_number: '1', email: 'claudevandort@gmail.com', password: '12345678', password_confirmation: '12345678'
-pato = User.create name: 'Patricio Jara', user_type: admin, id_number: '2', email: 'patricioalfredo18@gmail.com', password: 'qwe12qwe', password_confirmation: 'qwe12qwe'
-organization = Organization.create name: 'Admin', id_number: '1234', users: [claudio, pato]
+#Profiles
+#puts 'LOL!'
+all = Subject.create name: 'Todo', class_name: ':all'
+causas = Subject.create name: 'Causas', class_name: 'Cause'
+avances = Subject.create name: 'Avances', class_name: 'JournalEntry'
+pagos = Subject.create name: 'Pagos', class_name: 'Payment'
 
-test_lawyer = User.create name: 'Juan Perez', user_type: chief_lawyer, id_number: '3', email: 'juan@perez.com', password: 'juanperez', password_confirmation: 'juanperez'
-test_assistant = User.create name: 'Nicolás Vera', user_type: assistant, id_number: '4', email: 'nico@vera.com', password: 'nicovera', password_confirmation: 'nicovera'
-test_org = Organization.create name: 'Test Company', id_number: '111', users: [test_lawyer, test_assistant]
+manage = Action.create long_name: 'Administrar', name: 'manage'
+
+manage_all = Permission.create subject: all, action: manage
+manage_causes = Permission.create subject: causas, action: manage
+manage_je = Permission.create subject: avances, action: manage
+manage_payments = Permission.create subject: pagos, action: manage
+
+sudo_profile = Profile.create long_name: 'Super Administrador', name: 'sudo', permissions: [manage_all]
+organization_admin_profile = Profile.create long_name: 'Administrador', name: 'admin', permissions: [manage_causes, manage_je, manage_payments]
+lawyer_profile = Profile.create long_name: 'Abogado', name: 'lawyer', permissions: [manage_causes, manage_je]
+executive_profile = Profile.create long_name: 'Ejecutivo', name: 'executive', permissions: [manage_payments]
+
+
+Setting.create [{long_name: 'Cantidad de Casos', name: 'cases_quantity'},
+	{long_name: 'Cantidad de Clientes', name: 'clients_quantity'},
+	{long_name: 'Cantidad Causas Civiles', name: 'civil_cases_quantity'},
+	{long_name: 'cantidad de causas laboral', name: 'laboral_cases_quantity'},
+	{long_name: 'cantidad de causas Cobranza', name: 'cobranza_cases_quantity'},
+	{long_name: 'cantidad de causas Familia', name: 'familia_cases_quantity'},
+	{long_name: 'cantidad de causas Penal', name: 'penal_cases_quantity'},
+	{long_name: 'cantidad de causas General', name: 'General_cases_quantity'}]
+
+test_org = Organization.create name: 'Test Company', id_number: '111', profiles: [organization_admin_profile, lawyer_profile, executive_profile]
+admin_org = Organization.create name: 'Admin', id_number: '1234', profiles: [sudo_profile]
+
+sudo_op = OrganizationProfile.find_by_organization_id_and_profile_id admin_org.id, sudo_profile
+admin_op = OrganizationProfile.find_by_organization_id_and_profile_id test_org.id, organization_admin_profile.id
+lawyer_op = OrganizationProfile.find_by_organization_id_and_profile_id test_org.id, lawyer_profile.id
+executive_op = OrganizationProfile.find_by_organization_id_and_profile_id test_org.id, executive_profile.id
+
+#Admins
+claudio = User.create name: 'Claudio Guerra', user_type: admin, id_number: '1', email: 'claudevandort@gmail.com', password: '12345678', password_confirmation: '12345678', organization_profile: sudo_op
+pato = User.create name: 'Patricio Jara', user_type: admin, id_number: '2', email: 'patricioalfredo18@gmail.com', password: 'qwe12qwe', password_confirmation: 'qwe12qwe', organization_profile: sudo_op
+
+test_lawyer = User.create name: 'Juan Perez', user_type: chief_lawyer, id_number: '3', email: 'juan@perez.com', password: 'juanperez', password_confirmation: 'juanperez', organization_profile: admin_op
+test_assistant = User.create name: 'Nicolás Vera', user_type: assistant, id_number: '4', email: 'nico@vera.com', password: 'nicovera', password_confirmation: 'nicovera', organization_profile: lawyer_op
+test_org.update users: [test_lawyer, test_assistant]
+admin_org.update users: [claudio, pato]
 
 #static stuff
 #juridica = CauseType.create name: 'Causa Jurídica'
@@ -35,6 +72,7 @@ laboral = Area.create name: 'Laboral'
 cobranza = Area.create name: 'Cobranza'
 familia = Area.create name: 'Familia'
 penal = Area.create name: 'Penal'
+general = Area.create name: 'General'
 Court.create [{name: '1º Juzgado Civil de Santiago', area: civil, region: santiago},
 				{name: '2º Juzgado Civil de Santiago', area: civil, region: santiago},
 				{name: '3º Juzgado Civil de Santiago', area: civil, region: santiago},
@@ -133,5 +171,6 @@ Court.create [{name: '1º Juzgado Civil de Santiago', area: civil, region: santi
 				{name: 'Tribunal de Juicio Oral en lo Penal de Talagante', area: penal, region: san_miguel},
 				{name: 'Tribunal de Juicio Oral en lo Penal de Puente Alto', area: penal, region: san_miguel},
 				{name: 'Tribunal de Juicio Oral en lo Penal de San Bernardo', area: penal, region: san_miguel},
-				{name: 'Tribunal de Juicio Oral en lo Penal de Melipilla', area: penal, region: san_miguel}]
+				{name: 'Tribunal de Juicio Oral en lo Penal de Melipilla', area: penal, region: san_miguel},
+				{name: 'Sin Tribunal', area: general, region: santiago}]
 

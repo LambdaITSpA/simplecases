@@ -34,6 +34,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    params[:user][:organization_profile_id] = OrganizationProfile.find_by_organization_id_and_profile_id(@organization.id, params[:user][:organization_profile_id].to_i).id
     @user = User.new(user_params)
     @user.organization = @organization
     respond_to do |format|
@@ -50,6 +51,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    params[:user][:organization_profile_id] = OrganizationProfile.find_by_organization_id_and_profile_id(@organization.id, params[:user][:organization_profile_id].to_i).id
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to organization_user_path(@organization, @user), notice: 'User was successfully updated.' }
@@ -66,7 +68,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to organization_users_url(@organization), notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -83,6 +85,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :id_number, :email, :password, :password_confirmation, :user_type_id)
+      params.require(:user).permit(:name, :id_number, :email, :password, :password_confirmation, :user_type_id, :organization_profile_id)
     end
 end

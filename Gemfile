@@ -21,6 +21,7 @@ gem 'turbolinks'
 #Gema para auntentificacion de usuario
 gem 'devise'
 gem 'cancan'
+gem 'whenever', require: false
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 gem 'bower-rails'

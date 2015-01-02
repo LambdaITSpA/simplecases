@@ -1,20 +1,20 @@
 class Client < ActiveRecord::Base
+  attr_accessor :organization_id
   belongs_to :client_type
   has_many :causes
-  has_one :company
-  has_one :person
-  def name
-  	if self.client_type.name == 'Persona'
-  		self.person.name
-  	elsif self.client_type.name == 'Empresa'
-  		self.company.name
-  	end
+  has_many :organization_clients
+  def org_client
+    OrganizationClient.find_by(client_id: self.id, organization_id: self.organization_id)
   end
-  def data
+  def name(organization_id)
+  	self.data.name organization_id
+  end
+  def data(organization_id)
+    self.organization_id = organization_id
     if self.client_type.name == 'Persona'
-      self.person
+      self.org_client.person
     elsif self.client_type.name == 'Empresa'
-      self.company  
+      self.org_client.company  
     end
   end
   def type

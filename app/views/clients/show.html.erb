@@ -17,7 +17,7 @@
     <p id="notice"><%= notice %></p>
     <div class="list-group">
         <div class="list-group-item active">
-          <h4><%= @client.name %></h4>
+          <h4><%= @client.data(current_user.organization.id).name %></h4>
         </div>
         <p class="list-group-item">
           <strong>Rut:</strong>
@@ -31,21 +31,21 @@
 
         <p class="list-group-item">
           <strong>Email:</strong>
-          <%= @client.data.email %>
+          <%= @client.data(current_user.organization.id).email %>
         </p>
 
         <p class="list-group-item">
           <strong>Teléfono:</strong>
-          <%= @client.data.phone %>
+          <%= @client.data(current_user.organization.id).phone %>
         </p>
 
         <p class="list-group-item">
           <strong>Dirección:</strong>
-          <%= @client.data.address %>
+          <%= @client.data(current_user.organization.id).address %>
         </p>
         <p class="list-group-item">
           <strong>Información Adicional:</strong>
-          <%= @client.data.other %>
+          <%= @client.data(current_user.organization.id).other %>
         </p>
     </div>
     <%= link_to 'Editar', edit_client_path(@client), class: 'btn btn-default btn-xs' %>

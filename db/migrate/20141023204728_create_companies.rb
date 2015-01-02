@@ -6,7 +6,7 @@ class CreateCompanies < ActiveRecord::Migration
       t.integer :phone
       t.string :email
       t.references :person, index: true
-      t.references :client, index: true
+      t.references :organization_client, index: true
 
       t.timestamps
     end
