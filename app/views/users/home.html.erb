@@ -44,11 +44,11 @@
         <div class="widget widget-stats bg-blue">
             <div class="stats-icon"><i class="fa fa-briefcase"></i></div>
             <div class="stats-info">
-                <h4>CAUSAS DE FAMILIA</h4>
-                <p><%= current_user.organization.causes.family.count %></p>    
+                <h4>CAUSAS CIVIL</h4>
+                <p><%= current_user.organization.causes.civil.count %></p>    
             </div>
             <div class="stats-link">
-                <%= link_to 'Ver Detalle <i class="fa fa-arrow-circle-o-right"></i>'.html_safe, causes_path %>
+                <%= link_to 'Ver Detalle <i class="fa fa-arrow-circle-o-right"></i>'.html_safe, "#{causes_path}?area=1" %>
             </div>
         </div>
     </div>
@@ -56,11 +56,59 @@
         <div class="widget widget-stats bg-green">
             <div class="stats-icon"><i class="fa fa-briefcase"></i></div>
             <div class="stats-info">
-                <h4>CAUSAS PENALES</h4>
+                <h4>CAUSAS LABORAL</h4>
+                <p><%= current_user.organization.causes.laboral.count %></p>    
+            </div>
+            <div class="stats-link">
+                <%= link_to 'Ver Detalle <i class="fa fa-arrow-circle-o-right"></i>'.html_safe, "#{causes_path}?area=2" %>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 ui-sortable">
+        <div class="widget widget-stats bg-green">
+            <div class="stats-icon"><i class="fa fa-briefcase"></i></div>
+            <div class="stats-info">
+                <h4>CAUSAS COBRANZA</h4>
+                <p><%= current_user.organization.causes.cobranza.count %></p>    
+            </div>
+            <div class="stats-link">
+                <%= link_to 'Ver Detalle <i class="fa fa-arrow-circle-o-right"></i>'.html_safe, "#{causes_path}?area=3" %>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 ui-sortable">
+        <div class="widget widget-stats bg-blue">
+            <div class="stats-icon"><i class="fa fa-briefcase"></i></div>
+            <div class="stats-info">
+                <h4>CAUSAS FAMILIA</h4>
+                <p><%= current_user.organization.causes.family.count %></p>    
+            </div>
+            <div class="stats-link">
+                <%= link_to 'Ver Detalle <i class="fa fa-arrow-circle-o-right"></i>'.html_safe, "#{causes_path}?area=4" %>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 ui-sortable">
+        <div class="widget widget-stats bg-green">
+            <div class="stats-icon"><i class="fa fa-briefcase"></i></div>
+            <div class="stats-info">
+                <h4>CAUSAS PENAL</h4>
                 <p><%= current_user.organization.causes.penal.count %></p>    
             </div>
             <div class="stats-link">
-                <%= link_to 'Ver Detalle <i class="fa fa-arrow-circle-o-right"></i>'.html_safe, causes_path %>
+                <%= link_to 'Ver Detalle <i class="fa fa-arrow-circle-o-right"></i>'.html_safe, "#{causes_path}?area=5" %>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 ui-sortable">
+        <div class="widget widget-stats bg-blue">
+            <div class="stats-icon"><i class="fa fa-briefcase"></i></div>
+            <div class="stats-info">
+                <h4>CAUSAS GENERAL</h4>
+                <p><%= current_user.organization.causes.general.count %></p>    
+            </div>
+            <div class="stats-link">
+                <%= link_to 'Ver Detalle <i class="fa fa-arrow-circle-o-right"></i>'.html_safe, "#{causes_path}?area=6" %>
             </div>
         </div>
     </div>

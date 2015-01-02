@@ -36,12 +36,32 @@ class Cause < ActiveRecord::Base
   	self.journal_entries.last.cause_state
   end
 
+  def self.of_area(area_id)
+    where(causes:{area_id: area_id})
+  end
+
+  def self.civil
+    where(causes:{area_id:1})
+  end
+
+  def self.laboral
+    where(causes:{area_id:2})
+  end
+
+  def self.cobranza
+    where(causes:{area_id:3})
+  end
+
   def self.family
     where(causes:{area_id:4})
   end
 
   def self.penal
     where(causes:{area_id:5})
+  end
+
+  def self.general
+    where(causes:{area_id:6 })
   end
   
 end
