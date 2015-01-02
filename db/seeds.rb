@@ -28,6 +28,16 @@ organization_admin_profile = Profile.create long_name: 'Administrador', name: 'a
 lawyer_profile = Profile.create long_name: 'Abogado', name: 'lawyer', permissions: [manage_causes, manage_je]
 executive_profile = Profile.create long_name: 'Ejecutivo', name: 'executive', permissions: [manage_payments]
 
+
+Setting.create [{long_name: 'Cantidad de Casos', name: 'cases_quantity'},
+	{long_name: 'Cantidad de Clientes', name: 'clients_quantity'},
+	{long_name: 'Cantidad Causas Civiles', name: 'civil_cases_quantity'},
+	{long_name: 'cantidad de causas laboral', name: 'laboral_cases_quantity'},
+	{long_name: 'cantidad de causas Cobranza', name: 'cobranza_cases_quantity'},
+	{long_name: 'cantidad de causas Familia', name: 'familia_cases_quantity'},
+	{long_name: 'cantidad de causas Penal', name: 'penal_cases_quantity'},
+	{long_name: 'cantidad de causas General', name: 'General_cases_quantity'}]
+
 test_org = Organization.create name: 'Test Company', id_number: '111', profiles: [organization_admin_profile, lawyer_profile, executive_profile]
 admin_org = Organization.create name: 'Admin', id_number: '1234', profiles: [sudo_profile]
 

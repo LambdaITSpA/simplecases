@@ -1,9 +1,14 @@
 class CausesController < ApplicationController
+  include CausesHelper
   before_action :authenticate_user!
   before_action :set_cause, only: [:show, :edit, :update, :destroy]
 
   def index
-    @causes = current_user.organization.causes
+    @causes = if query_params? :area
+      current_user.organization.causes.of_area query_params(:area).to_i
+    else
+      current_user.organization.causes
+    end
     respond_to do |format|
       format.html
       format.json

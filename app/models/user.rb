@@ -7,12 +7,25 @@ class User < ActiveRecord::Base
   has_many :user_causes
   has_many :causes, through: :user_causes
   has_many :journal_entries
+  has_many :user_settings
+  has_many :settings, through: :user_settings
   belongs_to :organization_profile
   belongs_to :user_type
+  after_create :define_settings
 
   def admin?
   	#self.user_type.id == 1
     self.role :admin
+  end
+
+  def setting?(setting_name)
+    # Retorno el id del setings del usuario
+    UserSetting.find_by_setting_id_and_user_id(Setting.find_by(name: setting_name.to_s).id, self.id).enabled 
+  end
+
+  def define_settings
+    self.settings = Setting.all
+    self.save
   end
 
   def permissions
