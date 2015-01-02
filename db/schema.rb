@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141227145013) do
+ActiveRecord::Schema.define(version: 20141230165301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -199,6 +199,13 @@ ActiveRecord::Schema.define(version: 20141227145013) do
     t.datetime "updated_at"
   end
 
+  create_table "settings", force: true do |t|
+    t.string   "name"
+    t.string   "long_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "subjects", force: true do |t|
     t.string   "name"
     t.string   "class_name"
@@ -216,6 +223,17 @@ ActiveRecord::Schema.define(version: 20141227145013) do
 
   add_index "user_causes", ["cause_id"], name: "index_user_causes_on_cause_id", using: :btree
   add_index "user_causes", ["user_id"], name: "index_user_causes_on_user_id", using: :btree
+
+  create_table "user_settings", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "setting_id"
+    t.boolean  "enabled",    default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_settings", ["setting_id"], name: "index_user_settings_on_setting_id", using: :btree
+  add_index "user_settings", ["user_id"], name: "index_user_settings_on_user_id", using: :btree
 
   create_table "user_types", force: true do |t|
     t.string   "name"
