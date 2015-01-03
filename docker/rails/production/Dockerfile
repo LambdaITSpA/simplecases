@@ -1,5 +1,5 @@
 FROM ubuntu:12.04
-ENV REFRESHED_AT 2014-19-12 22:53
+ENV REFRESHED_AT 2015-02-01 18:01
 
 RUN apt-get update
 RUN apt-get install -y python-software-properties software-properties-common gnome-schedule postfix
@@ -43,6 +43,6 @@ RUN echo "127.0.0.1 simplecases.cl" >> /etc/hosts
 EXPOSE 80
 ENV SECRET_KEY_BASE e59c550c9f5fb6de051bcce0372f05d705f047a9b0d2dcde83b6085aa7c155ee67959cf5ab2cda99227247f24c98e6c56050f1a3b092b8ffa178ce03dacea020
 #ENTRYPOINT /bin/bash -l -c "rake assets:precompile RAILS_ENV=production";
-CMD whenever --update-crontab; /usr/sbin/apache2 -D FOREGROUND
+CMD /bin/bash -l -c "whenever --update-crontab"; /usr/sbin/apache2 -D FOREGROUND
 #CMD /usr/sbin/apache2 -D FOREGROUND
 #ENTRYPOINT ["rails s -p 80"]
