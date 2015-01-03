@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 
   def admin?
   	#self.user_type.id == 1
-    self.role :admin
+    self.profile.name == 'sudo'
   end
 
   def setting?(setting_name)
