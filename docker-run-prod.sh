@@ -1,5 +1,5 @@
 #docker rm -f simplecases-pg-dev
-docker rm -f simplecases-rails-prod
+docker rm -f simplecases-rails-prod; docker rm -f simplecases-rails-cron-prod 
 service apache2 stop; service postgresql stop
 #rake db:migrate RAILS_ENV=development
 #rake db:seed
