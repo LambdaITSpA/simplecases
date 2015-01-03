@@ -4,7 +4,10 @@ class Client < ActiveRecord::Base
   has_many :causes
   has_many :organization_clients
   def org_client
-    OrganizationClient.find_by(client_id: self.id, organization_id: self.organization_id)
+    self.org_client_by_id self.organization_id
+  end
+  def org_client_by_id(org_id)
+    OrganizationClient.find_by(client_id: self.id, organization_id: org_id)
   end
   def name(organization_id)
   	self.data.name organization_id
