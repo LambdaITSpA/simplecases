@@ -24,4 +24,5 @@ set :output, {error: "log/cron_error_log.log", standard: "log/cron_log.log"}
 every 1.minutes do
 	runner 'User.notify', environment: 'development'
 	runner 'User.notify'
+	command 'echo "LOL!"'
 end
