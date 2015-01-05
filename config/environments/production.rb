@@ -33,6 +33,16 @@ Rails.application.configure do
   config.assets.digest = true
   config.action_mailer.default_url_options = { :host => "simplecases.cl" }
   config.action_mailer.asset_host = "simplecases.cl"
+  config.action_mailer.default_options = { from: 'cguerra.lambdait@gmail.com' }
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'gmail.com',
+    user_name:            'cguerra.lambdait@gmail.com',
+    password:             '@Claude_88',
+    authentication:       'plain',
+    enable_starttls_auto: true  
+  }
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Specifies the header that your server uses for sending files.
