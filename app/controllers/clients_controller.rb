@@ -9,7 +9,7 @@ class ClientsController < ApplicationController
 				format.json
 			else
 				@client = Client.find_by id_number: params[:id_number] if params[:id_number]
-				organization_client = @client.org_client current_user.organization.id
+				organization_client = @client.org_client_by_id current_user.organization.id
 				unless @client.nil? or organization_client.nil?
 					format.json { render json: @client, status: :ok, location: @client}
 				else
