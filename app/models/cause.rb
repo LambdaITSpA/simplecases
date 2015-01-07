@@ -1,5 +1,5 @@
 class Cause < ActiveRecord::Base
-  validates :role, :matter, presence: true
+  validates :role, :matter, :honorary, :first_payment_date, :fee_quantity, :client_id, :court_id, presence: true
   belongs_to :client
   belongs_to :area
   belongs_to :court
