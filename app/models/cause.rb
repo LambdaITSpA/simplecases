@@ -1,5 +1,5 @@
 class Cause < ActiveRecord::Base
-  validates :role, :matter, :honorary, :first_payment_date, :fee_quantity, :client_id, :court_id, presence: true
+  validates :role, :matter, :client_id, :court_id, presence: true
   belongs_to :client
   belongs_to :area
   belongs_to :court
@@ -9,7 +9,7 @@ class Cause < ActiveRecord::Base
   after_create :set_payment_dates
   after_update :update_payment_dates
   def set_payment_dates
-    if honorary
+    if honorary and first_payment_date and fee_quantity
       self.fee_quantity.times do |quantity|
         self.payments << Payment.create(date: self.first_payment_date + quantity.month, payed: false, amount: self.honorary/self.fee_quantity, payment_number: quantity+1)
       end
