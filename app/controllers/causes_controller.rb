@@ -5,9 +5,9 @@ class CausesController < ApplicationController
 
   def index
     @causes = if query_params? :area
-      current_user.organization.causes.of_area query_params(:area).to_i
+      (current_user.organization.causes.of_area query_params(:area).to_i).order(:court_id)
     else
-      current_user.organization.causes
+      (current_user.organization.causes).order(:court_id)
     end
     respond_to do |format|
       format.html
