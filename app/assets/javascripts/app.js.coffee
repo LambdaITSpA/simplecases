@@ -1,7 +1,7 @@
 $(document).on 'ajax:success', 'form[data-remote]', (xhr, data, status) ->
 	console.log data
 	$('#cause_client_id').val(data.id)
-	angular.element('#client_success').text(data.notice).show('slow').delay(5000).hide 'slow', ->
+	angular.element('#client_success').text(data.notice).show('slow').delay(1500).hide 'slow', ->
 		angular.element('#addclient').modal('hide')
 app = angular.module 'SCapp', []
 app.controller "GetCausesController", ['$scope', '$http', ($scope, $http) ->

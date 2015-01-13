@@ -145,6 +145,7 @@ ActiveRecord::Schema.define(version: 20141230165301) do
     t.date     "date"
     t.boolean  "payed"
     t.integer  "amount"
+    t.integer  "paid_amount"
     t.integer  "payment_number"
     t.integer  "cause_id"
     t.datetime "created_at"

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :journal_entries
   end
   post 'payments/:id/pay', to: 'payments#pay', as: 'pay'
+  post 'causes/:id/raw_payment', to: 'causes#raw_payment', as: 'raw_payment'
   resources :courts, only: [:index]
 
   # Example of regular route:
