@@ -1,0 +1,2 @@
+E, [2015-01-07T17:33:31.724642 #87] ERROR -- : PG::ConnectionBad: PQconsumeInput() SSL SYSCALL error: Connection timed out
+: SELECT "users".* FROM "users"
