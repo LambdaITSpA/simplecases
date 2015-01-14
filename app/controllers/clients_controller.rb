@@ -32,7 +32,7 @@ class ClientsController < ApplicationController
 
 	def create
 		if params[:client_type_id].to_i == 2
-			@client = Client.new id_number: params[:id_number], client_type_id: params[:client_type_id]
+			@client = Client.find_by(id_number: params[:id_number]) || Client.new(id_number: params[:id_number], client_type_id: params[:client_type_id])
 			@company = Company.new name: params[:name].split.map(&:capitalize).join(' '), address: params[:address], phone: params[:phone], email: params[:email], client: @client
 
 			respond_to do |format|
