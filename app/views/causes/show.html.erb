@@ -85,7 +85,7 @@
           <%= form_tag(raw_payment_path(@cause.id), method: 'post', class: 'form-inline m-b-15') do %>
             <div class="input-group">
               <span class="input-group-addon">$</span>
-              <%= text_field_tag(:raw_payment_amount, 0, class: "form-control") %>
+              <%= text_field_tag(:raw_payment_amount, nil, class: "form-control", placeholder: '0') %>
             </div>
             <%= submit_tag(value = "Abonar", class: 'btn btn-primary') %>
           <% end %>

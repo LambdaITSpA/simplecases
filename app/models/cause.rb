@@ -30,10 +30,10 @@ class Cause < ActiveRecord::Base
   end
 
   def raw_payment(raw_payment_amount)
-    self.payments.unpayed.each do |payment|
-      if payment.amount <= raw_payment_amount
+    self.payments.unpayed.order(:date).each do |payment|
+      if payment.amount_pending <= raw_payment_amount
+        raw_payment_amount -= payment.amount_pending
         payment.update paid_amount: payment.amount, payed: true
-        raw_payment_amount -= payment.paid_amount
       else
         payment.update paid_amount: (payment.paid_amount + raw_payment_amount)
         break
