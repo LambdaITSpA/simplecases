@@ -64,4 +64,7 @@ class Cause < ActiveRecord::Base
     where(causes:{area_id:6 })
   end
   
+   def self.supr_apel
+    where(causes:{area_id:7 })
+  end
 end
