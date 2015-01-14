@@ -18,7 +18,7 @@ class CausesController < ApplicationController
   def raw_payment
     params[:raw_payment_amount] ||= 0
     @cause.raw_payment params[:raw_payment_amount].to_i
-    redirect_to request.referer
+    redirect_to "#{request.referer}#payments"
   end
 
   def show

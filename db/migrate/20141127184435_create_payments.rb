@@ -4,7 +4,6 @@ class CreatePayments < ActiveRecord::Migration
       t.date :date
       t.boolean :payed
       t.integer :amount
-      t.integer :paid_amount
       t.integer :payment_number
       t.references :cause, index: true
 

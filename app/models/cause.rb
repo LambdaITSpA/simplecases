@@ -11,7 +11,9 @@ class Cause < ActiveRecord::Base
   def set_payment_dates
     if honorary and first_payment_date and fee_quantity
       self.fee_quantity.times do |quantity|
-        self.payments << Payment.create(date: self.first_payment_date + quantity.month, payed: false, amount: self.honorary/self.fee_quantity, paid_amount: 0, payment_number: quantity+1)
+        payment_amount = self.honorary / self.fee_quantity
+        payment_amount += self.honorary % self.fee_quantity if quantity == 0
+        self.payments << Payment.create(date: self.first_payment_date + quantity.month, payed: false, amount: payment_amount, paid_amount: 0, payment_number: quantity+1)
       end
     end
   end

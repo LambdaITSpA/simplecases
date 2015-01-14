@@ -73,7 +73,7 @@ cobranza = Area.create name: 'Cobranza'
 familia = Area.create name: 'Familia'
 penal = Area.create name: 'Penal'
 general = Area.create name: 'General'
-supr_apel = Area.create name: 'Suprema/Apelaciones'
+supr_apel = Area.create name: 'Corte Suprema/Apelaciones'
 Court.create [	{name: 'Corte Suprema', area: supr_apel, region: santiago},
 				{name: 'Corte de Apelaciones de Santiago', area: supr_apel, region: santiago},
 				{name: 'Corte de Apelaciones de San Miguel', area: supr_apel, region: santiago},
