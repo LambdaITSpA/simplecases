@@ -34,7 +34,6 @@ class ClientsController < ApplicationController
 		if params[:client_type_id].to_i == 2
 			@client = Client.find_by(id_number: params[:id_number]) || Client.new(id_number: params[:id_number], client_type_id: params[:client_type_id])
 			@company = Company.new name: params[:name].split.map(&:capitalize).join(' '), address: params[:address], phone: params[:phone], email: params[:email], client: @client
-
 			respond_to do |format|
 				if @client.save and @company.save
 					@notice = 'Empresa creada exitosamente.'
@@ -46,7 +45,7 @@ class ClientsController < ApplicationController
 				end
 		    end
 		elsif params[:client_type_id].to_i == 1
-			@client = Client.new id_number: params[:id_number], client_type_id: params[:client_type_id]
+			@client = Client.find_by(id_number: params[:id_number]) || Client.new(id_number: params[:id_number], client_type_id: params[:client_type_id])
 			@organization_client = OrganizationClient.create client: @client, organization: current_user.organization
 	      	@person = Person.new name: params[:name].split.map(&:capitalize).join(' '), email: params[:email], phone: params[:phone], address: params[:address], other: params[:other], organization_client_id: @organization_client.id
 	      	respond_to do |format|
