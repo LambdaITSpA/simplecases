@@ -1,18 +1,24 @@
 class CausesController < ApplicationController
   include CausesHelper
   before_action :authenticate_user!
-  before_action :set_cause, only: [:show, :edit, :update, :destroy]
+  before_action :set_cause, only: [:show, :edit, :update, :destroy, :raw_payment]
 
   def index
     @causes = if query_params? :area
-      current_user.organization.causes.of_area query_params(:area).to_i
+      current_user.organization.causes.of_area(query_params(:area).to_i).order(:court_id)
     else
-      current_user.organization.causes
+      current_user.organization.causes.order(:court_id)
     end
     respond_to do |format|
       format.html
       format.json
     end
+  end
+
+  def raw_payment
+    params[:raw_payment_amount] ||= 0
+    @cause.raw_payment params[:raw_payment_amount].to_i
+    redirect_to "#{request.referer}#payments"
   end
 
   def show

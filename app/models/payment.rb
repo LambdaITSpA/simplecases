@@ -3,7 +3,7 @@ class Payment < ActiveRecord::Base
 	belongs_to :payment_state
 	# set a payment as payed
 	def pay
-		self.update payed: true
+		self.update paid_amount: self.amount, payed: true
 	end
 	# unpayed payments, late and not late
 	def self.unpayed
@@ -32,6 +32,9 @@ class Payment < ActiveRecord::Base
 	end
 	def self.days_late
 		self.late? ? (Date.today - self.unpayed.first.date).to_i : 0
+	end
+	def amount_pending
+		amount - paid_amount
 	end
 	def state
 		PaymentState.find self.state_id

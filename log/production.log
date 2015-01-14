@@ -1,2 +1,3 @@
 E, [2015-01-07T17:33:31.724642 #87] ERROR -- : PG::ConnectionBad: PQconsumeInput() SSL SYSCALL error: Connection timed out
 : SELECT "users".* FROM "users"
+I, [2015-01-14T16:48:43.131353 #74]  INFO -- : Migrating to AddPaidAmountToPayments (20150114162958)

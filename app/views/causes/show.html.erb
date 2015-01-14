@@ -82,16 +82,24 @@
               <h2><%= to_clp @cause.payments.late_amount %></h2>
             </div>
           </div>
+          <%= form_tag(raw_payment_path(@cause.id), method: 'post', class: 'form-inline m-b-15') do %>
+            <div class="input-group">
+              <span class="input-group-addon">$</span>
+              <%= text_field_tag(:raw_payment_amount, nil, class: "form-control", placeholder: '0') %>
+            </div>
+            <%= submit_tag(value = "Abonar", class: 'btn btn-primary') %>
+          <% end %>
           <table class="table table-hover">
             <tr>
               <th>N°</th>
               <th>Estado</th>
               <th>F. de Pago</th>
-              <th>Monto</th>
+              <th>Monto cuota</th>
+              <th>Monto cancelado</th>
             </tr>
-            <% @cause.payments.each do |payment| %>
+            <% @cause.payments.order(:date).each do |payment| %>
             <tr class="<%= payment.state.color %>">
-              <td><%= payment.payment_number %></td><td><%= payment.state.name %></td><td><%= payment.date.strftime("%d-%b") %></td><td><%= to_clp payment.amount %></td><td><%= link_to 'Pagar', pay_path(payment.id), class: 'btn btn-danger btn-xs', method: :post, data: { confirm: "#{payment.payment_number}° cuota está pagada?" } if payment == @cause.payments.unpayed.first %></td>
+              <td><%= payment.payment_number %></td><td><%= payment.state.name %></td><td><%= payment.date.strftime("%d-%b") %></td><td><%= to_clp payment.amount %></td><td><%= to_clp payment.paid_amount %></td><td><%= link_to 'Pagar', pay_path(payment.id), class: 'btn btn-danger btn-xs', method: :post, data: { confirm: "#{payment.payment_number}° cuota está pagada?" } if payment == @cause.payments.unpayed.first %></td>
             </tr>
             <% end %>
           </table>

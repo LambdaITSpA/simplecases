@@ -11,7 +11,9 @@ class Cause < ActiveRecord::Base
   def set_payment_dates
     if honorary and first_payment_date and fee_quantity
       self.fee_quantity.times do |quantity|
-        self.payments << Payment.create(date: self.first_payment_date + quantity.month, payed: false, amount: self.honorary/self.fee_quantity, payment_number: quantity+1)
+        payment_amount = self.honorary / self.fee_quantity
+        payment_amount += self.honorary % self.fee_quantity if quantity == 0
+        self.payments << Payment.create(date: self.first_payment_date + quantity.month, payed: false, amount: payment_amount, paid_amount: 0, payment_number: quantity+1)
       end
     end
   end
@@ -21,11 +23,23 @@ class Cause < ActiveRecord::Base
       months = self.fee_quantity - self.payments.payed.count
       self.payments.unpayed.delete_all
       months.times do |quantity|
-        self.payments << Payment.create(date: self.payments.payed.last.date + (quantity + 1).month, payed: false, amount: amount_payable/months, payment_number:  self.payments.payed.count + quantity+1)
+        self.payments << Payment.create(date: self.payments.payed.last.date + (quantity + 1).month, payed: false, amount: amount_payable/months, paid_amount: 0, payment_number: self.payments.payed.count + quantity+1)
       end
     else
       self.payments.delete_all
       set_payment_dates
+    end
+  end
+
+  def raw_payment(raw_payment_amount)
+    self.payments.unpayed.order(:date).each do |payment|
+      if payment.amount_pending <= raw_payment_amount
+        raw_payment_amount -= payment.amount_pending
+        payment.update paid_amount: payment.amount, payed: true
+      else
+        payment.update paid_amount: (payment.paid_amount + raw_payment_amount)
+        break
+      end
     end
   end
 
@@ -64,4 +78,7 @@ class Cause < ActiveRecord::Base
     where(causes:{area_id:6 })
   end
   
+   def self.supr_apel
+    where(causes:{area_id:7 })
+  end
 end
