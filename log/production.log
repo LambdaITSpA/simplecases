@@ -1,3 +1,8 @@
 E, [2015-01-07T17:33:31.724642 #87] ERROR -- : PG::ConnectionBad: PQconsumeInput() SSL SYSCALL error: Connection timed out
 : SELECT "users".* FROM "users"
 I, [2015-01-14T16:48:43.131353 #74]  INFO -- : Migrating to AddPaidAmountToPayments (20150114162958)
+E, [2015-01-14T19:25:19.318296 #89] ERROR -- : PG::ConnectionBad: PQconsumeInput() SSL SYSCALL error: Connection timed out
+: ROLLBACK
+I, [2015-01-17T11:00:25.392321 #434]  INFO -- :   Rendered user_mailer/test.html.erb (1636.6ms)
+I, [2015-01-17T11:00:28.134789 #434]  INFO -- : 
+Sent mail to patricio.jara@gmail.com (2715.6ms)
