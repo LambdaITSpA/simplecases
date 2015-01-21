@@ -74,6 +74,11 @@ class User < ActiveRecord::Base
     JournalEntry.joins(user_cause: {user: :organization}).where(organizations: {id: self.organization.id}).order(created_at: :desc)
   end
 
+  def soon_payments
+    Payment.joins(cause: {users: :organization}).where('organizations.id = ? AND payments.date > ?', self.organization.id, Date.today).order :date
+    #self.causes.map(&:payments)[0].where(date: Date.today, payed: false)
+  end
+
   def todays_payments
     Payment.joins(cause: {users: :organization}).where(organizations: {id: self.organization.id}, payments:{date: Date.today, payed: false})
     #self.causes.map(&:payments)[0].where(date: Date.today, payed: false)

@@ -124,6 +124,32 @@
             </div>
         </div>
     </div>
+    <% if can? :read, Payment %>
+    <div class="col-md-3 col-sm-6 ui-sortable">
+        <div class="widget widget-stats bg-orange">
+            <div class="stats-icon"><i class="fa fa-money"></i></div>
+            <div class="stats-info">
+                <h4>CAUSAS A COBRAR HOY</h4>
+                <p><%= current_user.todays_payments.count %></p>    
+            </div>
+            <div class="stats-link">
+                <%= link_to 'Ver Detalle <i class="fa fa-arrow-circle-o-right"></i>'.html_safe, "#{payments_path}?date=todays" %>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 ui-sortable">
+        <div class="widget widget-stats bg-red">
+            <div class="stats-icon"><i class="fa fa-money"></i></div>
+            <div class="stats-info">
+                <h4>CAUSAS CON PAGOS ATRASADOS</h4>
+                <p><%= current_user.late_payments.count %></p>    
+            </div>
+            <div class="stats-link">
+                <%= link_to 'Ver Detalle <i class="fa fa-arrow-circle-o-right"></i>'.html_safe, "#{payments_path}?date=late" %>
+            </div>
+        </div>
+    </div>
+    <% end %>
     <!-- end col-3 -->
     <!-- begin col-3 -->
     <div class="col-md-3 col-sm-6 ui-sortable">
