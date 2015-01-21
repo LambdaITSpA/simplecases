@@ -59,7 +59,7 @@
 	function isValidRut(rut) {
 		if(typeof(rut) !== 'string') return false;
 		var cRut = clearFormat(rut);
-		if(cRut.length < 2) return false;
+		if(cRut.length < 8) return false;
 		var cDv = cRut.charAt(cRut.length - 1).toUpperCase();
 		var nRut = parseInt(cRut.substr(0, cRut.length - 1));
 		if(nRut === NaN) return false;
