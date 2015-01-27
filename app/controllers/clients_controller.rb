@@ -2,6 +2,7 @@ class ClientsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_client, only: [:show, :edit, :update]
 	def index
+		@user = current_user
 		@clients = current_user.organization.clients
 		respond_to do |format|
 			format.html
