@@ -1,195 +1,712 @@
-<% content_for :styles do %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-<% end %>
-<!-- Navigation -->
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Simple Cases</a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling 
-         /.navbar-collapse -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <% if current_user %>
-                        <%= link_to 'Dashboard', user_root_path, class: 'btn btn-link' %>
-                    <% else %>
-                        <%= link_to 'Iniciar sesión', new_user_session_path, class: 'btn btn-link btn-lg' %>
-                    <% end %>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <!-- /.container -->
-</nav>
-
-<!-- Header -->
-<div class="intro-header">
-
-    <div class="container">
-
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="intro-message">
-                    <h1>Simple Cases</h1>
-                    <h3>Gestión de casos para abogados <br>simple y a su alcance</h3>
-                    <hr class="intro-divider">
-                    <ul class="list-inline intro-social-buttons">
-                        <li>
-                            <a href="mailto:claudio.guerra@firmaexpress.com?cc=patricio.jara@firmaexpress.com&subject=Subscripción a Simple Cases&body=Estimados, me interesa su propuesta y quisiera saber más sobre Simple Cases para eventualmente adquirir una cuenta." class="btn btn-default btn-lg"><!--<i class="fa fa-twitter fa-fw">--></i> <span class="network-name">Subscríbete</span></a>
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <title>Simple Cases</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    
+    <!-- ================== BEGIN BASE CSS STYLE ================== -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <%= stylesheet_link_tag 'frontend-animate.css' %>
+    <%= stylesheet_link_tag 'frontend-style.css' %>
+    <%= stylesheet_link_tag 'frontend-style-responsive.css' %>
+    <%= stylesheet_link_tag 'frontend-default.css' %>
+    <!-- ================== END BASE CSS STYLE ================== -->
+    
+    <!-- ================== BEGIN BASE JS ================== -->
+    <%= javascript_include_tag 'pace.js' %>
+    <!--<script src="assets/plugins/pace/pace.min.js"></script>-->
+    <!-- ================== END BASE JS ================== -->
+    <% #javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+</head>
+<body data-spy="scroll" data-target="#header-navbar" data-offset="51">
+    <!-- begin #page-container -->
+    <div id="page-container" class="fade">
+        <!-- begin #header -->
+        <div id="header" class="header navbar navbar-transparent navbar-fixed-top">
+            <!-- begin container -->
+            <div class="container">
+                <!-- begin navbar-header -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="<%= root_url %>" class="navbar-brand">
+                        <span class="brand-logo fa fa-legal fa-lg"></span>
+                        <span class="brand-text">
+                            <span class="text-theme">Simple</span> Cases
+                        </span>
+                    </a>
+                </div>
+                <!-- end navbar-header -->
+                <!-- begin navbar-collapse -->
+                <div class="collapse navbar-collapse" id="header-navbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#home" data-click="scroll-to-target">HOME</a>
                         </li>
-                        <!--<li>
-                            <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                        </li>
+                        <li><a href="#features" data-click="scroll-to-target">CARACTERISTICAS</a></li>
+                        <li><a href="#work" data-click="scroll-to-target">COMO FUNCIONA</a></li>
+                        <li><a href="#team" data-click="scroll-to-target">EQUIPO</a></li>
+                        <!--<li><a href="#clients" data-click="scroll-to-target">CLIENTES</a></li>-->
+                        <li><a href="#pricing" data-click="scroll-to-target">PRECIOS</a></li>
+                        <li><a href="#contact" data-click="scroll-to-target">CONTACTO</a></li>
                         <li>
-                            <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
-                        </li>-->
+                            <% if current_user %>
+                                <%= link_to 'DASHBOARD', user_root_path %>
+                            <% else %>
+                                <%= link_to 'INICIAR SESION', new_user_session_path %>
+                            <% end %>
+                        </li>
                     </ul>
+                </div>
+                <!-- end navbar-collapse -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end #header -->
+        
+        <!-- begin #home -->
+        <div id="home" class="content has-bg home" style="height: 657px;">
+            <!-- begin content-bg -->
+            <div class="content-bg">
+                <%= image_tag 'intro-bg.jpg' %>
+            </div>
+            <!-- end content-bg -->
+            <!-- begin container -->
+            <div class="container home-content">
+                <h1>Simple Cases</h1>
+                <h3>Control y orden en tus causas y cobros de manera fácil y efectiva.</h3>
+                <p>
+                    Simple Cases te permite saber en que va cada una de tus causas y te avisa de manera proactiva <br />a que cliente le debes cobrar y quién está atrasado en sus pagos.
+                </p>
+                <a href="#features" data-click="scroll-to-target" class="btn btn-theme">Descubre como funciona</a> <a href="#pricing" data-click="scroll-to-target" class="btn btn-outline">Pide tu cuenta</a><br />
+                <br />
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end #home -->
+        
+        <!-- beign #features -->
+        <div id="features" class="content" data-scrollview="true">
+            <!-- begin container -->
+            <div class="container">
+                <h2 class="content-title">Características</h2>
+                <p class="content-desc"><!--
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consectetur eros dolor,<br />
+                    sed bibendum turpis luctus eget-->
+                </p>
+                <!-- begin row -->
+                <div class="row">
+                    <!-- begin col-4 -->
+                    <div class="col-md-4 col-sm-4">
+                        <div class="service">
+                            <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-briefcase"></i></div>
+                            <div class="info">
+                                <h4 class="title">Causas</h4>
+                                <p class="desc">Lleva el seguimiento de tus causas administrando la información más relevante.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col-4 -->
+                    <!-- begin col-4 -->
+                    <div class="col-md-4 col-sm-4">
+                        <div class="service">
+                            <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-users"></i></div>
+                            <div class="info">
+                                <h4 class="title">Clientes</h4>
+                                <p class="desc">Gestione sus clientes manejando información de su interés.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col-4 -->
+                    <!-- begin col-4 -->
+                    <div class="col-md-4 col-sm-4">
+                        <div class="service">
+                            <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-money"></i></div>
+                            <div class="info">
+                                <h4 class="title">Cobros</h4>
+                                <p class="desc">Sepa al instante quién le debe dinero y a quién le debe cobrar.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col-4 -->
+                </div>
+                <!-- end row -->
+                <!-- begin row -->
+                <div class="row">
+                    <!-- begin col-4 -->
+                    <div class="col-md-4 col-sm-4">
+                        <div class="service">
+                            <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-diamond"></i></div>
+                            <div class="info">
+                                <h4 class="title">Rápido</h4>
+                                <p class="desc">Nuestra tecnología te permite obtener información sobre el caso que buscas al instante, ahorrandote mucho tiempo en buscar causas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col-4 -->
+                    <!-- begin col-4 -->
+                    <div class="col-md-4 col-sm-4">
+                        <div class="service">
+                            <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-heart"></i></div>
+                            <div class="info">
+                                <h4 class="title">Soporte</h4>
+                                <p class="desc">Nuestra intención es ayudarte, por lo que en cuanto tengas una duda o problema estaremos ahí para asistirte.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col-4 -->
+                    <!-- begin col-4 
+                    <div class="col-md-4 col-sm-4">
+                        <div class="service">
+                            <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-heart"></i></div>
+                            <div class="info">
+                                <h4 class="title">Free Support</h4>
+                                <p class="desc">Integer consectetur, massa id mattis tincidunt, sapien erat malesuada turpis, nec vehicula lacus felis nec libero. Fusce non lorem nisl.</p>
+                            </div>
+                        </div>
+                    </div>
+                     end col-4 -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end #features -->
+        
+        <!-- begin #quote -->
+        <div id="quote" class="content bg-black-darker has-bg" data-scrollview="true">
+            <!-- begin content-bg -->
+            <div class="content-bg">
+                <%= image_tag 'quote-bg.jpg' %>
+            </div>
+            <!-- end content-bg -->
+            <!-- begin container -->
+            <div class="container" data-animation="true" data-animation-type="fadeInLeft">
+                <!-- begin row -->
+                <div class="row">
+                    <!-- begin col-12 -->
+                    <div class="col-md-12 quote">
+                        <i class="fa fa-quote-left"></i> La simplicidad es la mayor <span class="text-theme">sofisticación</span>.  
+                        <i class="fa fa-quote-right"></i>
+                        <small>Leonardo da Vinci</small>
+                    </div>
+                    <!-- end col-12 -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end #quote -->
+        
+        <!-- begin #work -->
+        <div id="work" class="content" data-scrollview="true">
+            <!-- begin container -->
+            <div class="container" data-animation="true" data-animation-type="fadeInDown">
+                <h2 class="content-title">Como funciona</h2>
+                <p class="content-desc">
+                    Haz click en los videos para ver como se siente usar Simple Cases.
+                </p>
+                <!-- begin row -->
+                <div class="row row-space-10">
+                    <!-- begin col-3 -->
+                    <div class="col-md-3 col-sm-6">
+                        <!-- begin work -->
+                        <div class="work">
+                            <div class="image">
+                                <a href="#" data-toggle="modal" data-target="#video-player" data-link="//player.vimeo.com/video/29922550?autoplay=1" data-title="GoPro-GoPug"><%= image_tag 'work-1.jpg' %></a>
+                            </div>
+                            <div class="desc">
+                                <span class="desc-title">Aliquam molestie</span>
+                                <span class="desc-text">Lorem ipsum dolor sit amet</span>
+                            </div>
+                        </div>
+                        <!-- end work -->
+                    </div>
+                    <!-- end col-3 -->
+                    <!-- begin col-3 -->
+                    <div class="col-md-3 col-sm-6">
+                        <!-- begin work -->
+                        <div class="work">
+                            <div class="image">
+                                <a href="#"><%= image_tag 'work-3.jpg' %></a>
+                            </div>
+                            <div class="desc">
+                                <span class="desc-title">Quisque at pulvinar lacus</span>
+                                <span class="desc-text">Lorem ipsum dolor sit amet</span>
+                            </div>
+                        </div>
+                        <!-- end work -->
+                    </div>
+                    <!-- end col-3 -->
+                    <!-- begin col-3 -->
+                    <div class="col-md-3 col-sm-6">
+                        <!-- begin work -->
+                        <div class="work">
+                            <div class="image">
+                                <a href="#"><%= image_tag 'work-5.jpg' %></a>
+                            </div>
+                            <div class="desc">
+                                <span class="desc-title">Vestibulum et erat ornare</span>
+                                <span class="desc-text">Lorem ipsum dolor sit amet</span>
+                            </div>
+                        </div>
+                        <!-- end work -->
+                    </div>
+                    <!-- end col-3 -->
+                    <!-- begin col-3 -->
+                    <div class="col-md-3 col-sm-6">
+                        <!-- begin work -->
+                        <div class="work">
+                            <div class="image">
+                                <a href="#"><%= image_tag 'work-7.jpg' %></a>
+                            </div>
+                            <div class="desc">
+                                <span class="desc-title">Sed vitae mollis magna</span>
+                                <span class="desc-text">Lorem ipsum dolor sit amet</span>
+                            </div>
+                        </div>
+                        <!-- end work -->
+                    </div>
+                    <!-- end col-3 -->
+                </div>
+                <!-- end row -->
+                <!-- begin row -->
+                <div class="row row-space-10">
+                    <!-- begin col-3 -->
+                    <div class="col-md-3 col-sm-6">
+                        <!-- begin work -->
+                        <div class="work">
+                            <div class="image">
+                                <a href="#"><%= image_tag 'work-2.jpg' %></a>
+                            </div>
+                            <div class="desc">
+                                <span class="desc-title">Suspendisse at mattis odio</span>
+                                <span class="desc-text">Lorem ipsum dolor sit amet</span>
+                            </div>
+                        </div>
+                        <!-- end work -->
+                    </div>
+                    <!-- end col-3 -->
+                    <!-- begin col-3 -->
+                    <div class="col-md-3 col-sm-6">
+                        <!-- begin work -->
+                        <div class="work">
+                            <div class="image">
+                                <a href="#"><%= image_tag 'work-4.jpg' %></a>
+                            </div>
+                            <div class="desc">
+                                <span class="desc-title">Aliquam vitae commodo diam</span>
+                                <span class="desc-text">Lorem ipsum dolor sit amet</span>
+                            </div>
+                        </div>
+                        <!-- end work -->
+                    </div>
+                    <!-- end col-3 -->
+                    <!-- begin col-3 -->
+                    <div class="col-md-3 col-sm-6">
+                        <!-- begin work -->
+                        <div class="work">
+                            <div class="image">
+                                <a href="#"><%= image_tag 'work-6.jpg' %></a>
+                            </div>
+                            <div class="desc">
+                                <span class="desc-title">Phasellus eu vehicula lorem</span>
+                                <span class="desc-text">Lorem ipsum dolor sit amet</span>
+                            </div>
+                        </div>
+                        <!-- end work -->
+                    </div>
+                    <!-- end col-3 -->
+                    <!-- begin col-3 -->
+                    <div class="col-md-3 col-sm-6">
+                        <!-- begin work -->
+                        <div class="work">
+                            <div class="image">
+                                <a href="#"><%= image_tag 'work-8.jpg' %></a>
+                            </div>
+                            <div class="desc">
+                                <span class="desc-title">Morbi bibendum pellentesque</span>
+                                <span class="desc-text">Lorem ipsum dolor sit amet</span>
+                            </div>
+                        </div>
+                        <!-- end work -->
+                    </div>
+                    <!-- end col-3 -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end #work -->
+        
+        <!-- begin #team -->
+        <div id="team" class="content" data-scrollview="true">
+            <!-- begin container -->
+            <div class="container">
+                <h2 class="content-title">Nuestro Equipo</h2>
+                <p class="content-desc">
+                    Damos solución a tus problemas y te asistimos cuando necesitas ayuda.
+                </p>
+                <!-- begin row -->
+                <div class="row">
+                    <!-- begin col-4 -->
+                    <div class="col-md-6 col-sm-6">
+                        <!-- begin team -->
+                        <div class="team">             
+                            <div class="image" data-animation="true" data-animation-type="flipInX">
+                                <%= image_tag 'user-1.jpg' %>
+                            </div>
+                            <div class="info">
+                                <h3 class="name">Claudio Guerra</h3>
+                                <div class="title text-theme">FOUNDER / BACKEND DEV</div>
+                                <p>Apasionado por el emprendimiento y la tecnología, con amplia experiencia en la industria del desarrollo de software.</p>
+                                <div class="social">
+                                    <a href="https://www.facebook.com/claudio.guerra88" target="_blank"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
+                                    <a href="https://twitter.com/claudevandort" target="_blank"><i class="fa fa-twitter fa-lg fa-fw"></i></a>
+                                    <a href="https://cl.linkedin.com/pub/claudio-guerra/1a/173/361" target="_blank"><i class="fa fa-linkedin fa-lg fa-fw"></i></a>
+                                </div>
+                            </div>                     
+                        </div>
+                        <!-- end team -->
+                    </div>
+                    <!-- end col-4 -->
+                    <!-- begin col-4 -->
+                    <div class="col-md-6 col-sm-6">
+                        <!-- begin team -->
+                        <div class="team">             
+                            <div class="image" data-animation="true" data-animation-type="flipInX">
+                                <%= image_tag 'user-2.jpg' %>
+                            </div>
+                            <div class="info">
+                                <h3 class="name">Patricio Jara</h3>
+                                <div class="title text-theme">FOUNDER / FRONTEND DEV</div>
+                                <p>Experimentado en mejoramiento de procesos, seguridad y desarrollo de software en grandes empresas.</p>
+                                <div class="social">
+                                    <a href="https://www.facebook.com/pjaralozano" target="_blank"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
+                                    <a href="https://twitter.com/LozanoPatricio" target="_blank"><i class="fa fa-twitter fa-lg fa-fw"></i></a>
+                                    <a href="https://cl.linkedin.com/pub/patricio-jara-lozano/1a/177/839" target="_blank"><i class="fa fa-linkedin fa-lg fa-fw"></i></a>
+                                </div>
+                            </div>                     
+                        </div>
+                        <!-- end team -->
+                    </div>
+                    <!-- end col-4 -->
+                    <!-- begin col-4
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team">             
+                            <div class="image" data-animation="true" data-animation-type="flipInX">
+                                <%= image_tag 'user-3.jpg' %>
+                            </div>
+                            <div class="info">
+                                <h3 class="name">Mia Donovan</h3>
+                                <div class="title text-theme">WEB DESIGNER</div>
+                                <p>Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. </p>
+                                <div class="social">
+                                    <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
+                                    <a href="#"><i class="fa fa-twitter fa-lg fa-fw"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
+                                </div>
+                            </div>                     
+                        </div>
+                    </div>
+                     end col-4 -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end #team -->
+        
+        <!-- begin #clients 
+        <div id="clients" class="content has-bg bg-green" data-scrollview="true">
+            <div class="content-bg">
+                <%= image_tag 'client-bg.jpg' %>
+            </div>
+            <div class="container" data-animation="true" data-animation-type="fadeInUp">
+                <h2 class="content-title">Lo que dicen nuestros clientes</h2>
+                <div class="carousel testimonials slide" data-ride="carousel" id="testimonials">
+                    <div class="carousel-inner text-center">
+                        <div class="item active">
+                            <blockquote>
+                                <i class="fa fa-quote-left"></i>
+                                mUCHAS GRACIAS!!!
+                                <i class="fa fa-quote-right"></i>
+                            </blockquote>
+                            <div class="name"> — <span class="text-theme">Karen Bielefieldt</span>, Bielefieldt Abogados & Asociados</div>
+                        </div>
+                    </div>
+                    <ol class="carousel-indicators">
+                        <li data-target="#testimonials" data-slide-to="0" class="active"></li>
+                        <li data-target="#testimonials" data-slide-to="1" class=""></li>
+                        <li data-target="#testimonials" data-slide-to="2" class=""></li>
+                    </ol>
                 </div>
             </div>
         </div>
-
-    </div>
-    <!-- /.container -->
-
-</div>
-<!-- /.intro-header -->
-
-<!-- Page Content -->
-
-<div class="content-section-a">
-
-    <div class="container">
-
-        <div class="row">
-            <div class="col-lg-5 col-sm-6">
-                <hr class="section-heading-spacer">
-                <div class="clearfix"></div>
-                <h2 class="section-heading">Simple</h2>
-                <p class="lead">Lleve seguimiento de sus causas administrando la información más relevante para usted.</p>
-            </div>
-            <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-            	<%= image_tag 'ipad.png', { class: 'img-responsive' } %>
-            </div>
-        </div>
-
-    </div>
-    <!-- /.container -->
-
-</div>
-<!-- /.content-section-a -->
-
-<div class="content-section-b">
-
-    <div class="container">
-
-        <div class="row">
-            <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
-                <hr class="section-heading-spacer">
-                <div class="clearfix"></div>
-                <h2 class="section-heading">Rápido</h2>
-                <p class="lead">Nuestra tecnología te permite obtener información sobre el caso que busca al instante, ahorrandole mucho tiempo en buscar sus causas</p>
-            </div>
-            <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-            	<%= image_tag 'ui.jpg', { class: 'img-responsive' } %>
-            </div>
-        </div>
-
-    </div>
-    <!-- /.container -->
-
-</div>
-<!-- /.content-section-b -->
-
-<div class="content-section-a">
-
-    <div class="container">
-
-        <div class="row">
-            <div class="col-lg-5 col-sm-6">
-                <hr class="section-heading-spacer">
-                <div class="clearfix"></div>
-                <h2 class="section-heading">A su alcance</h2>
-                <p class="lead">Ponemos a su disposición nuestra plataforma por una subscripción mensual de $35.000. Si contratas un año obtienes 2 meses gratis.</p>
-            </div>
-            <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-            	<%= image_tag 'phones.png', { class: 'img-responsive' } %>
-            </div>
-        </div>
-
-    </div>
-    <!-- /.container -->
-
-</div>
-<!-- /.content-section-a -->
-
-<div class="banner">
-
-    <div class="container">
-
-        <div class="row">
-            <div class="col-lg-6">
-                <h2>Conecte con nosotros ahora:</h2>
-            </div>
-            <div class="col-lg-6">
-                <ul class="list-inline banner-social-buttons">
-                    <li>
-                        <a href="mailto:claudio.guerra@firmaexpress.com?cc=patricio.jara@firmaexpress.com&subject=Subscripción a Simple Cases&body=Estimados, me interesa su propuesta y quisiera saber más sobre Simple Cases para eventualmente adquirir una cuenta." class="btn btn-default btn-lg"><!--<i class="fa fa-twitter fa-fw"></i>--><span class="network-name">Pida su cuenta</span></a>
+         end #clients -->
+        
+        <!-- begin #pricing -->
+        <div id="pricing" class="content" data-scrollview="true">
+            <!-- begin container -->
+            <div class="container">
+                <h2 class="content-title">Precios</h2>
+                <p class="content-desc">
+                    Para <input type="number" value=1 style="width:40px" id="users" min="1" /> Usuarios
+                </p>
+                <!-- begin pricing-table -->
+                <ul class="pricing-table col-3">
+                    <li data-animation="true" data-animation-type="fadeInUp">
+                        <div class="pricing-container">
+                            <h3>Trimestral</h3>
+                            <div class="price">
+                                <div class="price-figure">
+                                    <span class="price-number" id="tri"></span>
+                                    <span class="price-tenure">por mes</span>
+                                </div>
+                            </div>
+                            <ul class="features">
+                                <li>$40.000 con 1 usuario</li>
+                                <li>$2.000 por usuario extra</li>
+                            </ul>
+                            <div class="footer">
+                                <a href="#contact" data-click="scroll-to-target" class="btn btn-inverse btn-block buy" data-planname="Trimestral">Contratar</a>
+                            </div>
+                        </div>
                     </li>
-                    <!--<li>
-                        <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                    <li data-animation="true" data-animation-type="fadeInUp">
+                        <div class="pricing-container">
+                            <h3>Semestral</h3>
+                            <div class="price">
+                                <div class="price-figure">
+                                    <span class="price-number" id="sem"></span>
+                                    <span class="price-tenure">por mes</span>
+                                    <span class="price-tenure">ahorras $<span id="sem_saving"></span></span>
+                                </div>
+                            </div>
+                            <ul class="features">
+                                <li>$40.000 con 1 usuario</li>
+                                <li>$2.000 por usuario extra</li>
+                                <li>5% de descuento</li>
+                            </ul>
+                            <div class="footer">
+                                <a href="#contact" data-click="scroll-to-target" class="btn btn-inverse btn-block buy" data-planname="Semestral">Contratar</a>
+                            </div>
+                        </div>
                     </li>
-                    <li>
-                        <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
-                    </li>-->
+                    <li class="highlight" data-animation="true" data-animation-type="fadeInUp">
+                        <div class="pricing-container">
+                            <h3>Anual</h3>
+                            <div class="price">
+                                <div class="price-figure">
+                                    <span class="price-number" id="anu"></span>
+                                    <span class="price-tenure">por mes</span>
+                                    <span class="price-tenure">ahorras $<span id="anu_saving"></span></span>
+                                </div>
+                            </div>
+                            <ul class="features">
+                                <li>$40.000 con 1 usuario</li>
+                                <li>$2.000 por usuario extra</li>
+                                <li>10% de descuento</li>
+                            </ul>
+                            <div class="footer">
+                                <a href="#contact" data-click="scroll-to-target" class="btn btn-theme btn-block buy" data-planname="Anual">Contratar</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end #pricing -->
+        
+        <!-- begin #contact -->
+        <div id="contact" class="content bg-silver-lighter" data-scrollview="true">
+            <!-- begin container -->
+            <div class="container">
+                <h2 class="content-title">Contáctanos</h2>
+                <p class="content-desc">
+                    
+                </p>
+                <!-- begin row -->
+                <div class="row">
+                    <!-- begin col-6 -->
+                    <div class="col-md-6" data-animation="true" data-animation-type="fadeInLeft">
+                        <h3 style="margin-top:70px;">Si tienes alguna consulta sobre Simple Cases no dudes en escribirnos.</h3>
+                        <!--<p>
+                            Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus.
+                        </p>
+                        <p>
+                            <strong>SeanTheme Studio, Inc</strong><br />
+                            795 Folsom Ave, Suite 600<br />
+                            San Francisco, CA 94107<br />
+                            P: (123) 456-7890<br />
+                        </p>
+                        <p>
+                            <span class="phone">+11 (0) 123 456 78</span><br />
+                            <a href="mailto:hello@emailaddress.com">seanthemes@support.com</a>
+                        </p>-->
+                    </div>
+                    <!-- end col-6 -->
+                    <!-- begin col-6 -->
+                    <div class="col-md-6 form-col" data-animation="true" data-animation-type="fadeInRight">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Name <span class="text-theme">*</span></label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Email <span class="text-theme">*</span></label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Message <span class="text-theme">*</span></label>
+                                <div class="col-md-9">
+                                    <textarea class="form-control" rows="10" id="contact_body"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3"></label>
+                                <div class="col-md-9 text-left">
+                                    <button type="submit" class="btn btn-theme btn-block">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- end col-6 -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end #contact -->
+        
+        <!-- begin #footer -->
+        <div id="footer" class="footer">
+            <div class="container">
+                <div class="footer-brand">
+                    <div class="footer-brand-logo fa fa-legal fa-lg"></div>
+                    Simple Cases
+                </div>
+                <p>
+                    <i class="fa fa-code fa-lg m-5"></i> con <i class="fa fa-heart fa-lg m-5"></i> por <a href="">LambdaIT</a>
+                </p>
+                <!--<p class="social-list">
+                    <a href="#"><i class="fa fa-facebook fa-fw"></i></a>
+                    <a href="#"><i class="fa fa-instagram fa-fw"></i></a>
+                    <a href="#"><i class="fa fa-twitter fa-fw"></i></a>
+                    <a href="#"><i class="fa fa-google-plus fa-fw"></i></a>
+                    <a href="#"><i class="fa fa-dribbble fa-fw"></i></a>
+                </p>-->
+            </div>
+        </div>
+        <!-- end #footer -->
+        
+        <!-- begin theme-panel 
+        <div class="theme-panel">
+            <a href="javascript:;" data-click="theme-panel-expand" class="theme-collapse-btn"><i class="fa fa-cog"></i></a>
+            <div class="theme-panel-content">
+                <ul class="theme-list clearfix">
+                    <li><a href="javascript:;" class="bg-purple" data-theme="purple" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Purple">&nbsp;</a></li>
+                    <li><a href="javascript:;" class="bg-blue" data-theme="blue" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Blue">&nbsp;</a></li>
+                    <li class="active"><a href="javascript:;" class="bg-green" data-theme="default" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Default">&nbsp;</a></li>
+                    <li><a href="javascript:;" class="bg-orange" data-theme="orange" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Orange">&nbsp;</a></li>
+                    <li><a href="javascript:;" class="bg-red" data-theme="red" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Red">&nbsp;</a></li>
                 </ul>
             </div>
         </div>
-
+         end theme-panel -->
     </div>
-    <!-- /.container -->
+    <!-- end #page-container -->
 
-</div>
-<!-- /.banner -->
-
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <!--<ul class="list-inline">
-                    <li>
-                        <a href="#home">Home</a>
-                    </li>
-                    <li class="footer-menu-divider">&sdot;</li>
-                    <li>
-                        <a href="#about">About</a>
-                    </li>
-                    <li class="footer-menu-divider">&sdot;</li>
-                    <li>
-                        <a href="#services">Services</a>
-                    </li>
-                    <li class="footer-menu-divider">&sdot;</li>
-                    <li>
-                        <a href="#contact">Contact</a>
-                    </li>
-                </ul>-->
-                <p class="copyright text-muted small">Copyright &copy; Simple Cases 2014. All Rights Reserved</p>
-            </div>
+    <!-- Modal -->
+    <div class="modal fade bs-example-modal-lg" id="video-player" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            <iframe src="" width="854" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          </div>
         </div>
+      </div>
     </div>
-</footer>
-
-<!-- jQuery Version 1.11.0 -->
-<%= javascript_include_tag 'jquery-1.11.0.js' %>
-<!-- Bootstrap Core JavaScript -->
-<%= javascript_include_tag 'bootstrap.min.js' %>
+    <!-- end Modal -->
+    
+    <!-- ================== BEGIN BASE JS ================== -->
+    <%= javascript_include_tag 'jquery.js' %>
+    <%= javascript_include_tag 'jquery.cookie.js' %>
+    <%= javascript_include_tag 'bootstrap.min.js' %>
+    <%= javascript_include_tag 'scrollMonitor.js' %>
+    <%= javascript_include_tag 'frontend-apps.js' %>
+    <!--<script src="assets/plugins/jquery-1.8.2/jquery-1.8.2.min.js"></script>
+    <script src="assets/plugins/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script src="assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+    <script src="assets/plugins/scrollMonitor/scrollMonitor.js"></script>
+    <script src="assets/js/apps.min.js"></script>-->
+    <!--[if lt IE 9]>
+        <script src="assets/crossbrowserjs/html5shiv.js"></script>
+        <script src="assets/crossbrowserjs/respond.min.js"></script>
+        <script src="assets/crossbrowserjs/excanvas.min.js"></script>
+    <![endif]-->
+    <!-- ================== END BASE JS ================== -->
+    
+    <script>    
+        $(document).ready(function() {
+            base = 40000; user = 2000; sem_desc = 0.05; anu_desc = 0.1;
+            $('#tri').text('$' + base);
+            $('#sem').text('$' + (base*(1-sem_desc)));
+            $('#sem_saving').text((base*(sem_desc))*6);
+            $('#anu').text('$'+(base*(1-anu_desc)));
+            $('#anu_saving').text((base*(anu_desc))*12);
+            $('#users').on('change', function(){
+                if($(this).val()<1)
+                    $(this).val(1)
+                user_qty = $(this).val()-1;
+                $('#tri').text('$' + (base+(user*user_qty)));
+                $('#sem').text('$' + (base+(user*user_qty))*(1-sem_desc));
+                $('#sem_saving').text((base+(user*user_qty))*(sem_desc)*6);
+                $('#anu').text('$' + (base+(user*user_qty))*(1-anu_desc));
+                $('#anu_saving').text((base+(user*user_qty))*(anu_desc)*12);
+            });
+            $('.buy').click(function(){
+                console.log($(this).parent());
+                $('#contact_body').text('Estimados, \n\nMe interesa contratar el plan '+$(this).attr('data-planname')+' con '+$('#users').val()+' usuarios.\n\nEspero su respuesta.');
+            });
+        });
+        $(document).ready(function() {
+            App.init();
+        });
+        $('#video-player').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var title = button.data('title') // Extract info from data-* attributes
+          var link = button.data('link')
+          // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+          // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+          var modal = $(this)
+          modal.find('.modal-title').text(title)
+          modal.find('.modal-body iframe').attr('src', link)
+        });
+        $('#video-player').on('hide.bs.modal', function (event) {
+          var modal = $(this)
+          modal.find('.modal-title').text("")
+          modal.find('.modal-body iframe').attr('src', "")
+        });
+    </script>
+</body>
+</html>
