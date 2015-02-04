@@ -14,6 +14,11 @@ class User < ActiveRecord::Base
   belongs_to :user_type
   after_create :define_settings
 
+  def ability
+    @ability ||= Ability.new(self)
+  end
+  delegate :can?, :cannot?, :to => :ability
+
   def admin?
   	#self.user_type.id == 1
     self.profile.name == 'sudo'
