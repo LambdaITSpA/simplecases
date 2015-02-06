@@ -26,6 +26,7 @@ class CausesController < ApplicationController
 
   def new
     @cause = Cause.new
+    @cause.periodicity = 1
   end
 
   def edit
@@ -66,6 +67,6 @@ class CausesController < ApplicationController
     end
 
     def cause_params
-      params.require(:cause).permit(:role, :court_id, :matter, :honorary, :first_payment_date, :fee_quantity, :client_id, :area_id)
+      params.require(:cause).permit(:role, :court_id, :matter, :honorary, :first_payment_date, :fee_quantity, :client_id, :area_id, :periodicity, :periodicity_measure)
     end
 end

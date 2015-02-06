@@ -11,6 +11,10 @@ class PaymentsController < ApplicationController
 	  	@soon_payments = current_user.soon_payments.where('date < ?', Date.today + 2.month)
 	end
   end
+  def update
+  	Payment.find(params[:id]).update(date: params[:date])
+  	redirect_to "#{request.referer}#payments"
+  end
   def pay
   	Payment.find(params[:id]).pay
   	redirect_to "#{request.referer}#payments"

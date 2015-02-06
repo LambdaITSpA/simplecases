@@ -13,7 +13,11 @@ class Cause < ActiveRecord::Base
       self.fee_quantity.times do |quantity|
         payment_amount = self.honorary / self.fee_quantity
         payment_amount += self.honorary % self.fee_quantity if quantity == 0
-        self.payments << Payment.create(date: self.first_payment_date + quantity.month, payed: false, amount: payment_amount, paid_amount: 0, payment_number: quantity+1)
+        self.payments << if(self.periodicity_measure == 1)
+          Payment.create(date: self.first_payment_date + (quantity*self.periodicity).month, payed: false, amount: payment_amount, paid_amount: 0, payment_number: quantity+1)
+        else
+          Payment.create(date: self.first_payment_date + (quantity*self.periodicity).day, payed: false, amount: payment_amount, paid_amount: 0, payment_number: quantity+1)
+        end
       end
     end
   end

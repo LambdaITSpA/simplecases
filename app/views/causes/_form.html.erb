@@ -52,6 +52,17 @@
                 <%= f.label :fee_quantity, 'Cantidad de Cuotas' %><br>
                 <%= f.text_field :fee_quantity, class: 'form-control' %>
               </div>
+              <div class="field">
+                <%= f.label :periodicity, 'Periodicidad' %><br>
+                <div class="row">
+                  <div class="col-lg-8">
+                <%= f.text_field :periodicity, class: 'form-control' %>
+                  </div>
+                  <div class="col-lg-4">
+                <%= f.select :periodicity_measure, options_for_select([["Meses", 1], ["Días", 2]], 1), {}, {class: 'form-control'} %>
+                  </div>
+                </div>
+              </div>
             <% end %>
           </div>
           <div class="actions" style="margin-top:20px;">
