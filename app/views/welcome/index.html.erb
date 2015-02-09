@@ -408,11 +408,11 @@
                                 </div>
                             </div>
                             <ul class="features">
-                                <li>$40.000 con 1 usuario</li>
-                                <li>$2.000 por usuario extra</li>
+                                <li>USD 80 con 1 usuario</li>
+                                <li>USD 4 por usuario extra</li>
                             </ul>
                             <div class="footer">
-                                <a href="#contact" data-click="scroll-to-target" class="btn btn-inverse btn-block buy" data-planname="Trimestral">Contratar</a>
+                                <a href="subscriptions/new?plan_id=3&plan_length=3&user_qty=1" class="btn btn-inverse btn-block" id="sub_tri">Contratar</a>
                             </div>
                         </div>
                     </li>
@@ -427,12 +427,12 @@
                                 </div>
                             </div>
                             <ul class="features">
-                                <li>$40.000 con 1 usuario</li>
-                                <li>$2.000 por usuario extra</li>
+                                <li>USD 80 con 1 usuario</li>
+                                <li>USD 4 por usuario extra</li>
                                 <li>5% de descuento</li>
                             </ul>
                             <div class="footer">
-                                <a href="#contact" data-click="scroll-to-target" class="btn btn-inverse btn-block buy" data-planname="Semestral">Contratar</a>
+                                <a href="subscriptions/new?plan_id=3&plan_length=6&user_qty=1" class="btn btn-inverse btn-block" id="sub_sem">Contratar</a>
                             </div>
                         </div>
                     </li>
@@ -447,12 +447,12 @@
                                 </div>
                             </div>
                             <ul class="features">
-                                <li>$40.000 con 1 usuario</li>
-                                <li>$2.000 por usuario extra</li>
+                                <li>USD 80 con 1 usuario</li>
+                                <li>USD 4 por usuario extra</li>
                                 <li>10% de descuento</li>
                             </ul>
                             <div class="footer">
-                                <a href="#contact" data-click="scroll-to-target" class="btn btn-theme btn-block buy" data-planname="Anual">Contratar</a>
+                                <a href="subscriptions/new?plan_id=3&plan_length=12&user_qty=1" class="btn btn-theme btn-block" id="sub_anu">Contratar</a>
                             </div>
                         </div>
                     </li>
@@ -565,7 +565,7 @@
     </div>
     <!-- end #page-container -->
 
-    <!-- Modal -->
+    <!-- Video Modal -->
     <div class="modal fade bs-example-modal-lg" id="video-player" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -579,7 +579,36 @@
         </div>
       </div>
     </div>
-    <!-- end Modal -->
+    <!-- end Video Modal -->
+
+    <!-- Plan Modal -->
+    <div class="modal fade bs-example-modal-lg" id="plan-modal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Contratar Plan</h4>
+          </div>
+          <div class="modal-body">
+            <%= form_tag({:controller => "welcome", :action => "get_plan" }, :method => "post") do %>
+                <div class="form-group">
+                    Plan: <div id="plan_length_visible"></div>
+                </div>
+                <div class="form-group">
+                    Usuarios: <div id="user_qty_visible"></div>
+                </div>
+                <div class="form-group">
+                    Mensualidad: <div id="monthly_amount_visible"></div>
+                </div>
+            <% end %>
+          </div>
+          <div class="modal-footer">
+                <a href="" id="checkout_link" class="btn btn-theme">Contratar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end Plan Modal -->
     
     <!-- ================== BEGIN BASE JS ================== -->
     <%= javascript_include_tag 'jquery.js' %>
@@ -601,21 +630,24 @@
     
     <script>    
         $(document).ready(function() {
-            base = 40000; user = 2000; sem_desc = 0.05; anu_desc = 0.1;
-            $('#tri').text('$' + base);
-            $('#sem').text('$' + (base*(1-sem_desc)));
-            $('#sem_saving').text((base*(sem_desc))*6);
-            $('#anu').text('$'+(base*(1-anu_desc)));
-            $('#anu_saving').text((base*(anu_desc))*12);
+            base = 80; user = 4; sem_desc = 0.05; anu_desc = 0.1;
+            $('#tri').text('USD ' + Math.ceil(base));
+            $('#sem').text('USD ' + Math.ceil(base*(1-sem_desc)));
+            $('#sem_saving').text((Math.ceil(base)-Math.ceil(base*(1-sem_desc)))*6);
+            $('#anu').text('USD '+Math.ceil(base*(1-anu_desc)));
+            $('#anu_saving').text((Math.ceil(base)-Math.ceil(base*(1-anu_desc)))*12);
             $('#users').on('change', function(){
                 if($(this).val()<1 || isNaN($(this).val()))
                     $(this).val(1)
                 user_qty = $(this).val()-1;
-                $('#tri').text('$' + (base+(user*user_qty)));
-                $('#sem').text('$' + (base+(user*user_qty))*(1-sem_desc));
-                $('#sem_saving').text((base+(user*user_qty))*(sem_desc)*6);
-                $('#anu').text('$' + (base+(user*user_qty))*(1-anu_desc));
-                $('#anu_saving').text((base+(user*user_qty))*(anu_desc)*12);
+                $('#tri').text('USD ' + Math.ceil(base+(user*user_qty)));
+                $('#sem').text('USD ' + Math.ceil((base+(user*user_qty))*(1-sem_desc)));
+                $('#sem_saving').text((Math.ceil(base+(user*user_qty))-Math.ceil((base+(user*user_qty))*(1-sem_desc)))*6);
+                $('#anu').text('USD ' + Math.ceil((base+(user*user_qty))*(1-anu_desc)));
+                $('#anu_saving').text((Math.ceil(base+(user*user_qty))-Math.ceil((base+(user*user_qty))*(1-anu_desc)))*12);
+                $('#sub_tri').attr('href', 'subscriptions/new?plan_id=3&plan_length=3&user_qty='+(user_qty+1));
+                $('#sub_sem').attr('href', 'subscriptions/new?plan_id=3&plan_length=6&user_qty='+(user_qty+1));
+                $('#sub_anu').attr('href', 'subscriptions/new?plan_id=3&plan_length=12&user_qty='+(user_qty+1));
             });
             $('.buy').click(function(){
                 console.log($(this).parent());
@@ -633,8 +665,20 @@
         $(document).ready(function() {
             App.init();
         });
+        $('#plan-modal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            var plan_name = button.data('planname')
+            var plan_length = button.data('plan-length')
+            var plan_id = button.data('planid')
+            var user_qty = $('#users').val()
+            var monthly_amount = button.parent().parent().children('.price').children('.price-figure').children('.price-number').text().substring(4)
+            var modal = $(this)
+            $('#plan_length_visible').text(plan_name)
+            $('#user_qty_visible').text(user_qty)
+            $('#monthly_amount_visible').text('USD '+monthly_amount)
+            $('#checkout_link').attr('href', 'paypal/checkout?plan_id='+plan_id+'&user_qty='+user_qty+'&plan_length='+plan_length);
+        });
         $('#video-player').on('show.bs.modal', function (event) {
-          console.log('lool');
           var button = $(event.relatedTarget) // Button that triggered the modal
           var title = button.data('title') // Extract info from data-* attributes
           var link = button.data('link')

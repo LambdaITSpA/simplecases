@@ -10,7 +10,6 @@ chief_lawyer = UserType.create name: 'chief_lawyer', long_name: 'Abogado Jefe'
 assistant = UserType.create name: 'assistant', long_name: 'Asistente'
 
 #Profiles
-#puts 'LOL!'
 all = Subject.create name: 'Todo', class_name: ':all'
 causas = Subject.create name: 'Causas', class_name: 'Cause'
 avances = Subject.create name: 'Avances', class_name: 'JournalEntry'
@@ -54,6 +53,11 @@ test_lawyer = User.create name: 'Juan Perez', user_type: chief_lawyer, id_number
 test_assistant = User.create name: 'Nicolás Vera', user_type: assistant, id_number: '4', email: 'nico@vera.com', password: 'nicovera', password_confirmation: 'nicovera', organization_profile: lawyer_op
 test_org.update users: [test_lawyer, test_assistant]
 admin_org.update users: [claudio, pato]
+
+
+Plan.create name: 'Free', causes: true, payments: true, clients: false, price_clp: 0, price_usd: 0
+Plan.create name: 'Micro', causes: true, payments: false, clients: false, price_clp: 35000, price_usd: 70
+Plan.create name: 'Standard', causes: true, payments: true, clients: false, price_clp: 40000, price_usd: 80
 
 #static stuff
 #juridica = CauseType.create name: 'Causa Jurídica'

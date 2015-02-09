@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   post 'causes/:id/raw_payment', to: 'causes#raw_payment', as: 'raw_payment'
   resources :courts, only: [:index]
   post 'welcome_contact', to: 'welcome#contact', as: 'welcome_contact'
+  post 'get_plan', to: 'welcome#get_plan', as: 'get_plan'
+  resources :subscriptions
+  get 'paypal/checkout', to: 'subscriptions#paypal_checkout'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
