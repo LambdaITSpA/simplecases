@@ -1,0 +1,11 @@
+<div id="info">
+	<p>Te haz subscrito al plan <%= @subscription.paypal_description %>.</p><br>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="actions"><%= link_to "Volver", root_url, class: 'btn btn-inverse btn-block btn-lg' %></div>
+		</div>
+		<div class="col-md-6">
+			<div class="actions"><%= link_to "Iniciar Sesión", new_user_session_path, class: 'btn btn-success btn-block btn-lg' %></div>
+		</div>
+	</div>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206022741) do
+ActiveRecord::Schema.define(version: 20150208005321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,6 +96,14 @@ ActiveRecord::Schema.define(version: 20150206022741) do
   add_index "courts", ["area_id"], name: "index_courts_on_area_id", using: :btree
   add_index "courts", ["region_id"], name: "index_courts_on_region_id", using: :btree
 
+  create_table "invoices", force: true do |t|
+    t.string   "description"
+    t.integer  "amount"
+    t.integer  "subscription_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "journal_entries", force: true do |t|
     t.string   "subject"
     t.text     "body"
@@ -179,6 +187,17 @@ ActiveRecord::Schema.define(version: 20150206022741) do
   add_index "permissions", ["action_id"], name: "index_permissions_on_action_id", using: :btree
   add_index "permissions", ["subject_id"], name: "index_permissions_on_subject_id", using: :btree
 
+  create_table "plans", force: true do |t|
+    t.string   "name"
+    t.boolean  "causes"
+    t.boolean  "payments"
+    t.boolean  "clients"
+    t.integer  "price_clp"
+    t.integer  "price_usd"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "profile_permissions", force: true do |t|
     t.integer  "permission_id"
     t.integer  "profile_id"
@@ -216,6 +235,19 @@ ActiveRecord::Schema.define(version: 20150206022741) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "subscriptions", force: true do |t|
+    t.integer  "user_quantity"
+    t.integer  "plan_id"
+    t.integer  "organization_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "paypal_customer_token"
+    t.string   "paypal_recurring_profile_token"
+  end
+
+  add_index "subscriptions", ["organization_id"], name: "index_subscriptions_on_organization_id", using: :btree
+  add_index "subscriptions", ["plan_id"], name: "index_subscriptions_on_plan_id", using: :btree
 
   create_table "user_causes", force: true do |t|
     t.integer  "user_id"
