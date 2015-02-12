@@ -7,3 +7,2493 @@ I, [2015-01-17T11:00:25.392321 #434]  INFO -- :   Rendered user_mailer/test.html
 I, [2015-01-17T11:00:28.134789 #434]  INFO -- : 
 Sent mail to patricio.jara@gmail.com (2715.6ms)
 I, [2015-02-06T04:59:20.734113 #74]  INFO -- : Migrating to AddPeriodicityAndPeriodicityMeasureToCauses (20150206022741)
+I, [2015-02-09T22:34:10.331017 #74]  INFO -- : Migrating to CreatePlans (20150208001442)
+I, [2015-02-09T22:34:11.861091 #74]  INFO -- : Migrating to CreateInvoices (20150208003628)
+I, [2015-02-09T22:34:12.846576 #74]  INFO -- : Migrating to CreateSubscriptions (20150208004907)
+I, [2015-02-09T22:34:14.646592 #74]  INFO -- : Migrating to AddPaypalToSubscriptions (20150208005321)
+E, [2015-02-11T19:41:27.376879 #340] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T19:42:17.528623 #508] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T19:43:17.958811 #670] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T19:44:16.251406 #828] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T19:46:23.286257 #1147] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T19:47:16.727621 #1315] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T19:48:16.929491 #1469] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T19:49:17.777758 #1627] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T19:50:17.203765 #1789] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T19:51:16.117951 #1955] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T19:52:16.797192 #2117] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T19:53:16.633155 #2271] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T19:54:16.830701 #2429] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T19:55:16.266694 #2587] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T19:56:28.225840 #2758] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T19:57:19.132312 #2912] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T19:58:17.299757 #3070] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T19:59:18.665824 #3228] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:00:16.456201 #3390] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:01:16.461660 #3561] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:02:16.510275 #3719] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:03:16.547752 #3881] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:04:16.394943 #4035] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:05:16.659806 #4197] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:06:15.669466 #4370] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:07:16.792276 #4532] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:08:15.579580 #4686] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:09:17.257239 #4848] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:11:25.274347 #342] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:12:18.294664 #510] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:13:19.566664 #668] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:14:19.906105 #830] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:15:18.302110 #984] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:16:18.636034 #1146] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:17:18.944168 #1307] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:18:18.063225 #1461] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:19:20.049422 #1619] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:20:18.489962 #1777] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:21:19.815358 #1947] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:22:19.942653 #2105] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:23:19.943071 #2263] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:24:21.247971 #2425] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:25:21.399186 #2583] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:26:20.120763 #2750] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:27:19.723391 #2904] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:28:20.856155 #3062] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:29:19.473384 #3224] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:30:21.263923 #3378] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:31:20.348928 #3559] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:32:20.175627 #3713] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:33:19.825815 #3875] ERROR -- : PG::UndefinedTable: ERROR:  relation "notifications" does not exist
+LINE 5:                WHERE a.attrelid = '"notifications"'::regclas...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notifications"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:34:20.459462 #4033] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:35:22.823167 #4187] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:36:22.405756 #4363] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:37:24.700525 #4521] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:38:20.490317 #4683] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:39:21.780604 #4837] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:40:20.027875 #4999] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:41:20.749815 #5175] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:42:20.113224 #5329] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:43:21.672546 #5491] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:44:21.097127 #5645] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:45:21.650367 #5804] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:46:21.684134 #5984] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:47:20.421248 #6142] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:48:20.687499 #6296] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:49:20.871210 #6454] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:50:20.222861 #6612] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:51:20.570629 #6794] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:52:23.107250 #6952] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:53:20.301447 #7114] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:54:21.937309 #7272] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:55:21.197532 #7430] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:56:20.352787 #7611] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:57:20.795705 #7773] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T20:59:35.657659 #356] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:00:21.360281 #512] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:01:20.347220 #670] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:02:20.436082 #828] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:03:20.298183 #982] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:04:21.240903 #1140] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:05:20.217032 #1298] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:06:20.300586 #1460] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:07:19.236530 #1618] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:08:18.972201 #1776] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:09:19.475659 #1942] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:10:19.063174 #2104] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:11:19.100948 #2262] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:12:19.027487 #2420] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:13:19.903408 #2578] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:14:23.468821 #2745] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:15:20.031750 #2899] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:16:19.073430 #3057] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:19:26.397567 #3565] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:20:20.015172 #3727] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:21:19.160004 #3881] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:22:19.946919 #4039] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:23:19.747246 #4197] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:24:19.367119 #4368] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:25:19.049298 #4526] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:26:18.965355 #4680] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:27:19.043205 #4842] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:28:23.662879 #4996] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:29:22.060008 #5172] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:30:20.241200 #5330] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:31:19.543987 #5488] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:32:19.531775 #5650] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:33:19.163776 #5805] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:34:18.868693 #5983] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:35:18.642343 #6141] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:36:21.100168 #6299] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:37:20.545601 #6461] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:38:19.307055 #6615] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:39:20.876604 #6799] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:40:18.630636 #6957] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:41:20.588163 #7111] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:42:19.087991 #7269] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:43:20.142181 #7431] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:44:20.235806 #7617] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:45:19.193852 #7771] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:46:19.010495 #7933] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:47:19.528551 #8091] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:48:19.460366 #8245] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:49:21.143073 #8428] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:50:19.160042 #8592] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:51:18.853511 #8750] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:52:18.848461 #8908] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:53:18.567661 #9066] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:54:21.327859 #9247] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:55:19.877828 #9401] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:56:18.739411 #9559] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:57:18.558863 #9717] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:58:19.186302 #9875] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T21:59:19.085602 #10059] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:00:18.893876 #10217] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:01:19.078085 #10379] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:02:19.678148 #10537] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:03:19.530081 #10691] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:04:19.519303 #10877] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:05:19.476204 #11031] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:06:19.645200 #11194] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:07:19.681126 #11352] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:08:19.767285 #11510] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:09:19.452500 #11692] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:10:19.359362 #11850] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:11:19.044984 #12012] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:12:18.791238 #12170] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:13:20.113883 #12328] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:14:20.521982 #12506] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:15:19.576071 #12664] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:16:20.160961 #12826] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:17:18.956362 #12987] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:18:19.151739 #13145] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:19:20.453934 #13328] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:20:19.652542 #13490] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:22:38.638530 #356] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:23:20.125854 #512] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:24:19.005322 #670] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:25:19.520664 #828] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:26:19.557789 #982] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:27:18.653493 #1140] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:28:19.764986 #1302] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:29:18.689292 #1460] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:30:19.764772 #1618] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:31:19.267484 #1772] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:32:20.288106 #1946] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:33:20.360780 #2100] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:34:19.931827 #2262] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:35:19.179325 #2416] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:36:19.482881 #2574] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:37:18.323659 #2741] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:38:19.831748 #2903] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:39:18.638098 #3057] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:40:19.643018 #3215] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:41:19.290540 #3373] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:42:19.050548 #3553] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:43:18.747194 #3711] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:44:19.566344 #3869] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:45:20.299825 #4023] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:46:18.894601 #4181] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:47:19.906332 #4361] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:48:19.036902 #4519] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:49:18.731282 #4677] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:50:19.655499 #4831] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:51:19.514940 #4993] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:52:20.634049 #5165] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:53:19.498413 #5323] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:54:20.005288 #5481] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:55:20.287706 #5643] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:56:20.077525 #5798] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:57:18.972378 #5975] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:58:19.051562 #6133] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T22:59:18.950860 #6295] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:00:18.937909 #6449] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:01:19.053787 #6611] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:02:18.944578 #6793] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:03:19.155471 #6951] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:04:20.235165 #7109] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:05:19.070696 #7267] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:06:18.822148 #7425] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:07:18.452421 #7603] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:08:19.075012 #7765] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:09:18.565571 #7919] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:10:20.104480 #8077] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:11:19.330647 #8239] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:12:18.920950 #8423] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:13:18.596453 #8578] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:14:19.159080 #8736] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:15:18.736658 #8894] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:16:18.545947 #9056] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:17:19.651957 #9237] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:18:19.189030 #9395] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:19:18.873598 #9553] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:20:18.452377 #9711] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:21:19.263677 #9869] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:22:22.319097 #10057] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:23:19.230371 #10215] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:24:19.722740 #10369] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:25:18.817977 #10531] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:26:18.880396 #10685] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:27:18.740471 #10869] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:28:18.968892 #11027] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:29:18.691474 #11182] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:30:19.319913 #11340] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:31:19.156989 #11498] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+E, [2015-02-11T23:32:19.372974 #11686] ERROR -- : PG::UndefinedTable: ERROR:  relation "notification_types" does not exist
+LINE 5:                WHERE a.attrelid = '"notification_types"'::re...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"notification_types"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+

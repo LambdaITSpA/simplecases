@@ -9,7 +9,7 @@
 	<title>Simple Cases
     <% if current_user %>
         <% if can? :read, Payment %>
-            <%= current_user.notifications? ? "(#{current_user.notifications})" : ''  %>
+            <%= current_user.notifications? ? "(#{current_user.notifications.undismissed.count})" : ''  %>
         <% end %>
     <% end %>
     </title>
@@ -89,42 +89,75 @@
                             </ul>
                         </div>
                     </li>
+                    <% if can? :read, Payment %>
+                    <li class="dropdown">
+                        <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
+                            <i class="fa fa-money"></i>
+                            <% if (current_user.todays_payments.count + current_user.late_payments.count) > 0 %>
+                            <span class="label"><%= current_user.todays_payments.count + current_user.late_payments.count %></span>
+                            <% end %>
+                        </a>
+                        <ul class="dropdown-menu media-list pull-right animated fadeInDown" style="min-width:280px;max-height:300px;overflow:auto;">
+                            <li class="dropdown-header">
+                                <% if (current_user.todays_payments.count + current_user.late_payments.count) > 0 and can? :read, Payment %>
+                                    Cobros pendientes (<%= current_user.todays_payments.count + current_user.late_payments.count %>)
+                                <% else %>
+                                    Sin cobros pendientes
+                                <% end %>
+                            </li>
+                            <% current_user.todays_payments.each do |tp| %>
+                            <li class="media">
+                            <a href="<%= cause_path(tp.cause) %>#payments">
+                                <div class="pull-left media-object bg-orange"><i class="fa fa-money"></i></div>
+                                <div class="media-body">
+                                    <h6 class="media-heading">Cobrar causa</h6>
+                                    <div class="text-muted"><%= tp.cause.matter %></div>
+                                </div>
+                            </a>
+                            </li>
+                            <% end %>
+                            <% current_user.late_payments.each do |tp| %>
+                            <li class="media">
+                            <a href="<%= cause_path(tp.cause) %>#payments">
+                                <div class="pull-left media-object bg-red"><i class="fa fa-money"></i></div>
+                                <div class="media-body">
+                                    <h6 class="media-heading">Pago atrasado en causa</h6>
+                                    <div class="text-muted"><%= tp.cause.matter %></div>
+                                </div>
+                            </a>  
+                            <% end %>
+                            <!--<li class="dropdown-footer text-center">
+                                <a href="javascript:;">Ver más</a>
+                            </li>-->
+                        </ul>
+                    </li>
+                    <% end %>
                     <li class="dropdown">
                         <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
                             <i class="fa fa-bell-o"></i>
                             <% if current_user.notifications? and can? :read, Payment %>
-                            <span class="label"><%= current_user.notifications %></span>
+                            <span class="label"><%= current_user.notifications.undismissed.count %></span>
                             <% end %>
                         </a>
-                        <ul class="dropdown-menu media-list pull-right animated fadeInDown" style="min-width:250px;">
+                        <ul class="dropdown-menu media-list pull-right animated fadeInDown" style="min-width:280px;max-height:300px;overflow:auto;">
                             <li class="dropdown-header">
                                 <% if current_user.notifications? and can? :read, Payment %>
-                                    Notificaciones (<%= current_user.notifications %>)
+                                    Notificaciones (<%= current_user.notifications.undismissed.count %>)
                                 <% else %>
                                     Sin notificaciones
                                 <% end %>
                             </li>
-                            <% if current_user.notifications? and can? :read, Payment %>
-                                <% current_user.todays_payments.each do |tp| %>
+                            <% if current_user.notifications? %>
+                                <% current_user.notifications.undismissed.each do |n| %>
                                 <li class="media">
-                                <a href="<%= cause_path(tp.cause) %>#payments">
-                                    <div class="pull-left media-object bg-orange"><i class="fa fa-money"></i></div>
+                                <a href="<%= n.link %>">
+                                    <div class="pull-left media-object bg-<%= n.notification_type.color %>"><i class="fa fa-<%= n.notification_type.icon %>"></i></div>
                                     <div class="media-body">
-                                        <h6 class="media-heading">Cobrar causa</h6>
-                                        <div class="text-muted"><%= tp.cause.matter %></div>
+                                        <h6 class="media-heading"><%= n.subject %></h6>
+                                        <div class="text-muted"><%= n.description %></div>
                                     </div>
                                 </a>
                                 </li>
-                                <% end %>
-                                <% current_user.late_payments.each do |tp| %>
-                                <li class="media">
-                                <a href="<%= cause_path(tp.cause) %>#payments">
-                                    <div class="pull-left media-object bg-red"><i class="fa fa-money"></i></div>
-                                    <div class="media-body">
-                                        <h6 class="media-heading">Pago atrasado en causa</h6>
-                                        <div class="text-muted"><%= tp.cause.matter %></div>
-                                    </div>
-                                </a>  
                                 <% end %>
                             <% end %>
                             <!--<li class="dropdown-footer text-center">

@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :journal_entries
   has_many :user_settings
   has_many :settings, through: :user_settings
+  has_many :notifications
   belongs_to :organization_profile
   belongs_to :user_type
   after_create :define_settings
@@ -44,7 +45,6 @@ class User < ActiveRecord::Base
 
   def self.causes
     causes = Hash.new
-    
   end
 
   def role(role)
@@ -52,9 +52,9 @@ class User < ActiveRecord::Base
   end
 
   def notifications?
-    notifications > 0
+    notifications.undismissed.count > 0
   end
-
+=begin
   def notifications
     if self.can? :read, Payment
       todays_payments.count + late_payments.count
@@ -62,16 +62,35 @@ class User < ActiveRecord::Base
       0
     end
   end
-
-  def self.notify
-    users = User.all
-    users.each do |u|
-      if u.notifications?
-        UserMailer.test(u).deliver
-      end
-    end
+=end
+  def set_notification
+    n = Notification.create(subject: 'Notificación', description: "description", dismissable: true, notification_type: NotificationType.find_by_name('notification'))
+    n.update link: "#{Rails.application.routes.url_helpers.user_root_path}?n=#{n.id}"
+    self.notifications << n
   end
 
+  def self.notify
+=begin
+    users = User.all
+    users.each do |u|
+      if u.can? :read, Payment
+        u.late_payments.each do |lp|
+          n = Notification.create(subject: 'Pago atrasado en', description: "#{lp.cause.matter}", notification_type: NotificationType.find_by_name('late_payment'))
+          n.update link: "#{Rails.application.routes.url_helpers.cause_path(lp.cause)}?n=#{n.id}#payments"
+          u.notifications << n
+        end
+        u.todays_payments.each do |tp|
+          n = Notification.create(subject: 'Cobrar causa', description: "#{tp.cause.matter}", notification_type: NotificationType.find_by_name('todays_payment'))
+          n.update link: "#{Rails.application.routes.url_helpers.cause_path(tp.cause)}?n=#{n.id}#payments"
+          u.notifications << n
+        end
+      end
+      #if u.notifications?
+        #UserMailer.test(u).deliver
+      #end
+    end
+=end
+  end
   def clients
     clients = Hash.new
     self.causes.each do |c|

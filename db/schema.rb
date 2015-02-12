@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150208005321) do
+ActiveRecord::Schema.define(version: 20150211153428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,6 +116,31 @@ ActiveRecord::Schema.define(version: 20150208005321) do
 
   add_index "journal_entries", ["cause_state_id"], name: "index_journal_entries_on_cause_state_id", using: :btree
   add_index "journal_entries", ["user_cause_id"], name: "index_journal_entries_on_user_cause_id", using: :btree
+
+  create_table "notification_types", force: true do |t|
+    t.string   "name"
+    t.string   "long_name"
+    t.string   "color"
+    t.string   "icon"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notifications", force: true do |t|
+    t.string   "subject"
+    t.string   "description"
+    t.string   "link"
+    t.datetime "checked_at"
+    t.boolean  "dismissable"
+    t.datetime "dismissed_at"
+    t.integer  "notification_type_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "notifications", ["notification_type_id"], name: "index_notifications_on_notification_type_id", using: :btree
+  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id", using: :btree
 
   create_table "organization_clients", force: true do |t|
     t.integer  "client_id"

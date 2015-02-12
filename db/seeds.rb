@@ -54,11 +54,13 @@ test_assistant = User.create name: 'Nicolás Vera', user_type: assistant, id_num
 test_org.update users: [test_lawyer, test_assistant]
 admin_org.update users: [claudio, pato]
 
-
 Plan.create name: 'Free', causes: true, payments: true, clients: false, price_clp: 0, price_usd: 0
 Plan.create name: 'Micro', causes: true, payments: false, clients: false, price_clp: 35000, price_usd: 70
 Plan.create name: 'Standard', causes: true, payments: true, clients: false, price_clp: 40000, price_usd: 80
 
+NotificationType.create name: 'todays_payment', long_name: 'Cobrar hoy', color: 'orange', icon: 'dollar'
+NotificationType.create name: 'late_payment', long_name: 'Cobro atrasado', color: 'red', icon: 'dollar'
+NotificationType.create name: 'notification', long_name: 'Notificación', color: 'blue', icon: 'envelope'
 #static stuff
 #juridica = CauseType.create name: 'Causa Jurídica'
 #no_judicial = CauseType.create name: 'Gestión no Judicial'
