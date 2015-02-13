@@ -133,39 +133,6 @@
                         </ul>
                     </li>
                     <% end %>
-                    <li class="dropdown">
-                        <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
-                            <i class="fa fa-bell-o"></i>
-                            <% if current_user.notifications? and can? :read, Payment %>
-                            <span class="label"><%= current_user.notifications.undismissed.count %></span>
-                            <% end %>
-                        </a>
-                        <ul class="dropdown-menu media-list pull-right animated fadeInDown" style="min-width:280px;max-height:300px;overflow:auto;">
-                            <li class="dropdown-header">
-                                <% if current_user.notifications? and can? :read, Payment %>
-                                    Notificaciones (<%= current_user.notifications.undismissed.count %>)
-                                <% else %>
-                                    Sin notificaciones
-                                <% end %>
-                            </li>
-                            <% if current_user.notifications? %>
-                                <% current_user.notifications.undismissed.each do |n| %>
-                                <li class="media">
-                                <a href="<%= n.link %>">
-                                    <div class="pull-left media-object bg-<%= n.notification_type.color %>"><i class="fa fa-<%= n.notification_type.icon %>"></i></div>
-                                    <div class="media-body">
-                                        <h6 class="media-heading"><%= n.subject %></h6>
-                                        <div class="text-muted"><%= n.description %></div>
-                                    </div>
-                                </a>
-                                </li>
-                                <% end %>
-                            <% end %>
-                            <!--<li class="dropdown-footer text-center">
-                                <a href="javascript:;">Ver más</a>
-                            </li>-->
-                        </ul>
-                    </li>
                     <li class="dropdown" ng-controller="NotificationsController">
                         <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
                             <i class="fa fa-bell-o"></i>
