@@ -1,0 +1,8 @@
+{
+	"name": "Realtime-SimpleCases",
+	"dependencies": {
+		"socket.io": "1.3.3",
+		"redis": "0.12.1"
+	},
+	"private": true
+}

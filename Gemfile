@@ -23,6 +23,7 @@ gem 'devise'
 gem 'cancan'
 gem 'whenever', require: false
 gem 'paypal-recurring'
+gem 'redis'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 gem 'bower-rails'

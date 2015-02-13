@@ -67,9 +67,17 @@ class User < ActiveRecord::Base
     n = Notification.create(subject: 'Notificación', description: "description", dismissable: true, notification_type: NotificationType.find_by_name('notification'))
     n.update link: "#{Rails.application.routes.url_helpers.user_root_path}?n=#{n.id}"
     self.notifications << n
+    message = {id: n.id, subject: n.subject, description: n.description, link: n.link, notification_type: n.notification_type}
+    $redis.publish 'rt-change', message.to_json
   end
 
   def self.notify
+    users = User.all
+    users.each do |u|
+      if u.notifications?
+        UserMailer.test(u).deliver
+      end
+    end
 =begin
     users = User.all
     users.each do |u|

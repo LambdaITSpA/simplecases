@@ -36,3 +36,39 @@ app.controller "CourtController", ['$scope', '$http', ($scope, $http) ->
 		$http.get('/courts.json?area_id=' + angular.element('#cause_area_id').val()).success (data, status) ->
 			$scope.courts = data
 ]
+app.factory 'socket', [
+  '$rootScope'
+  ($rootScope) ->
+    socket = io.connect('http://0.0.0.0:5001')
+    {
+      on: (eventName, callback) ->
+        socket.on eventName, ->
+          args = arguments
+          $rootScope.$apply ->
+            callback.apply socket, args
+            return
+          return
+        return
+      emit: (eventName, data, callback) ->
+        socket.emit eventName, data, ->
+          args = arguments
+          $rootScope.$apply ->
+            if callback
+              callback.apply socket, args
+            return
+          return
+        return
+
+    }
+]
+app.filter 'reverse', ->
+  (items) ->
+    items.slice().reverse()
+app.controller "NotificationsController", ['$scope', '$http', 'socket', ($scope, $http, socket) ->
+	$scope.notifications = []
+	$http.get('/notifications.json').success (data) ->
+		$scope.notifications = data
+	socket.on "rt-change", (message) ->
+		console.log message
+		$scope.notifications.push message
+]

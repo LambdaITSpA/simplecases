@@ -37,6 +37,7 @@
         type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
     </script>
     <!--End of Zopim Live Chat Script-->
+    <script src="https://cdn.socket.io/socket.io-1.3.3.js"></script>
 
 	<%= csrf_meta_tags %>
 </head>
@@ -160,6 +161,32 @@
                                 </li>
                                 <% end %>
                             <% end %>
+                            <!--<li class="dropdown-footer text-center">
+                                <a href="javascript:;">Ver más</a>
+                            </li>-->
+                        </ul>
+                    </li>
+                    <li class="dropdown" ng-controller="NotificationsController">
+                        <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
+                            <i class="fa fa-bell-o"></i>
+                            <span class="label" ng-if="notifications.length > 0">{{ notifications.length }}</span>
+                        </a>
+                        <ul class="dropdown-menu media-list pull-right animated fadeInDown" style="min-width:280px;max-height:300px;overflow:auto;">
+                            <li class="dropdown-header" ng-if="notifications.length > 0">
+                                    Notificaciones ({{ notifications.length }})
+                            </li>
+                            <li class="dropdown-header" ng-if="notifications.length <= 0">
+                                    Sin notificaciones
+                            </li>
+                            <li ng-repeat="n in notifications | reverse" class="media">
+                            <a href="{{ n.link }}">
+                                <div class="pull-left media-object bg-{{ n.notification_type.color }}"><i class="fa fa-{{ n.notification_type.icon }}"></i></div>
+                                <div class="media-body">
+                                    <h6 class="media-heading">{{ n.subject }}</h6>
+                                    <div class="text-muted">{{ n.description }}</div>
+                                </div>
+                            </a>
+                            </li>
                             <!--<li class="dropdown-footer text-center">
                                 <a href="javascript:;">Ver más</a>
                             </li>-->
@@ -334,6 +361,17 @@
         $(document).ready(function() {
             App.init();
         });
+        /*window.app.realtime = {
+          connect : function(){
+            window.app.socket = io.connect("<%= root_url %>:5001");
+
+            window.app.socket.on("rt-change", function(message){
+              // publish the change on the client side, the channel == the resource
+              //window.app.trigger(message.resource, message);
+              console.log(message);
+            });
+          }
+        }*/
     </script>
     
 </body>
