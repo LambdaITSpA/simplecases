@@ -69,6 +69,12 @@ app.controller "NotificationsController", ['$scope', '$http', 'socket', ($scope,
 	$http.get('/notifications.json').success (data) ->
 		$scope.notifications = data
 	socket.on "rt-change", (message) ->
-		console.log message
+		$.gritter.add
+			title: message.subject,
+			text: message.description,
+			#image: 'http://a0.twimg.com/profile_images/59268975/jquery_avatar_bigger.png',
+			sticky: false,
+			time: 8000,
+			class_name: 'my-class'
 		$scope.notifications.push message
 ]
