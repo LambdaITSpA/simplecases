@@ -20,8 +20,12 @@
 # Learn more: http://github.com/javan/whenever
 set :output, {error: "log/cron_error_log.log", standard: "log/cron_log.log"}
 
-#every :day, at: '11:00 am' do
-every 1.minutes do
+#every 1.minutes do
+every :day, at: '11:00 am' do
 	runner 'User.notify', environment: 'development'
 	runner 'User.notify'
+end
+every 1.minutes do
+	runner 'User.deliver_notifications', environment: 'development'
+	#runner 'User.deliver_notifications'
 end

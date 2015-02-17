@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150211153428) do
+ActiveRecord::Schema.define(version: 20150216183238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,6 +96,45 @@ ActiveRecord::Schema.define(version: 20150211153428) do
   add_index "courts", ["area_id"], name: "index_courts_on_area_id", using: :btree
   add_index "courts", ["region_id"], name: "index_courts_on_region_id", using: :btree
 
+  create_table "email_receiver_methods", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "email_receivers", force: true do |t|
+    t.string   "address"
+    t.integer  "port"
+    t.string   "user_name"
+    t.string   "password"
+    t.boolean  "enable_starttls_auto"
+    t.boolean  "enable_ssl"
+    t.string   "authentication"
+    t.string   "subject_filter"
+    t.string   "remitter_filter"
+    t.string   "body_filter"
+    t.integer  "email_receiver_method_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "email_receivers", ["email_receiver_method_id"], name: "index_email_receivers_on_email_receiver_method_id", using: :btree
+
+  create_table "events", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "date_time"
+    t.integer  "cause_id"
+    t.integer  "user_id"
+    t.boolean  "notified"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "events", ["cause_id"], name: "index_events_on_cause_id", using: :btree
+  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
+
   create_table "invoices", force: true do |t|
     t.string   "description"
     t.integer  "amount"
@@ -128,7 +167,7 @@ ActiveRecord::Schema.define(version: 20150211153428) do
 
   create_table "notifications", force: true do |t|
     t.string   "subject"
-    t.string   "description"
+    t.text     "description"
     t.string   "link"
     t.datetime "checked_at"
     t.boolean  "dismissable"
@@ -321,6 +360,7 @@ ActiveRecord::Schema.define(version: 20150211153428) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.boolean  "email_receiver_enabled"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

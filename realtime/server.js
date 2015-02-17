@@ -12,9 +12,10 @@ var io = require('socket.io').listen(5001),
 redis.subscribe('rt-change');
 
 io.on('connection', function(socket){
-  console.log('New connection :D');
   redis.on('message', function(channel, message){
-  	console.log(message);
-    socket.emit('rt-change', JSON.parse(message));
+  	message = JSON.parse(message)
+  	channel = message.user_id+'-n'
+  	console.log(channel)
+    socket.emit(channel, message);
   });
 });

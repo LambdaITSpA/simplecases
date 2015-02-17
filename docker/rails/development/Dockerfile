@@ -2,7 +2,6 @@ FROM ubuntu:12.04
 ENV REFRESHED_AT 2015-12-02 22:35
 
 RUN apt-get update
-RUN apt-get update
 RUN apt-get install -y python-software-properties software-properties-common gnome-schedule postfix
 
 RUN apt-add-repository -y ppa:chris-lea/redis-server

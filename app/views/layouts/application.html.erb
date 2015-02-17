@@ -27,6 +27,7 @@
     <%= stylesheet_link_tag 'default.css', id: 'theme' %>
     <%= stylesheet_link_tag 'jquery.gritter.css' %>
     <%= yield :styles %>
+    <script src="https://cdn.socket.io/socket.io-1.3.3.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= yield :js %>
     <!--Start of Zopim Live Chat Script-->
@@ -38,9 +39,8 @@
         type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
     </script>
     <!--End of Zopim Live Chat Script-->
-    <script src="https://cdn.socket.io/socket.io-1.3.3.js"></script>
 
-	<%= csrf_meta_tags %>
+    <%= csrf_meta_tags %>
 </head>
 <body>
     <!-- begin #page-loader -->
@@ -128,13 +128,13 @@
                                 </div>
                             </a>  
                             <% end %>
-                            <!--<li class="dropdown-footer text-center">
-                                <a href="javascript:;">Ver más</a>
-                            </li>-->
+                            <li class="dropdown-footer text-center">
+                                <%= link_to 'Ver más', payments_path %>
+                            </li>
                         </ul>
                     </li>
                     <% end %>
-                    <li class="dropdown" ng-controller="NotificationsController">
+                    <li class="dropdown" ng-controller="NotificationsController" ng-init="user_id=<%= current_user.id %>">
                         <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
                             <i class="fa fa-bell-o"></i>
                             <span class="label" ng-if="notifications.length > 0">{{ notifications.length }}</span>
@@ -155,9 +155,9 @@
                                 </div>
                             </a>
                             </li>
-                            <!--<li class="dropdown-footer text-center">
-                                <a href="javascript:;">Ver más</a>
-                            </li>-->
+                            <li class="dropdown-footer text-center">
+                                <%= link_to 'Ver más', notifications_path %>
+                            </li>
                         </ul>
                     </li>
                     <li class="dropdown navbar-user">

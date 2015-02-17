@@ -1,0 +1,32 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            <span class="glyphicon glyphicon-bell" aria-hidden="true"></span> Notificaciones <small></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li class="active">
+                Notificaciones
+            </li>
+        </ol>
+    </div>
+</div>
+<% if @notifications.count > 0 %>
+<div class="panel panel-default" style="margin-top:20px;">
+  <table class="table table-hover">
+    <tbody>
+      <% @notifications.each do |n| %>
+        <tr onmouseover="this.style.cursor='pointer'" onclick="window.location ='<%=notification_path n %>'">
+          <td><%= n.subject %></td>
+          <td><%= n.description[0..99] %><%= ' [...]' if n.description.length > 100 %></td>
+          <td>
+          <% if n.dismissed_at.nil? %>
+          <span class="fa fa-eye fa-lg" data-toggle="tooltip" data-placement="left" title="Notificación sin revisar"></span>
+          <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<% end %>

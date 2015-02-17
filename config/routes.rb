@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -25,7 +24,8 @@ Rails.application.routes.draw do
   post 'get_plan', to: 'welcome#get_plan', as: 'get_plan'
   resources :subscriptions
   get 'paypal/checkout', to: 'subscriptions#paypal_checkout'
-  resources :notifications, only: [:index]
+  resources :notifications, only: [:index, :show]
+  resources :events
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

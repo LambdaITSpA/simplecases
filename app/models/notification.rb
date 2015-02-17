@@ -14,6 +14,10 @@ class Notification < ActiveRecord::Base
   	self.update dismissed_at: Time.zone.now, checked_at: Time.zone.now
   end
 
+  def emit(message = self)
+    $redis.publish 'rt-change', message.to_json
+  end
+
   def self.undismissed
   	where(dismissed_at: nil)
   end

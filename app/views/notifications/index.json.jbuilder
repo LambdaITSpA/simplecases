@@ -1,4 +1,4 @@
-json.array!(@notifications) do |notification|
+json.array!(@undismissed_notifications) do |notification|
   json.id notification.id
   json.subject notification.subject
   json.description notification.description

@@ -1,0 +1,29 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            <span class="glyphicon glyphicon-bell" aria-hidden="true"></span> Notificaciones <small></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li class="active">
+                Notificaciones
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-2">
+    </div>
+    <div class="col-lg-6">
+      <div class="list-group">
+        <h3 class="list-group-item active">
+        <%= @notification.subject %>
+        <%= link_to '<button type="button" class="btn btn-success pull-right" style="margin-top:-5px;"><span class="fa fa-calendar"> Crear Evento</span></button>'.html_safe, new_event_path %>
+        
+        </h3>
+        <div class="list-group-item">
+        <%= @notification.description %>
+        </div>
+      </div>
+    </div>
+</div>
