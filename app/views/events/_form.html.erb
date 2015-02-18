@@ -24,11 +24,11 @@
           </div>
           <div class="field">
             <%= label_tag :date, 'Fecha' %><br>
-            <input type="date" name="date" value="<%= Time.now.strftime('%F') %>" class="form-control">
+            <input type="date" name="date" value="<%= @event.date_time.strftime('%F') %>" class="form-control">
           </div>
           <div class="field">
             <%= label_tag :time, 'Fecha' %><br>
-            <input type="time" name="time" value="<%= Time.now.strftime('%H:%M') %>" class="form-control">
+            <input type="time" name="time" value="<%= @event.date_time.strftime('%H:%M') %>" class="form-control">
           </div>
           <div class="actions" style="margin-top:20px;">
             <%= f.submit nil, class: 'btn btn-primary' %>

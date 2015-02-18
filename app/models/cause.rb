@@ -7,7 +7,7 @@ class Cause < ActiveRecord::Base
   has_many :payments
   has_many :users, through: :user_causes
   after_create :set_payment_dates
-  after_update :update_payment_dates
+  after_update :update_payment_dates, if: Proc.new { (self.changed & ['fee_quantity']).any? }
   def set_payment_dates
     if honorary and first_payment_date and fee_quantity
       self.fee_quantity.times do |quantity|

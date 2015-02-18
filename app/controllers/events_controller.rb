@@ -10,6 +10,7 @@ class EventsController < ApplicationController
 
 	def new
 		@event = Event.new
+		@event.date_time = Time.now
 	end
 
 	def create
@@ -30,6 +31,12 @@ class EventsController < ApplicationController
 	end
 
 	def update
+		@event = Event.find params[:id]
+		if @event.update(event_params)
+			redirect_to events_url
+		else
+			render :edit
+		end
 	end
 
 	def destroy

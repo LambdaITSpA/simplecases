@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get "home" => "users#home", as: 'user_root'
   get "profile" => "users#profile", as: 'user_profile'
+  #get "profile/edit" => "users#profile_edit", as: 'user_profile_edit'
+  post "profile/update" => "users#profile_update", as: 'user_profile_update'
   resources :clients
   resources :organizations do
     resources :users
@@ -26,6 +28,7 @@ Rails.application.routes.draw do
   get 'paypal/checkout', to: 'subscriptions#paypal_checkout'
   resources :notifications, only: [:index, :show]
   resources :events
+  resources :email_receivers#, only: [:new, :create, :edit, :update]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
