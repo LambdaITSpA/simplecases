@@ -6,6 +6,7 @@ E, [2015-01-14T19:25:19.318296 #89] ERROR -- : PG::ConnectionBad: PQconsumeInput
 I, [2015-01-17T11:00:25.392321 #434]  INFO -- :   Rendered user_mailer/test.html.erb (1636.6ms)
 I, [2015-01-17T11:00:28.134789 #434]  INFO -- : 
 Sent mail to patricio.jara@gmail.com (2715.6ms)
+<<<<<<< HEAD
 E, [2015-02-11T12:47:32.095653 #4693] ERROR -- : PG::InvalidTextRepresentation: ERROR:  invalid input syntax for integer: "civil"
 : SELECT  "areas".* FROM "areas"  WHERE "areas"."id" = $1 LIMIT 1
 E, [2015-02-11T12:47:46.317723 #4693] ERROR -- : PG::InFailedSqlTransaction: ERROR:  current transaction is aborted, commands ignored until end of transaction block
@@ -37,3 +38,6 @@ E, [2015-02-11T17:21:48.611779 #7094] ERROR -- : PG::ConnectionBad: PQconsumeInp
 : SELECT  "areas".* FROM "areas"  WHERE "areas"."id" = $1 LIMIT 1
 E, [2015-02-11T17:42:16.506299 #7094] ERROR -- : PG::UnableToSend: another command is already in progress
 : SELECT  "areas".* FROM "areas"  WHERE "areas"."id" = $1 LIMIT 1
+=======
+I, [2015-02-06T04:59:20.734113 #74]  INFO -- : Migrating to AddPeriodicityAndPeriodicityMeasureToCauses (20150206022741)
+>>>>>>> 7b2ce3dfba6a8dd4f48eb0fda95fbcb5adaf2217
