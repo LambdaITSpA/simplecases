@@ -25,8 +25,12 @@
     <%= stylesheet_link_tag 'style.css' %>
     <%= stylesheet_link_tag 'style-responsive.css' %>
     <%= stylesheet_link_tag 'default.css', id: 'theme' %>
+    <%= stylesheet_link_tag 'bootstrap-select.css' %>
     <%= yield :styles %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'bootstrap-select.js' %>
+    <%= javascript_include_tag 'angular-bootstrap-select.js' %>
+    
     <%= yield :js %>
     <!--Start of Zopim Live Chat Script-->
     <script type="text/javascript">
