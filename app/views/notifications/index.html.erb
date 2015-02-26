@@ -18,7 +18,7 @@
       <% @notifications.each do |n| %>
         <tr onmouseover="this.style.cursor='pointer'" onclick="window.location ='<%=notification_path n %>'">
           <td><%= n.subject %></td>
-          <td><%= n.description[0..99] %><%= ' [...]' if n.description.length > 100 %></td>
+          <td><%= sanitize(n.description, tags: [])[0..99] %><%= ' [...]' if n.description.length > 100 %></td>
           <td>
           <% if n.dismissed_at.nil? %>
           <span class="fa fa-eye fa-lg" data-toggle="tooltip" data-placement="left" title="Notificación sin revisar"></span>

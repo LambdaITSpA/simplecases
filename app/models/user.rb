@@ -66,8 +66,8 @@ class User < ActiveRecord::Base
     end
     mails = Mail.all
     mails.each do |m|
-      encoding = m.parts[0].content_type_parameters['charset']
-      body = m.parts[0].body.decoded.force_encoding(encoding).encode('UTF-8')
+      encoding = m.parts[1].content_type_parameters['charset']
+      body = m.parts[1].body.decoded.force_encoding(encoding).encode('UTF-8')
       if (m.subject.include? self.email_receiver.subject_filter or self.email_receiver.subject_filter.nil?) and (m.from.include? self.email_receiver.remitter_filter or self.email_receiver.remitter_filter.nil?)# and (body.include? self.email_receiver.body_filter or self.email_receiver.body_filter.nil?)
         self.set_notification m.subject, body
       end

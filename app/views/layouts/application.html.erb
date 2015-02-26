@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' %>
     <%= stylesheet_link_tag 'jquery-ui.min.css' %>
+    <%= stylesheet_link_tag 'datepicker.css' %>
+    <%= stylesheet_link_tag 'datepicker3.css' %>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <%# stylesheet_link_tag 'font-awesome.min.css' %>
     <%= stylesheet_link_tag 'animate.min.css' %>
@@ -38,6 +40,9 @@
         $.src='//v2.zopim.com/?2hligH0vkCTWHw5DhnRIomYjFwyEtOqk';z.t=+new Date;$.
         type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
     </script>
+    <style type="text/css">
+        .datepicker{z-index:1100 !important;}
+    </style>
     <!--End of Zopim Live Chat Script-->
 
     <%= csrf_meta_tags %>

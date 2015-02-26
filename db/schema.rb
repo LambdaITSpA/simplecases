@@ -123,7 +123,7 @@ ActiveRecord::Schema.define(version: 20150216183238) do
 
   create_table "events", force: true do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.datetime "date_time"
     t.integer  "cause_id"
     t.integer  "user_id"
