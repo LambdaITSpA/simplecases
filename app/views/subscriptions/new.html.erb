@@ -1,0 +1,39 @@
+<div style="font-size:15px;"><%= @subscription.paypal_description %> por USD <%= @subscription.price %> al mes.</div><br><p></p>
+<% if @subscription.payment_provided? %>
+	<%= form_for @subscription do |f| %>
+	    <div class="input-group form-group m-b-20">
+			<span class="input-group-addon" style="background-color:rgba(0,0,0,0.4);">
+		        <i class="fa fa-user"></i>
+		    </span>
+			<%= text_field_tag :name, nil, autofocus: true, placeholder: 'Nombre completo', class: 'form-control input-lg' %>
+	    </div>
+	    <div class="input-group form-group m-b-20">
+			<span class="input-group-addon" style="background-color:rgba(0,0,0,0.4);">
+		        <i class="fa fa-envelope"></i>
+		    </span>
+			<%= f.text_field :email, class: 'form-control input-lg' %>
+	    </div>
+	    <div class="input-group form-group m-b-20">
+			<span class="input-group-addon" style="background-color:rgba(0,0,0,0.4);">
+		        <i class="fa fa-lock"></i>
+		    </span>
+			<%= password_field_tag :password, nil, placeholder: 'Contraseña', class: 'form-control input-lg' %>
+	    </div>
+	    <div class="input-group form-group m-b-20">
+			<span class="input-group-addon" style="background-color:rgba(0,0,0,0.4);">
+		        <i class="fa fa-briefcase"></i>
+		    </span>
+			<%= text_field_tag :organization_name, nil, placeholder: 'Nombre del Estudio Jurídico', class: 'form-control input-lg' %>
+	    </div>
+		<%= f.hidden_field :plan_id %>
+		<%= f.hidden_field :plan_length %>
+		<%= f.hidden_field :user_quantity %>
+		<%= f.hidden_field :paypal_customer_token %>
+		<%= f.hidden_field :paypal_payment_token %>
+		<div class="actions">
+			<%= f.submit 'Crear Cuenta', { id: 'submit', class: 'btn btn-success btn-block btn-lg' } %>
+		</div>
+	<% end %>
+<% else %>
+	<%= link_to image_tag('https://paypal.com/es_ES/i/btn/btn_xpressCheckout.gif'), paypal_checkout_path(plan_id: @plan.id, plan_length: @subscription.plan_length, user_qty: @subscription.user_quantity) %>
+<% end %>

@@ -1,5 +1,5 @@
 FROM ubuntu:12.04
-ENV REFRESHED_AT 2015-02-01 18:01
+ENV REFRESHED_AT 2015-07-02 17:15
 
 RUN apt-get update
 RUN apt-get install -y python-software-properties software-properties-common gnome-schedule postfix

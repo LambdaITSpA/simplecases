@@ -6,3 +6,38 @@ E, [2015-01-14T19:25:19.318296 #89] ERROR -- : PG::ConnectionBad: PQconsumeInput
 I, [2015-01-17T11:00:25.392321 #434]  INFO -- :   Rendered user_mailer/test.html.erb (1636.6ms)
 I, [2015-01-17T11:00:28.134789 #434]  INFO -- : 
 Sent mail to patricio.jara@gmail.com (2715.6ms)
+<<<<<<< HEAD
+E, [2015-02-11T12:47:32.095653 #4693] ERROR -- : PG::InvalidTextRepresentation: ERROR:  invalid input syntax for integer: "civil"
+: SELECT  "areas".* FROM "areas"  WHERE "areas"."id" = $1 LIMIT 1
+E, [2015-02-11T12:47:46.317723 #4693] ERROR -- : PG::InFailedSqlTransaction: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+: SELECT  "areas".* FROM "areas"  WHERE "areas"."id" = $1 LIMIT 1
+E, [2015-02-11T12:47:50.241701 #4693] ERROR -- : PG::InFailedSqlTransaction: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+: SELECT  "areas".* FROM "areas"  WHERE "areas"."id" = $1 LIMIT 1
+E, [2015-02-11T12:47:56.430549 #4693] ERROR -- : PG::InFailedSqlTransaction: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+: SELECT  "areas".* FROM "areas"  WHERE "areas"."id" = $1 LIMIT 1
+E, [2015-02-11T12:48:03.304362 #4693] ERROR -- : PG::InFailedSqlTransaction: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+: SELECT "areas".* FROM "areas"
+E, [2015-02-11T12:50:19.997171 #4693] ERROR -- : PG::InFailedSqlTransaction: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+: SAVEPOINT active_record_1
+E, [2015-02-11T12:50:55.466060 #4693] ERROR -- : PG::InFailedSqlTransaction: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+: SAVEPOINT active_record_1
+E, [2015-02-11T15:23:16.222963 #5981] ERROR -- : PG::UnableToSend: another command is already in progress
+: SELECT  "areas".* FROM "areas"  WHERE "areas"."id" = $1 LIMIT 1
+E, [2015-02-11T15:23:22.602062 #5981] ERROR -- : PG::UnableToSend: another command is already in progress
+: SELECT  "areas".* FROM "areas"  WHERE "areas"."id" = $1 LIMIT 1
+E, [2015-02-11T15:55:43.721710 #6677] ERROR -- : PG::ConnectionBad: PQconsumeInput() SSL SYSCALL error: Connection timed out
+: SELECT "areas".* FROM "areas"
+E, [2015-02-11T16:41:54.397543 #6677] ERROR -- : PG::ConnectionBad: PQconsumeInput() SSL SYSCALL error: EOF detected
+: SELECT "areas".* FROM "areas"
+E, [2015-02-11T16:41:59.349455 #6677] ERROR -- : PG::ConnectionBad: PQsocket() can't get socket descriptor: SELECT "areas".* FROM "areas"
+E, [2015-02-11T16:42:03.341641 #6677] ERROR -- : PG::ConnectionBad: PQsocket() can't get socket descriptor: SELECT "areas".* FROM "areas"
+E, [2015-02-11T16:42:20.124460 #6677] ERROR -- : PG::ConnectionBad: PQsocket() can't get socket descriptor: SELECT "areas".* FROM "areas"
+E, [2015-02-11T16:42:58.154047 #4693] ERROR -- : PG::ConnectionBad: PQconsumeInput() SSL SYSCALL error: Connection timed out
+: SELECT "areas".* FROM "areas"
+E, [2015-02-11T17:21:48.611779 #7094] ERROR -- : PG::ConnectionBad: PQconsumeInput() SSL SYSCALL error: Connection timed out
+: SELECT  "areas".* FROM "areas"  WHERE "areas"."id" = $1 LIMIT 1
+E, [2015-02-11T17:42:16.506299 #7094] ERROR -- : PG::UnableToSend: another command is already in progress
+: SELECT  "areas".* FROM "areas"  WHERE "areas"."id" = $1 LIMIT 1
+=======
+I, [2015-02-06T04:59:20.734113 #74]  INFO -- : Migrating to AddPeriodicityAndPeriodicityMeasureToCauses (20150206022741)
+>>>>>>> 7b2ce3dfba6a8dd4f48eb0fda95fbcb5adaf2217

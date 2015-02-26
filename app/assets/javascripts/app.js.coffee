@@ -3,7 +3,7 @@ $(document).on 'ajax:success', 'form[data-remote]', (xhr, data, status) ->
 	$('#cause_client_id').val(data.id)
 	angular.element('#client_success').text(data.notice).show('slow').delay(1500).hide 'slow', ->
 		angular.element('#addclient').modal('hide')
-app = angular.module 'SCapp', []
+app = angular.module 'SCapp', ['angular-bootstrap-select']
 app.controller "GetCausesController", ['$scope', '$http', ($scope, $http) ->
 	$http.get('/causes.json').success (data) ->
 		console.log data
@@ -35,4 +35,27 @@ app.controller "CourtController", ['$scope', '$http', ($scope, $http) ->
 	$scope.getCourts = ->
 		$http.get('/courts.json?area_id=' + angular.element('#cause_area_id').val()).success (data, status) ->
 			$scope.courts = data
+]
+angular.module('angular-bootstrap-select', []).directive 'selectpicker', ['$parse', ($parse) ->
+    {
+      restrict: 'A'
+      link: (scope, element, attrs) ->
+        element.selectpicker $parse(attrs.selectpicker)()
+        element.selectpicker 'refresh'
+        scope.$watch attrs.ngModel, (newVal, oldVal) ->
+          scope.$parent[attrs.ngModel] = newVal
+          scope.$evalAsync ->
+            if !attrs.ngOptions or /track by/.test(attrs.ngOptions)
+              element.val newVal
+            element.selectpicker 'refresh'
+            return
+          return
+        scope.$on '$destroy', ->
+          scope.$evalAsync ->
+            element.selectpicker 'destroy'
+            return
+          return
+        return
+
+    }
 ]
