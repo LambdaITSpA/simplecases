@@ -34,6 +34,7 @@
               <%= f.select :area_id, options_from_collection_for_select(Area.all, :id, :name), {}, {class: 'form-control', 'ng-change' => 'getCourts()', 'ng-model' => 'area_select', selectpicker: '', 'data-style' => 'btn-white'} %>
             </div>
             <div class="field">
+              <%= f.label :honorary, 'Tribunal' %><br>
               <select type="select "id='cause_court_id' name='cause[court_id]' class="form-control selectpicker" selectpicker data-live-search="true" select-model="courts" data-style="btn-white">
                 <option ng-repeat="court in courts" value='{{court.id}}'>{{court.name}}</option>
               </select> 
