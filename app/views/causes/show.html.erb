@@ -127,7 +127,11 @@
                       <div class="col-lg-6">
                         <div class="form-group">
                           <%= label_tag(:amount, "Monto cuota:") %>
-                          <%= text_field_tag(:amount, to_clp(payment.amount) , class: "form-control", readonly: 'readonly') %>
+                          <% if payment.payed %>
+                          <%= number_field_tag(:amount, payment.amount , class: "form-control", min: payment.paid_amount, readonly: 'readonly') %>
+                          <% else %>
+                          <%= number_field_tag(:amount, payment.amount , class: "form-control", min: payment.paid_amount, required: 'required') %>
+                          <% end %>
                         </div>
                       </div>
                       <div class="col-lg-6">

@@ -1,6 +1,11 @@
 class Payment < ActiveRecord::Base
 	belongs_to :cause
 	belongs_to :payment_state
+	after_update :set_cause_honorary
+
+	def set_cause_honorary
+		self.cause.update(honorary: self.cause.payments.sum(:amount))
+	end
 	# set a payment as payed
 	def pay
 		self.update paid_amount: self.amount, payed: true

@@ -12,11 +12,15 @@ class PaymentsController < ApplicationController
 	end
   end
   def update
-  	Payment.find(params[:id]).update(date: params[:date])
+  	Payment.find(params[:id]).update(date: params[:date], amount: params[:amount])
   	redirect_to "#{request.referer}#payments"
   end
   def pay
   	Payment.find(params[:id]).pay
   	redirect_to "#{request.referer}#payments"
+  end
+  private
+  def payment_params
+    params.require(:payment).permit(:date, :amount)
   end
 end
