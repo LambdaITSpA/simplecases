@@ -7,6 +7,7 @@
 	<option value="27">Jdo. de Letras y Garantía de Chañaral</option>
 	<option value="29">Juzgado de Letras de Diego de Almagro</option>
 	<option value="34">Juzgado de Letras y Garantía de Freirina</option>
+
 	<option value="36">1º Juzgado de Letras de Vallenar</option>
 	<option value="37">2º Juzgado de Letras de Vallenar</option>
 	<option value="46">Juzgado de Letras de Vicuña</option>
@@ -18,6 +19,7 @@
 	<option value="52">Juzgado de Letras de Illapel</option>
 	<option value="53">Juzgado de Letras y Garantía de los Vilos</option>
 	<option value="83">1º Juzgado de Letras de Quilpué</option>
+	
 	<option value="84">2º Juzgado de Letras de Quilpué</option>
 	<option value="85">Jdo. de Letras de Villa Alemana</option>
 	<option value="86">Juzgado de Letras de CasaBlanca</option>
@@ -30,6 +32,7 @@
 	<option value="97">2º Juzgado de Letras de Quillota</option>
 	<option value="98">Jdo. de Letras de La Calera</option>
 	<option value="99">Juzgado de Letras de Limache</option>
+	
 	<option value="101">1º Juzgado de Letras de San Antonio</option>
 	<option value="102">2º Juzgado de Letras de San Antonio</option>
 	<option value="103">Juzgado de Letras y Garantía de Isla de Pascua</option>
@@ -41,6 +44,7 @@
 	<option value="117">Jdo. de Letras de Santa Cruz</option>
 	<option value="119">Jdo. de Letras y Garantía de Pichilemu</option>
 	<option value="126">Jdo. de Letras de Constitución</option>
+	
 	<option value="127">Juzgado de Letras y Garantía de Curepto</option>
 	<option value="132">Juzgado de Letras y Garantía de Licanten</option>
 	<option value="133">Juzgado de Letras de Molina</option>
@@ -54,6 +58,7 @@
 	<option value="149">Juzgado de Letras de Yungay</option>
 	<option value="150">Juzgado de Letras y Garantía de Bulnes</option>
 	<option value="151">Juzgado de Letras y Garantía de Coelemu</option>
+	
 	<option value="152">Juzgado de Letras y Garantía de Quirihue</option>
 	<option value="157">Juzgado de Letras y Garantía de Mulchen</option>
 	<option value="158">Juzgado de Letras y Garantía de Nacimiento</option>
@@ -69,6 +74,7 @@
 	<option value="194">Juzgado de Letras de Arauco</option>
 	<option value="195">Juzgado de Letras y Garantía de Curanilahue</option>
 	<option value="196">Juzgado de Letras de Cañete</option>
+	
 	<option value="204">1°Jdo. de Letras de Angol</option>
 	<option value="206">Juzgado de Letras y Garantía de Collipulli</option>
 	<option value="207">Juzgado de Letras y Garantía de Traiguen</option>
@@ -86,6 +92,7 @@
 	<option value="224">Juzgado de Letras de Los Lagos</option>
 	<option value="225">Juzgado de Letras y Garantía de Panguipulli</option>
 	<option value="226">Jdo. de Letras y Garantía de La Unión</option>
+	
 	<option value="227">Juzgado de Letras y Garantía de Rio Bueno</option>
 	<option value="238">1º Juzgado de Letras de Puerto Varas</option>
 	<option value="240">Juzgado de Letras y Garantía de Calbuco</option>
@@ -101,6 +108,7 @@
 	<option value="373">1° Juzgado de Letras de Talagante</option>
 	<option value="374">2° Juzgado de Letras de Talagante</option>
 	<option value="375">1° Juzgado de Letras de Melipilla</option>
+	
 	<option value="377">1° Juzgado de Letras de Buin</option>
 	<option value="378">2° Juzgado de Letras de Buin</option>
 	<option value="385">Juzgado de Letras y Garantía de Santa Barbara</option>
@@ -114,6 +122,7 @@
 	<option value="996">Juzgado de Letras y Garantía de Puerto Cisne</option>
 	<option value="1013">Juzgado de Letras y Garantía de Hualaihue</option>
 	<option value="1150">Jdo. de Letras y Garantía de Litueche</option>
+	
 	<option value="1151">Jdo. de Letras y Garantía de Peralillo</option>
 	<option value="1152">Juzgado de Letras y Garantía de Cabrero</option>
 	<option value="1329">Jdo. Cob. Laboral y Previsional de Santiago</option>
@@ -133,6 +142,7 @@
 	<option value="1345">Jdo. de Letras del Trabajo de Valdivia</option>
 	<option value="1346">Jdo. de Letras del Trabajo de Puerto Montt</option>
 	<option value="1347">Jdo. de Letras del Trabajo Punta Arenas</option>
+	
 	<option value="1352">Jdo. de Letras del Trabajo de San Bernardo</option>
 	<option value="1357">Jdo. de Letras del Trabajo de Calama</option>
 	<option value="1358">Jdo. de Letras del Trabajo de San Felipe</option>
