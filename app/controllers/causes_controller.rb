@@ -37,7 +37,7 @@ class CausesController < ApplicationController
     @cause.users << current_user
     respond_to do |format|
       if @cause.save
-        je = JournalEntry.create subject: 'Inicio Causa', body: 'Se da inicio a una nueva Causa.', cause_state: CauseState.find(1), date: Time.now
+        je = JournalEntry.create subject: 'Inicio Causa', body: 'Se da inicio a una nueva Causa.', cause_state: CauseState.find(1), date: Time.zone.now
         @cause.user_causes.first.journal_entries << je
         format.html { redirect_to @cause, notice: "La causa #{@cause.matter} ha sido creada exitosamente." }
         format.json { render :show, status: :created, location: @cause }

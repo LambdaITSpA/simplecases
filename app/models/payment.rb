@@ -1,7 +1,7 @@
 class Payment < ActiveRecord::Base
 	belongs_to :cause
 	belongs_to :payment_state
-	after_update :set_cause_honorary
+	after_update :set_cause_honorary, if: Proc.new { (self.changed & ['amount']).any? }
 
 	def set_cause_honorary
 		self.cause.update(honorary: self.cause.payments.sum(:amount))
