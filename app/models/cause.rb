@@ -3,11 +3,17 @@ class Cause < ActiveRecord::Base
   belongs_to :client
   belongs_to :area
   belongs_to :court
+  attr_accessor :generate_payments
   has_many :user_causes, dependent: :destroy
   has_many :payments
   has_many :users, through: :user_causes
+  after_initialize :setup
+
   after_create :set_payment_dates
-  after_update :update_payment_dates, if: Proc.new { (self.changed & ['fee_quantity']).any? || (self.changed & ['honorary']).any? }
+  after_update :update_payment_dates, if: Proc.new { ((self.changed & ['fee_quantity']).any? || (self.changed & ['honorary']).any?) && self.generate_payments }
+  def setup
+    self.generate_payments = true
+  end
   def set_payment_dates
     if honorary and first_payment_date and fee_quantity
       self.fee_quantity.times do |quantity|

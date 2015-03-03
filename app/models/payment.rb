@@ -4,6 +4,7 @@ class Payment < ActiveRecord::Base
 	after_update :set_cause_honorary, if: Proc.new { (self.changed & ['amount']).any? }
 
 	def set_cause_honorary
+		self.cause.generate_payments = false
 		self.cause.update(honorary: self.cause.payments.sum(:amount))
 	end
 	# set a payment as payed
