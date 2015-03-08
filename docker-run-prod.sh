@@ -4,6 +4,8 @@ service apache2 stop; service postgresql stop
 #rake db:migrate RAILS_ENV=development
 #rake db:seed
 #docker run -d -p 127.0.0.1:5432:5432 --name simplecases-pg-dev claudevandort/simplecases-pg:dev
+docker run -d --net="host" -v $PWD:/var/www/webapp:rw --name simplecases-rails-redis claudevandort/simplecases-rails:prod /bin/bash -l -c "/usr/bin/redis-server"
+docker run -d --net="host" -v $PWD:/var/www/webapp:rw --name simplecases-rails-node claudevandort/simplecases-rails:prod /bin/bash -l -c "node realtime/server.js"
 docker run -d --net="host" -v $PWD:/var/www/webapp:rw --name simplecases-rails-prod claudevandort/simplecases-rails:prod
 docker run -d --net="host" -v $PWD:/var/www/webapp:rw --name simplecases-rails-cron-prod claudevandort/simplecases-rails:prod /bin/bash -l -c "service postfix restart; whenever --update-crontab; cron -f"
 #docker run -d --net="host" -v $PWD:/var/www/webapp:rw --name simplecases-rails-prod claudevandort/simplecases-rails:prod /bin/bash -l -c "rake assets:precompile RAILS_ENV=production; whenever --update-crontab"; /usr/sbin/apache2 -D FOREGROUND

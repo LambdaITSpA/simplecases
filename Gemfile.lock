@@ -103,6 +103,7 @@ GEM
     rake (10.3.2)
     rdoc (4.1.2)
       json (~> 1.4)
+    redis (3.2.1)
     responders (1.1.1)
       railties (>= 3.2, < 4.2)
     rspec (3.1.0)
@@ -182,9 +183,11 @@ DEPENDENCIES
   factory_girl
   jbuilder (~> 2.0)
   jquery-rails
+  mail
   paypal-recurring
   pg
   rails (= 4.1.6)
+  redis
   rspec
   rspec-rails
   sass-rails (~> 4.0.3)

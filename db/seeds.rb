@@ -54,11 +54,29 @@ test_assistant = User.create name: 'Nicolás Vera', user_type: assistant, id_num
 test_org.update users: [test_lawyer, test_assistant]
 admin_org.update users: [claudio, pato]
 
+pop3 = EmailReceiverMethod.create name: 'pop3'
+EmailReceiver.create email_receiver_method: pop3,
+					user: test_lawyer,
+					address: 'pop.gmail.com',
+					port: 995,
+					user_name: 'cguerra.lambdait@gmail.com',
+					password: '@pianoman88',
+					enable_starttls_auto: true,
+					enable_ssl: true,
+					authentication: 'plain',
+					subject_filter: 'Notificación',
+					remitter_filter: 'patricioalfredo18@gmail.com',
+					body_filter: nil
+test_lawyer.update email_receiver_enabled: true
 
 Plan.create name: 'Free', causes: true, payments: true, clients: false, price_clp: 0, price_usd: 0
 Plan.create name: 'Micro', causes: true, payments: false, clients: false, price_clp: 35000, price_usd: 70
 Plan.create name: 'Standard', causes: true, payments: true, clients: false, price_clp: 40000, price_usd: 80
 
+NotificationType.create name: 'todays_payment', long_name: 'Cobrar hoy', color: 'orange', icon: 'dollar'
+NotificationType.create name: 'late_payment', long_name: 'Cobro atrasado', color: 'red', icon: 'dollar'
+NotificationType.create name: 'notification', long_name: 'Notificación', color: 'blue', icon: 'envelope'
+NotificationType.create name: 'event', long_name: 'Evento', color: 'green', icon: 'calendar'
 #static stuff
 #juridica = CauseType.create name: 'Causa Jurídica'
 #no_judicial = CauseType.create name: 'Gestión no Judicial'

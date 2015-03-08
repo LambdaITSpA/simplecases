@@ -4,36 +4,35 @@
 <div class="row">
 	<div class="col-md-5"></div>
 	<div class="col-md-6">
-		<i class="glyphicon glyphicon-user" style="color: #428bca; font-size:90px; padding-bottom: 30px;"></i>&nbsp;&nbsp;&nbsp;<strong><%= current_user.name %></strong>
 	</div>
 </div>
 	<div class="row">
 		<div class="col-md-2"></div>
   			<div class="col-md-8">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
+		    		<h3 class="panel-heading"><%= current_user.name %>
+		    		</h3>
 		    		<div class="panel-body">
-						<div class="col-md-3"></div>	
-						<div class="col-md-6">
-							<div class="panel panel-info">
-						  		<div class="panel-heading">Nombre</div>
-						  			<div class="panel-body"><%= current_user.name %></div>
-							</div>
-							<div class="panel panel-info">
-						  		<div class="panel-heading">Rol</div>
-						  			<div class="panel-body"><%= current_user.profile.long_name %></div>
-							</div>
-							<div class="panel panel-info">
-						  		<div class="panel-heading">Organización</div>
-						  			<div class="panel-body"><%= current_user.organization.name %></div>
-							</div>
-							<div class="panel panel-info">
-						  		<div class="panel-heading">Rut</div>
-						  			<div class="panel-body"><%= current_user.id_number %></div>
-							</div>
-							<div class="panel panel-info">
-						  		<div class="panel-heading">Email</div>
-						  			<div class="panel-body"><%= current_user.email %></div>
-						 	</div>
+						<div class="col-md-3">
+							<div class="pull-left media-object bg-purple img-circle" style=";width:75px;height:75px;text-align:center;color:white;margin:10px 0 0 10px;margin-right:10px;padding-top:12px;"><i class="fa fa-user" style="font-size:6em;"></i></div>
+						</div>
+						<div class="col-md-9">
+							<table class="table">
+								<tr>
+									<td>Email</td><td><%= current_user.email %></td>
+								</tr>
+								<tr>
+									<td>Rol</td><td><%= current_user.profile.long_name %></td>
+								</tr>
+								<tr>
+									<td>Organización</td><td><%= current_user.organization.name %></td>
+								</tr>
+							</table>
+							<%= link_to '<button type="button" class="btn btn-primary pull-right" data-toggle="popover" data-placement="left" data-trigger="hover" title="Configurar Notificador" data-content="Recibe notificaciones dentro de SimpleCases cuando recibas un correo de interés. Debes configurarlo previamente.">
+								<span class="fa-stack">
+								  <i class="fa fa-envelope-o fa-stack-2x"></i>
+								  <i class="fa fa-eye fa-stack-1x"></i>
+								</span> Notificador</button>'.html_safe, (current_user.email_receiver.nil? ? new_email_receiver_path : edit_email_receiver_path(current_user.email_receiver)) %>
 						</div>
 					</div>	
 				</div>

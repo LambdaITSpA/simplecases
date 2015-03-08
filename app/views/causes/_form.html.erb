@@ -50,7 +50,7 @@
               </div>
               <div class="field">
                 <%= f.label :first_payment_date, '1° Fecha de pago' %><br>
-                <input type="date" name="cause[first_payment_date]" value="<%= Time.now.strftime('%F') %>" class="form-control">
+                <input type="text" name="cause[first_payment_date]" value="<%= Time.zone.now.strftime('%d-%m-%Y') %>" class="form-control" data-provide="datepicker" data-date-today-highlight="true" data-date-format="dd-mm-yyyy" data-date-start-date="<%= Time.zone.now.strftime('%d-%m-%Y') %>" data-date-week-start=1 data-date-language="es" data-date-autoclose="true" required="required">
               </div>
               <div class="field">
                 <%= f.label :fee_quantity, 'Cantidad de Cuotas' %><br>

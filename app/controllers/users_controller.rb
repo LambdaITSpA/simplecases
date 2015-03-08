@@ -14,6 +14,13 @@ class UsersController < ApplicationController
   end
 
   def profile
+  end
+
+  def profile_edit
+    @user = current_user
+  end
+
+  def profile_update
     
   end
 

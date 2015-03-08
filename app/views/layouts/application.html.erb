@@ -9,7 +9,7 @@
 	<title>Simple Cases
     <% if current_user %>
         <% if can? :read, Payment %>
-            <%= current_user.notifications? ? "(#{current_user.notifications})" : ''  %>
+            <%= current_user.notifications? ? "(#{current_user.notifications.undismissed.count})" : ''  %>
         <% end %>
     <% end %>
     </title>
@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' %>
     <%= stylesheet_link_tag 'jquery-ui.min.css' %>
+    <%= stylesheet_link_tag 'datepicker.css' %>
+    <%= stylesheet_link_tag 'datepicker3.css' %>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <%# stylesheet_link_tag 'font-awesome.min.css' %>
     <%= stylesheet_link_tag 'animate.min.css' %>
@@ -26,7 +28,9 @@
     <%= stylesheet_link_tag 'style-responsive.css' %>
     <%= stylesheet_link_tag 'default.css', id: 'theme' %>
     <%= stylesheet_link_tag 'bootstrap-select.css' %>
+    <%= stylesheet_link_tag 'jquery.gritter.css' %>
     <%= yield :styles %>
+    <script src="https://cdn.socket.io/socket.io-1.3.3.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'bootstrap-select.js' %>
     <%= javascript_include_tag 'angular-bootstrap-select.js' %>
@@ -40,9 +44,12 @@
         $.src='//v2.zopim.com/?2hligH0vkCTWHw5DhnRIomYjFwyEtOqk';z.t=+new Date;$.
         type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
     </script>
+    <style type="text/css">
+        .datepicker{z-index:1100 !important;}
+    </style>
     <!--End of Zopim Live Chat Script-->
 
-	<%= csrf_meta_tags %>
+    <%= csrf_meta_tags %>
 </head>
 <body>
     <!-- begin #page-loader -->
@@ -93,47 +100,73 @@
                             </ul>
                         </div>
                     </li>
+                    <% if can? :read, Payment %>
                     <li class="dropdown">
                         <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
-                            <i class="fa fa-bell-o"></i>
-                            <% if current_user.notifications? and can? :read, Payment %>
-                            <span class="label"><%= current_user.notifications %></span>
+                            <i class="fa fa-money"></i>
+                            <% if (current_user.todays_payments.count + current_user.late_payments.count) > 0 %>
+                            <span class="label"><%= current_user.todays_payments.count + current_user.late_payments.count %></span>
                             <% end %>
                         </a>
-                        <ul class="dropdown-menu media-list pull-right animated fadeInDown" style="min-width:250px;">
+                        <ul class="dropdown-menu media-list pull-right animated fadeInDown" style="min-width:280px;max-height:300px;overflow:auto;">
                             <li class="dropdown-header">
-                                <% if current_user.notifications? and can? :read, Payment %>
-                                    Notificaciones (<%= current_user.notifications %>)
+                                <% if (current_user.todays_payments.count + current_user.late_payments.count) > 0 and can? :read, Payment %>
+                                    Cobros pendientes (<%= current_user.todays_payments.count + current_user.late_payments.count %>)
                                 <% else %>
-                                    Sin notificaciones
+                                    Sin cobros pendientes
                                 <% end %>
                             </li>
-                            <% if current_user.notifications? and can? :read, Payment %>
-                                <% current_user.todays_payments.each do |tp| %>
-                                <li class="media">
-                                <a href="<%= cause_path(tp.cause) %>#payments">
-                                    <div class="pull-left media-object bg-orange"><i class="fa fa-money"></i></div>
-                                    <div class="media-body">
-                                        <h6 class="media-heading">Cobrar causa</h6>
-                                        <div class="text-muted"><%= tp.cause.matter %></div>
-                                    </div>
-                                </a>
-                                </li>
-                                <% end %>
-                                <% current_user.late_payments.each do |tp| %>
-                                <li class="media">
-                                <a href="<%= cause_path(tp.cause) %>#payments">
-                                    <div class="pull-left media-object bg-red"><i class="fa fa-money"></i></div>
-                                    <div class="media-body">
-                                        <h6 class="media-heading">Pago atrasado en causa</h6>
-                                        <div class="text-muted"><%= tp.cause.matter %></div>
-                                    </div>
-                                </a>  
-                                <% end %>
+                            <% current_user.todays_payments.each do |tp| %>
+                            <li class="media">
+                            <a href="<%= cause_path(tp.cause) %>#payments">
+                                <div class="pull-left media-object bg-orange"><i class="fa fa-money"></i></div>
+                                <div class="media-body">
+                                    <h6 class="media-heading">Cobrar causa</h6>
+                                    <div class="text-muted"><%= tp.cause.matter %></div>
+                                </div>
+                            </a>
+                            </li>
                             <% end %>
-                            <!--<li class="dropdown-footer text-center">
-                                <a href="javascript:;">Ver más</a>
-                            </li>-->
+                            <% current_user.late_payments.each do |tp| %>
+                            <li class="media">
+                            <a href="<%= cause_path(tp.cause) %>#payments">
+                                <div class="pull-left media-object bg-red"><i class="fa fa-money"></i></div>
+                                <div class="media-body">
+                                    <h6 class="media-heading">Pago atrasado en causa</h6>
+                                    <div class="text-muted"><%= tp.cause.matter %></div>
+                                </div>
+                            </a>  
+                            <% end %>
+                            <li class="dropdown-footer text-center">
+                                <%= link_to 'Ver más', payments_path %>
+                            </li>
+                        </ul>
+                    </li>
+                    <% end %>
+                    <li class="dropdown" ng-controller="NotificationsController" ng-init="user_id=<%= current_user.id %>">
+                        <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
+                            <i class="fa fa-bell-o"></i>
+                            <span class="label" ng-if="notifications.length > 0">{{ notifications.length }}</span>
+                        </a>
+                        <ul class="dropdown-menu media-list pull-right animated fadeInDown" style="min-width:280px;max-height:300px;overflow:auto;">
+                            <li class="dropdown-header" ng-if="notifications.length > 0">
+                                    Notificaciones ({{ notifications.length }})
+                            </li>
+                            <li class="dropdown-header" ng-if="notifications.length <= 0">
+                                    Sin notificaciones
+                            </li>
+                            <li ng-repeat="n in notifications | reverse" class="media">
+                            <a href="{{ n.link }}">
+                                <div class="pull-left media-object bg-{{ n.notification_type.color }}"><i class="fa fa-{{ n.notification_type.icon }}"></i></div>
+                                <div class="media-body">
+                                    <h6 class="media-heading">{{ n.subject }}</h6>
+                                    <div class="text-muted">{{ n.description }}</div>
+                                </div>
+                            </a>
+                            </li>
+                            <li class="dropdown-footer text-center">
+                                <%= link_to 'Ver más', notifications_path %>
+                            </li>
                         </ul>
                     </li>
                     <li class="dropdown navbar-user">
@@ -305,6 +338,17 @@
         $(document).ready(function() {
             App.init();
         });
+        /*window.app.realtime = {
+          connect : function(){
+            window.app.socket = io.connect("<%= root_url %>:5001");
+
+            window.app.socket.on("rt-change", function(message){
+              // publish the change on the client side, the channel == the resource
+              //window.app.trigger(message.resource, message);
+              console.log(message);
+            });
+          }
+        }*/
     </script>
     
 </body>

@@ -1,10 +1,13 @@
 FROM ubuntu:12.04
-ENV REFRESHED_AT 2015-07-02 17:15
+ENV REFRESHED_AT 2015-12-02 22:35
 
 RUN apt-get update
 RUN apt-get install -y python-software-properties software-properties-common gnome-schedule postfix
+
+RUN apt-add-repository -y ppa:chris-lea/redis-server
 RUN apt-add-repository ppa:chris-lea/node.js
 RUN apt-get update
+RUN apt-get install -y redis-server
 RUN apt-get install -y curl nano nodejs build-essential libcurl4-openssl-dev
 RUN npm install bower
 RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
@@ -40,6 +43,10 @@ RUN a2enmod rewrite
 COPY webapp.dev.conf /etc/apache2/sites-available/webapp.dev.conf
 RUN a2ensite webapp.dev.conf
 RUN echo "127.0.0.1 webapp.dev" >> /etc/hosts
+COPY redis.conf /etc/redis/redis.conf
 EXPOSE 80
+EXPOSE 5001
+EXPOSE 6379
+EXPOSE 8888
 #ENTRYPOINT ["/usr/sbin/apache2"]
 CMD whenever --update-crontab; /usr/sbin/apache2 -D FOREGROUND

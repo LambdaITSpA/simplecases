@@ -1,4 +1,5 @@
 class PaymentsController < ApplicationController
+  before_action :authenticate_user!
   include CausesHelper
   def index
   	if query_params? :date
