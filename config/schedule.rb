@@ -22,10 +22,10 @@ set :output, {error: "log/cron_error_log.log", standard: "log/cron_log.log"}
 
 #every 1.minutes do
 every :day, at: '11:00 am' do
-	runner 'User.notify', environment: 'development'
-	runner 'User.notify'
+	runner 'User.notify', environment: 'development' if Rails.env.development?
+	runner 'User.notify' if Rails.env.production?
 end
 every 1.minutes do
-	runner 'User.deliver_notifications', environment: 'development'
-	#runner 'User.deliver_notifications'
+	runner 'User.deliver_notifications', environment: 'development' if Rails.env.development?
+	runner 'User.deliver_notifications' if Rails.env.production?
 end
