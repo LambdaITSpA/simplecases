@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= form_for(@event) do |f| %>
+          <% if @event.errors.any? %>
+            <div class="alert alert-warning" id="error_explanation">
+              <%= pluralize(@event.errors.count, "error") %> , Impidió que el evento se guardara, debido a:
+              <ul>
+              <% @event.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div class="field">
+            <%= f.label :name, 'Nombre' %><br>
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+          <div class="field">
+            <%= f.label :description, 'Observaciones' %><br>
+            <%= f.text_area :description, class: 'form-control' %>
+          </div>
+          <div class="field">
+            <%= label_tag :date, 'Fecha' %><br>
+            <input type="text" name="date" value="<%= @event.date_time.strftime('%d-%m-%Y') %>" class="form-control" data-provide="datepicker" data-date-today-highlight="true" data-date-format="dd-mm-yyyy" data-date-start-date="<%= @event.date_time.strftime('%d-%m-%Y') %>" data-date-week-start=1 data-date-language="es" data-date-autoclose="true" required="required">
+          </div>
+          <div class="field">
+            <%= label_tag :time, 'Hora' %><br>
+            <input type="time" name="time" value="<%= @event.date_time.strftime('%H:%M') %>" class="form-control">
+          </div>
+          <div class="actions" style="margin-top:20px;">
+            <%= f.submit nil, class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

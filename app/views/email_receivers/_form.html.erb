@@ -1,0 +1,37 @@
+<%= form_for(@email_receiver) do |f| %>
+<table class="table">
+	<tr>
+		<td>Dirección de correo</td><td><%= f.text_field :user_name, class: 'form-control' %></td>
+	</tr>
+	<tr>
+		<td>Contraseña</td><td><%= f.text_field :password, class: 'form-control' %></td>
+	</tr>
+	<tr>
+		<td>Método</td><td><%= f.select :email_receiver_method_id, options_from_collection_for_select(EmailReceiverMethod.all, :id, :name), {}, {class: 'form-control'} %></td>
+	</tr>
+	<tr>
+		<td>Dirección del servidor</td><td><%= f.text_field :address, class: 'form-control' %></td>
+	</tr>
+	<tr>
+		<td>Puerto</td><td><%= f.text_field :port, class: 'form-control' %></td>
+	</tr>
+	<tr>
+		<td>TLS habilitado</td><td><%= f.check_box :enable_starttls_auto %></td>
+	</tr>
+	<tr>
+		<td>SSL habilitado</td><td><%= f.check_box :enable_ssl %></td>
+	</tr>
+	<tr>
+		<td>Autenticación</td><td><%= f.text_field :authentication, class: 'form-control' %></td>
+	</tr>
+	<tr>
+		<td>Filtro remitente</td><td><%= f.text_field :remitter_filter, class: 'form-control' %></td>
+	</tr>
+	<tr>
+		<td>Filtro asunto</td><td><%= f.text_field :subject_filter, class: 'form-control' %></td>
+	</tr>
+</table>
+<div class="actions" style="margin-top:20px;">
+	<%= f.submit nil, class: 'btn btn-primary' %>
+</div>
+<% end %>

@@ -58,4 +58,47 @@ angular.module('angular-bootstrap-select', []).directive 'selectpicker', ['$pars
         return
 
     }
+app.factory 'socket', [
+  '$rootScope'
+  ($rootScope) ->
+    socket = io.connect('http://0.0.0.0:5001')
+    {
+      on: (eventName, callback) ->
+        socket.on eventName, ->
+          args = arguments
+          $rootScope.$apply ->
+            callback.apply socket, args
+            return
+          return
+        return
+      emit: (eventName, data, callback) ->
+        socket.emit eventName, data, ->
+          args = arguments
+          $rootScope.$apply ->
+            if callback
+              callback.apply socket, args
+            return
+          return
+        return
+    }
+]
+app.filter 'reverse', ->
+  (items) ->
+    items.slice().reverse()
+app.controller "NotificationsController", ['$scope', '$http', 'socket', ($scope, $http, socket) ->
+	$scope.notifications = []
+	$http.get('/notifications.json').success (data) ->
+		$scope.notifications = data
+	$scope.$watch 'user_id', ->
+		channel = $scope.user_id+'-n'
+		console.log channel
+		socket.on channel, (message) ->
+			$.gritter.add
+				title: message.subject,
+				text: message.description,
+				#image: 'http://a0.twimg.com/profile_images/59268975/jquery_avatar_bigger.png',
+				sticky: false,
+				time: 8000,
+				class_name: 'my-class'
+			$scope.notifications.push message
 ]

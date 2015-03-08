@@ -25,3 +25,7 @@ every :day, at: '11:00 am' do
 	runner 'User.notify', environment: 'development'
 	runner 'User.notify'
 end
+every 1.minutes do
+	runner 'User.deliver_notifications', environment: 'development'
+	#runner 'User.deliver_notifications'
+end

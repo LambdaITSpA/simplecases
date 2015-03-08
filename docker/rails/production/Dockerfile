@@ -1,10 +1,13 @@
 FROM ubuntu:12.04
-ENV REFRESHED_AT 2015-07-02 17:15
+ENV REFRESHED_AT 2015-16-02 10:33
 
 RUN apt-get update
 RUN apt-get install -y python-software-properties software-properties-common gnome-schedule postfix
+
+RUN apt-add-repository -y ppa:chris-lea/redis-server
 RUN apt-add-repository ppa:chris-lea/node.js
 RUN apt-get update
+RUN apt-get install -y redis-server
 RUN apt-get install -y curl nano nodejs build-essential libcurl4-openssl-dev
 RUN npm install bower
 RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
@@ -40,7 +43,11 @@ RUN a2enmod rewrite
 COPY simplecases.cl.conf /etc/apache2/sites-available/simplecases.cl.conf
 RUN a2ensite simplecases.cl.conf
 RUN echo "127.0.0.1 simplecases.cl" >> /etc/hosts
+COPY redis.conf /etc/redis/redis.conf
 EXPOSE 80
+EXPOSE 5001
+EXPOSE 6379
+EXPOSE 8888
 ENV SECRET_KEY_BASE e59c550c9f5fb6de051bcce0372f05d705f047a9b0d2dcde83b6085aa7c155ee67959cf5ab2cda99227247f24c98e6c56050f1a3b092b8ffa178ce03dacea020
 #ENTRYPOINT /bin/bash -l -c "rake assets:precompile RAILS_ENV=production";
 CMD /bin/bash -l -c "whenever --update-crontab"; /usr/sbin/apache2 -D FOREGROUND
