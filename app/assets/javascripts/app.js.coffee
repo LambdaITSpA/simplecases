@@ -58,6 +58,7 @@ angular.module('angular-bootstrap-select', []).directive 'selectpicker', ['$pars
         return
 
     }
+]
 app.factory 'socket', [
   '$rootScope'
   ($rootScope) ->
@@ -85,6 +86,7 @@ app.factory 'socket', [
 app.filter 'reverse', ->
   (items) ->
     items.slice().reverse()
+
 app.controller "NotificationsController", ['$scope', '$http', 'socket', ($scope, $http, socket) ->
 	$scope.notifications = []
 	$http.get('/notifications.json').success (data) ->
