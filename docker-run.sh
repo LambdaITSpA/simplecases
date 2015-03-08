@@ -5,7 +5,7 @@ docker run -d --net="host" -v $PWD:/var/www/webapp:rw --name simplecases-rails-c
 docker run -d --net="host" -v $PWD:/var/www/webapp:rw --name simplecases-rails-redis claudevandort/simplecases-rails:dev /bin/bash -l -c "/usr/bin/redis-server"
 docker run -d --net="host" -v $PWD:/var/www/webapp:rw --name simplecases-rails-node claudevandort/simplecases-rails:dev /bin/bash -l -c "node realtime/server.js"
 docker run -d --net="host" -v $PWD:/var/www/webapp:rw --name simplecases-rails-dev claudevandort/simplecases-rails:dev
-docker run -d --net="host" -v $PWD:/var/www/webapp:rw --name simplecases-rails-cron-dev claudevandort/simplecases-rails:dev /bin/bash -l -c "service postfix restart; whenever --update-crontab; cron -f"
+docker run -d --net="host" -v $PWD:/var/www/webapp:rw --name simplecases-rails-cron-dev claudevandort/simplecases-rails:dev /bin/bash -l -c "service postfix restart; whenever --set environment=development --update-crontab; cron -f"
 #docker run --net="host" -v $PWD:/var/www/webapp:rw --name simplecases-rails-dev -i -t claudevandort/simplecases-rails:dev /bin/bash
 #docker run --name simplecases-pg-dev -i -t claudevandort/simplecases-pg:dev /bin/bash
 #sudo docker run --net="host" -v $PWD:/var/www/webapp:rw --name simplecases-rails-dev-i -i -t claudevandort/simplecases-rails:dev /bin/bash
