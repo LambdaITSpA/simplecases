@@ -86,6 +86,8 @@ class User < ActiveRecord::Base
     users = User.where email_receiver_enabled: true
     users.each do |u|
       u.check_mail
+    end
+    User.all do |u|
       u.check_event_notifications
     end
   end
