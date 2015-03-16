@@ -62,7 +62,7 @@ angular.module('angular-bootstrap-select', []).directive 'selectpicker', ['$pars
 app.factory 'socket', [
   '$rootScope'
   ($rootScope) ->
-    socket = io.connect('http://0.0.0.0:5001')
+    socket = io.connect('http://54.69.167.35:5001')
     {
       on: (eventName, callback) ->
         socket.on eventName, ->
