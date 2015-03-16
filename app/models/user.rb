@@ -87,7 +87,7 @@ class User < ActiveRecord::Base
     users.each do |u|
       u.check_mail
     end
-    User.all do |u|
+    User.all.each do |u|
       u.check_event_notifications
     end
   end
